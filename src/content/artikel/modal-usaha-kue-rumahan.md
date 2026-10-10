@@ -40,7 +40,7 @@ Semua harga adalah contoh. Cek harga di tokomu sebelum belanja.
 Versi ini cocok untuk menguji pasar sebelum mengeluarkan uang besar.
 
 - **Peralatan (Rp500.000):** loyang tambahan, timbangan digital, spatula, dan mixer bekas. Oven dan kompor memakai yang sudah ada.
-- **Izin (Rp0):** NIB dapat diurus gratis lewat OSS. Penjualan awal ke teman, tetangga, dan grup WhatsApp.
+- **Izin (Rp0):** NIB dapat diurus gratis lewat OSS; langkahnya ada di [cara membuat NIB online](/cara-membuat-nib/). Penjualan awal ke teman, tetangga, dan grup WhatsApp.
 - **Stok bahan (Rp300.000):** cukup untuk dua sampai tiga kali produksi pertama.
 - **Modal kerja (Rp500.000):** kemasan, gas, dan bahan untuk pesanan berikutnya.
 
@@ -72,7 +72,7 @@ Kalau ragu memilih, mulai dari versi hemat selama satu sampai dua bulan. Catat b
 1. **Hitung HPP setiap produk.** Ikuti contoh di [cara menghitung HPP usaha kue](/menghitung-hpp-usaha-kue/) supaya harga jual tidak rugi.
 2. **Tentukan target penjualan per bulan.** Masukkan biaya tetap, harga jual, dan biaya variabel ke [kalkulator BEP](/kalkulator-bep/) untuk tahu jumlah minimum kue yang harus terjual.
 3. **Hitung kapan modal kembali.** Bagi modal awal dengan laba bersih per bulan. Penjelasan lengkapnya ada di [menghitung lama balik modal usaha](/lama-balik-modal-usaha/).
-4. **Pisahkan rekening usaha dan pribadi** sejak hari pertama supaya laba sebenarnya terlihat.
+4. **Pisahkan rekening usaha dan pribadi** sejak hari pertama supaya laba sebenarnya terlihat. Caranya ada di [cara memisahkan uang usaha dan pribadi](/memisahkan-uang-usaha-dan-pribadi/).
 
 ## Perkiraan laba dan kapan modal kembali
 

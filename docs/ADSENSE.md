@@ -4,7 +4,7 @@
 
 Daftar setelah **semua** ini terpenuhi:
 
-- [ ] 10 kalkulator (sudah) dan 25–30 artikel terbit (saat ini 7; jadwal di `data/kalender-konten.csv`).
+- [ ] 10 kalkulator (sudah) dan 25–30 artikel terbit (saat ini 13; jadwal di `data/kalender-konten.csv`).
 - [ ] Situs berumur sekitar 2–3 bulan di domain sendiri.
 - [ ] Halaman sudah terindeks di Search Console (cek laporan **Halaman**).
 - [ ] 5 halaman wajib ada dan tertaut di footer (sudah: Tentang, Kontak, Kebijakan Privasi, Disclaimer, S&K).

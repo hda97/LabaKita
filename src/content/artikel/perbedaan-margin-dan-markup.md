@@ -108,6 +108,8 @@ Margin rata-rata 31,5% inilah yang dipakai untuk menghitung omzet minimum agar b
 
 ## Contoh untuk usaha jasa: sablon kaus
 
+Panduan lengkap memulai usahanya ada di [cara memulai usaha sablon kaos](/memulai-usaha-sablon-kaos/).
+
 Usaha jasa juga memakai margin. Pesanan sablon 24 kaus:
 
 | Komponen | Biaya |

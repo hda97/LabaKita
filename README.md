@@ -2,7 +2,7 @@
 
 Website kalkulator & panduan untuk usaha kecil dan keuangan pribadi, dibangun mengikuti dokumen *Workflow Website Usaha & Keuangan sampai Monetisasi Iklan*. Situs statis (Astro) yang siap dipasang gratis di Cloudflare Pages.
 
-**Isi saat ini:** 10 kalkulator, 7 artikel (1.200+ kata, tersebar di 3 pilar), 5 halaman wajib AdSense, sitemap, robots.txt, ads.txt, pencarian, schema markup, dan slot iklan yang tinggal diaktifkan.
+**Isi saat ini:** 10 kalkulator, 13 artikel (1.200+ kata, tersebar di 3 pilar), 5 halaman wajib AdSense, sitemap, robots.txt, ads.txt, pencarian, schema markup, dan slot iklan yang tinggal diaktifkan.
 
 ## Mulai
 
@@ -33,7 +33,7 @@ Semua ada di **`site.config.mjs`**: nama situs, domain, email, ID Google Analyti
 | `src/lib/rehype-ads.mjs` | Menyisipkan iklan di dalam artikel (setelah paragraf pembuka dan tiap ±350 kata) |
 | `scripts/check-site.mjs` | Pemeriksaan otomatis aturan workflow pada hasil build |
 | `data/keyword-plan.csv` | 100 keyword per pilar beserta halaman tujuannya (Fase 1) |
-| `data/kalender-konten.csv` | Jadwal 23 artikel berikutnya sampai total 30 artikel (Fase 4) |
+| `data/kalender-konten.csv` | Status artikel terbit dan jadwal 17 artikel berikutnya sampai total 30 (Fase 4) |
 | `assets/template-pembukuan-umkm.xlsx` | Template pembukuan untuk hadiah formulir email (Fase 6 & 9) |
 
 ## Dokumentasi

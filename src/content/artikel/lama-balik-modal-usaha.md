@@ -82,7 +82,7 @@ Dari modal Rp18.700.000, misalkan Rp10.000.000 berasal dari pinjaman berbunga 6%
 | 6 | Rp29.530 | Rp2.970.470 |
 | 12 | Rp4.282 | Rp2.995.718 |
 
-Total bunga setahun hanya sekitar Rp328.000, sehingga balik modal hampir tidak bergeser. Yang lebih perlu diperhatikan adalah **arus kas**: setiap bulan uang keluar Rp860.664 untuk cicilan. Dengan penjualan bertahap seperti tabel sebelumnya, laba bulan pertama Rp0 dan bulan kedua Rp1.500.000 belum cukup menutup cicilan, sehingga kekurangannya harus diambil dari modal kerja. Itu sebabnya modal kerja tetap perlu disiapkan walaupun ada pinjaman.
+Total bunga setahun hanya sekitar Rp328.000, sehingga balik modal hampir tidak bergeser. Yang lebih perlu diperhatikan adalah **arus kas**: setiap bulan uang keluar Rp860.664 untuk cicilan. Dengan penjualan bertahap seperti tabel sebelumnya, laba bulan pertama Rp0 dan bulan kedua Rp1.500.000 belum cukup menutup cicilan, sehingga kekurangannya harus diambil dari modal kerja. Itu sebabnya modal kerja tetap perlu disiapkan walaupun ada pinjaman. Cara memantaunya ada di [cara mengatur arus kas usaha](/mengatur-arus-kas-usaha/).
 
 ## Skenario pesimis: penjualan 30% lebih rendah
 
