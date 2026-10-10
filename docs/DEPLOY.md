@@ -13,14 +13,20 @@
 2. Ubah `url` di `site.config.mjs` ke domain itu, misalnya `https://labakita.com`, lalu commit.
 3. Ubah `email` ke alamat dengan domain sendiri (misalnya `halo@labakita.com`). Cloudflare Email Routing bisa meneruskannya gratis ke Gmail.
 
+## Mode pratinjau dan mode produksi
+
+`site.config.mjs` punya saklar `indexable`. Nilai bawaannya `false` (pratinjau): semua halaman diberi `noindex` dan `robots.txt` memblokir seluruh situs. Ini dipakai untuk pratinjau di alamat sementara seperti `*.netlify.app`, supaya reputasi SEO tidak terbangun di alamat yang nanti ditinggalkan.
+
+Setelah domain final aktif, build dengan `npm run build:prod` (atau set variabel `SITE_INDEXABLE=true`), lalu daftarkan domain itu di Search Console.
+
 ## 3. Cloudflare Pages (hosting gratis, HTTPS otomatis)
 
 1. Masuk ke dash.cloudflare.com → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**, pilih repo `LabaKita`.
 2. Pengaturan build:
    - Framework preset: **Astro**
-   - Build command: `npm run build`
+   - Build command: `npm run build:prod` (situs boleh diindeks Google). Pakai `npm run build` untuk pratinjau yang tidak diindeks.
    - Build output directory: `dist`
-   - Environment variable: `NODE_VERSION` = `22`
+   - Environment variable: `NODE_VERSION` = `22`, dan `SITE_URL` = `https://domainmu.com` (atau ubah `url` di `site.config.mjs`)
 3. Deploy. Situs aktif di `https://<nama-proyek>.pages.dev`.
 4. **Custom domains** → tambahkan domainmu. Kalau DNS domain di Cloudflare, sertifikat SSL (HTTPS) dibuat otomatis.
 5. Setiap push ke branch utama akan men-deploy ulang otomatis.

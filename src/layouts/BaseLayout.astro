@@ -41,7 +41,7 @@ const organization = {
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex, follow" />}
+    {(noindex || !site.indexable) && <meta name="robots" content={site.indexable ? 'noindex, follow' : 'noindex, nofollow'} />}
     <meta property="og:type" content={type} />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:locale" content="id_ID" />

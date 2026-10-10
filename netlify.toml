@@ -1,0 +1,9 @@
+# Pratinjau di Netlify. Situs tidak diindeks (indexable = false di site.config.mjs)
+# sampai domain final aktif; lihat docs/DEPLOY.md.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  SITE_URL = "https://labakita.netlify.app"

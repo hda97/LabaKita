@@ -51,7 +51,9 @@ const descriptions = new Map();
 for (const file of pages) {
   const html = readFileSync(file, 'utf8');
   const route = '/' + relative(DIST, file).replace(/index\.html$/, '').replace(/\\/g, '/');
-  const noindex = /<meta name="robots" content="noindex/.test(html);
+  // Halaman yang sengaja tidak diindeks (cari, 404). Mode pratinjau memberi noindex ke semua halaman,
+  // tetapi aturan SEO tetap diperiksa supaya situs siap saat diindeks.
+  const noindex = route === '/cari/' || /<meta name="robots" content="noindex, follow"/.test(html);
 
   for (const [, href] of html.matchAll(/href="(\/[^"]*)"/g)) {
     if (!routeExists(decode(href))) fail(route, `tautan rusak ${href}`);

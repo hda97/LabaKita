@@ -4,7 +4,11 @@ export default {
   name: 'LabaKita',
   tagline: 'Kalkulator & panduan usaha kecil dan keuangan pribadi',
   // Ganti dengan domain sendiri setelah dibeli (tanpa garis miring di akhir).
-  url: 'https://labakita.pages.dev',
+  // Bisa ditimpa saat build dengan variabel lingkungan SITE_URL (misalnya untuk pratinjau Netlify).
+  url: process.env.SITE_URL || 'https://labakita.pages.dev',
+  // false = situs pratinjau: semua halaman diberi noindex dan robots.txt memblokir mesin pencari.
+  // Ubah ke true (atau set SITE_INDEXABLE=true) setelah situs memakai domain final.
+  indexable: process.env.SITE_INDEXABLE ? process.env.SITE_INDEXABLE === 'true' : false,
   lang: 'id',
   owner: {
     name: 'Huda',
