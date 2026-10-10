@@ -33,6 +33,20 @@ Setelah domain final aktif, build dengan `npm run build:prod` (atau set variabel
 
 Header cache & keamanan ada di `public/_headers`.
 
+### Alternatif: Cloudflare Workers (Workers Builds)
+
+Kalau proyek dibuat lewat **Workers & Pages → Create → Workers → Import a repository**, Cloudflare memakai Workers dengan static assets. Konfigurasinya sudah ada di `wrangler.jsonc` (menyajikan folder `dist/`, halaman 404 sendiri, dan garis miring di akhir URL).
+
+Pengaturan build di **Settings → Build**:
+
+- Build command: `npm run build` (pratinjau) atau `npm run build:prod` (setelah domain final)
+- Deploy command: `npx wrangler deploy`
+- Root directory: kosong (akar repo)
+- Build variables: `SITE_URL` = alamat situs, misalnya `https://labakita.<akunmu>.workers.dev` atau domainmu; Node mengikuti `.nvmrc` (22)
+- Branch produksi: branch yang berisi kode situs
+
+Konfigurasi ini sudah diuji dengan `wrangler deploy --dry-run` dan `wrangler dev` (runtime Workers lokal).
+
 ## 4. Kecepatan (target PageSpeed HP ≥ 80 sebelum iklan)
 
 Situs ini tanpa framework JavaScript di sisi browser, font sistem, dan CSS kecil, jadi skornya tinggi secara bawaan. Setelah deploy, cek di pagespeed.web.dev untuk beranda, satu kalkulator, dan satu artikel. Gambar yang ditambahkan nanti sebaiknya WebP, dengan nama file dan alt text deskriptif.
