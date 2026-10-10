@@ -78,7 +78,7 @@ Angka di tabel adalah contoh, bukan tarif bank tertentu. Hitung dengan pola tran
 | Rekening | Fungsi | Isi |
 |---|---|---|
 | Rekening operasional | Menerima semua penjualan, membayar pemasok dan biaya rutin | Saldo untuk kebutuhan 2–4 minggu |
-| Rekening cadangan | Dana darurat usaha | Minimal biaya tetap satu bulan, idealnya tiga bulan |
+| Rekening cadangan | Dana darurat usaha; sebagian bisa ditempatkan di deposito (hitung dengan [kalkulator deposito](/kalkulator-deposito/)) | Minimal biaya tetap satu bulan, idealnya tiga bulan |
 | Pos pajak dan cicilan (kantong atau rekening terpisah) | Menyisihkan pajak dan cicilan sebelum jatuh tempo | Sesuai kewajiban bulanan |
 
 Untuk usaha yang baru mulai, satu rekening operasional dan satu rekening cadangan sudah cukup.

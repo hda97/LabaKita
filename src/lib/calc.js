@@ -219,3 +219,98 @@ export function modalUsaha({ peralatan, perizinan, renovasi, stokAwal, biayaBula
   const cadangan = (awal + kerja) * (n(persenCadangan) / 100);
   return { modalAwal: awal, modalKerja: kerja, cadangan, total: awal + kerja + cadangan };
 }
+
+// Uang pesangon (UP) menurut masa kerja, PP 35/2021 Pasal 40 ayat (2): kelipatan upah sebulan.
+export function kelipatanPesangon(tahun) {
+  const t = Math.max(0, n(tahun));
+  return Math.min(9, Math.floor(t) + 1);
+}
+
+// Uang penghargaan masa kerja (UPMK), PP 35/2021 Pasal 40 ayat (3).
+export function kelipatanUpmk(tahun) {
+  const t = Math.max(0, n(tahun));
+  if (t < 3) return 0;
+  if (t >= 24) return 10;
+  return Math.floor((t - 3) / 3) + 2; // 3–<6: 2, 6–<9: 3, ... 21–<24: 8
+}
+
+// Pengali menurut alasan PHK (PP 35/2021 Pasal 41–57), [pengali UP, pengali UPMK].
+export const ALASAN_PHK = {
+  efisiensi: [1, 1], // efisiensi untuk mencegah kerugian
+  efisiensi_rugi: [0.5, 1], // efisiensi karena perusahaan rugi
+  tutup_rugi: [0.5, 1], // tutup karena rugi terus-menerus atau keadaan memaksa
+  tutup_tidak_rugi: [1, 1],
+  force_majeure_tidak_tutup: [0.75, 1],
+  pailit: [0.5, 1],
+  pensiun: [1.75, 1],
+  meninggal: [2, 1],
+  sakit_berkepanjangan: [2, 1],
+};
+
+// PPh 21 final atas pesangon (PP 68/2009).
+export function pphPesangon(bruto) {
+  const lapisan = [
+    { batas: 50_000_000, tarif: 0 },
+    { batas: 100_000_000, tarif: 0.05 },
+    { batas: 500_000_000, tarif: 0.15 },
+    { batas: Infinity, tarif: 0.25 },
+  ];
+  let sisa = Math.max(0, n(bruto));
+  let bawah = 0;
+  let pajak = 0;
+  for (const { batas, tarif } of lapisan) {
+    const bagian = Math.min(sisa, batas - bawah);
+    if (bagian <= 0) break;
+    pajak += bagian * tarif;
+    sisa -= bagian;
+    bawah = batas;
+  }
+  return pajak;
+}
+
+/** Pesangon PHK menurut PP 35/2021. masaKerja dalam tahun (boleh desimal). */
+export function pesangon({ upah, masaKerja, alasan = 'efisiensi', uangPenggantianHak = 0 }) {
+  const u = n(upah);
+  if (u <= 0) return { error: 'Upah harus lebih dari 0.' };
+  const pengali = ALASAN_PHK[alasan];
+  if (!pengali) return { error: 'Alasan PHK tidak dikenal.' };
+  const up = kelipatanPesangon(masaKerja) * u * pengali[0];
+  const upmk = kelipatanUpmk(masaKerja) * u * pengali[1];
+  const uph = Math.max(0, n(uangPenggantianHak));
+  const bruto = up + upmk + uph;
+  const pajak = pphPesangon(bruto);
+  return { up, upmk, uph, bruto, pajak, bersih: bruto - pajak };
+}
+
+/** Bunga deposito: bunga sederhana per tahun, pajak final 20% bila saldo di atas Rp7,5 juta. */
+export function deposito({ pokok, bungaTahunan, tenor, tbp = 3.75 }) {
+  const P = n(pokok);
+  const months = n(tenor);
+  if (P <= 0) return { error: 'Jumlah deposito harus lebih dari 0.' };
+  if (months <= 0) return { error: 'Tenor minimal 1 bulan.' };
+  const kotor = P * (n(bungaTahunan) / 100) * (months / 12);
+  const kenaPajak = P > 7_500_000;
+  const pajak = kenaPajak ? kotor * 0.2 : 0;
+  return {
+    bungaKotor: kotor,
+    pajak,
+    bungaBersih: kotor - pajak,
+    totalAkhir: P + kotor - pajak,
+    diAtasTbp: n(bungaTahunan) > n(tbp),
+  };
+}
+
+/** Harga sablon manual per kaus untuk satu desain. */
+export function hargaSablon({ jumlah, hargaKaus, warna, biayaScreen, tintaPerKaus, upahPerJam, jamPersiapan, menitCetak, kemasan, margin }) {
+  const q = Math.round(n(jumlah));
+  const w = Math.max(1, Math.round(n(warna)));
+  if (q <= 0) return { error: 'Jumlah kaus minimal 1.' };
+  if (n(margin) >= 100) return { error: 'Margin harus di bawah 100%.' };
+  const bahan = q * n(hargaKaus) + w * n(biayaScreen) + q * w * n(tintaPerKaus) + q * n(kemasan);
+  const jam = w * n(jamPersiapan) + (q * w * n(menitCetak)) / 60;
+  const upah = jam * n(upahPerJam);
+  const total = bahan + upah;
+  const perKaus = total / q;
+  const harga = perKaus / (1 - n(margin) / 100);
+  return { totalBiaya: total, jamKerja: jam, biayaPerKaus: perKaus, hargaPerKaus: harga, totalHarga: harga * q };
+}

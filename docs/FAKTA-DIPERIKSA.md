@@ -21,6 +21,9 @@ Angka dan aturan di bawah dipakai di artikel dan kalkulator. Semuanya diverifika
 | SPP-IRT (PIRT) | Lewat OSS + sppirt.pom.go.id; pangan beku/dingin dikecualikan; umumnya berlaku 5 tahun | Artikel PIRT, frozen food, NIB, modal kue | PerBPOM 4/2024 |
 | Wajib halal UMK makanan-minuman | Mulai Oktober 2026; program SEHATI self declare gratis selama kuota | Artikel PIRT | bpjph.halal.go.id |
 | Biaya admin marketplace | Shopee non-Mall ±4,25–10% per sub-kategori sejak 31 Juli 2026 (dilaporkan media); biaya per pesanan Rp1.250 hanya dipakai sebagai contoh | Biaya admin marketplace, daftar Shopee | Pusat edukasi penjual tiap platform |
+| Pesangon PHK | Tabel kelipatan dan pengali alasan PHK PP 35/2021 Pasal 40–57; PPh 21 final pesangon 0%/5%/15%/25% (PP 68/2009) | Kalkulator pesangon | PP 35/2021, PP 68/2009 |
+| Pajak bunga deposito | PPh final 20%; tidak dipotong bila deposito + tabungan ≤ Rp7,5 juta. Klaim tarif bertingkat 10/20/30% di satu blog tidak terkonfirmasi sumber resmi | Kalkulator deposito | PP 131/2000 jo. PP 123/2015, pajak.go.id |
+| Tingkat bunga penjaminan LPS | 3,75% bank umum rupiah, Juli–September 2026 (default kalkulator, bisa diubah pengguna) | Kalkulator deposito | lps.go.id (diperbarui berkala) |
 | BI-FAST | Biaya maksimal Rp2.500 per transaksi | Rekening bisnis | Bank Indonesia |
 | Penjaminan LPS | Sampai Rp2 miliar per nasabah per bank | Rekening bisnis | lps.go.id |
 

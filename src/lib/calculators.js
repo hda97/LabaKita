@@ -249,6 +249,99 @@ export const calculators = {
       };
     },
   },
+
+  'kalkulator-pesangon': {
+    fields: [
+      rp('upah', 'Upah sebulan (gaji pokok + tunjangan tetap)', 6000000),
+      num('masaKerja', 'Masa kerja', 5, { suffix: 'tahun', min: 0, step: 0.1 }),
+      select('alasan', 'Alasan PHK', 'efisiensi', [
+        ['efisiensi', 'Efisiensi untuk mencegah kerugian'],
+        ['efisiensi_rugi', 'Efisiensi karena perusahaan merugi'],
+        ['tutup_tidak_rugi', 'Perusahaan tutup bukan karena rugi'],
+        ['tutup_rugi', 'Perusahaan tutup karena rugi / keadaan memaksa'],
+        ['force_majeure_tidak_tutup', 'Keadaan memaksa, perusahaan tidak tutup'],
+        ['pailit', 'Perusahaan pailit'],
+        ['pensiun', 'Pensiun'],
+        ['meninggal', 'Pekerja meninggal dunia'],
+        ['sakit_berkepanjangan', 'Sakit berkepanjangan / cacat akibat kecelakaan kerja'],
+      ]),
+      rp('uangPenggantianHak', 'Uang penggantian hak (cuti belum diambil, ongkos pulang, dll.)', 0),
+    ],
+    compute(v) {
+      const r = c.pesangon(v);
+      if (r.error) return r;
+      return {
+        rows: [
+          { label: 'Total diterima setelah pajak', value: r.bersih, kind: 'rp', main: true },
+          { label: 'Uang pesangon', value: r.up, kind: 'rp' },
+          { label: 'Uang penghargaan masa kerja', value: r.upmk, kind: 'rp' },
+          { label: 'Uang penggantian hak', value: r.uph, kind: 'rp' },
+          { label: 'Total sebelum pajak', value: r.bruto, kind: 'rp' },
+          { label: 'Perkiraan PPh 21 final pesangon', value: r.pajak, kind: 'rp' },
+        ],
+        note: 'Perhitungan minimal menurut PP 35/2021. Perjanjian kerja atau peraturan perusahaan boleh memberi lebih. Pekerja yang mengundurkan diri tidak mendapat pesangon dan UPMK, tetapi berhak atas uang penggantian hak dan uang pisah sesuai aturan perusahaan.',
+      };
+    },
+  },
+
+  'kalkulator-deposito': {
+    fields: [
+      rp('pokok', 'Jumlah deposito', 10000000),
+      num('bungaTahunan', 'Bunga per tahun', 4, { suffix: '%', min: 0, step: 0.01 }),
+      select('tenor', 'Tenor', '12', [
+        ['1', '1 bulan'],
+        ['3', '3 bulan'],
+        ['6', '6 bulan'],
+        ['12', '12 bulan'],
+        ['24', '24 bulan'],
+      ]),
+      num('tbp', 'Tingkat bunga penjaminan LPS (cek lps.go.id)', 3.75, { suffix: '%', min: 0, step: 0.01 }),
+    ],
+    compute(v) {
+      const r = c.deposito(v);
+      if (r.error) return r;
+      return {
+        rows: [
+          { label: 'Bunga bersih', value: r.bungaBersih, kind: 'rp', main: true },
+          { label: 'Bunga sebelum pajak', value: r.bungaKotor, kind: 'rp' },
+          { label: 'Pajak bunga 20%', value: r.pajak, kind: 'rp' },
+          { label: 'Total saat jatuh tempo', value: r.totalAkhir, kind: 'rp' },
+        ],
+        note: r.diAtasTbp
+          ? 'Bunga di atas tingkat bunga penjaminan LPS: simpanan ini tidak dijamin LPS. Pertimbangkan bunga yang lebih rendah atau bank lain.'
+          : 'Bunga tidak melebihi tingkat bunga penjaminan LPS. Bank menghitung bunga per hari, sehingga hasil sebenarnya bisa berbeda sedikit.',
+      };
+    },
+  },
+
+  'kalkulator-harga-sablon': {
+    fields: [
+      num('jumlah', 'Jumlah kaus per desain', 24, { suffix: 'kaus', min: 1 }),
+      rp('hargaKaus', 'Harga kaus polos per buah', 32000),
+      num('warna', 'Jumlah warna sablon', 1, { suffix: 'warna', min: 1, max: 8 }),
+      rp('biayaScreen', 'Biaya screen & afdruk per warna', 60000),
+      rp('tintaPerKaus', 'Tinta per kaus per warna', 1500),
+      rp('kemasan', 'Kemasan & label per kaus', 1000),
+      rp('upahPerJam', 'Upah per jam', 20000),
+      num('jamPersiapan', 'Waktu persiapan per warna', 2, { suffix: 'jam', min: 0, step: 0.5 }),
+      num('menitCetak', 'Waktu cetak per kaus per warna', 10, { suffix: 'menit', min: 0 }),
+      num('margin', 'Target margin', 35, { suffix: '%', min: 0, step: 1 }),
+    ],
+    compute(v) {
+      const r = c.hargaSablon(v);
+      if (r.error) return r;
+      return {
+        rows: [
+          { label: 'Harga jual per kaus', value: r.hargaPerKaus, kind: 'rp', main: true },
+          { label: 'Biaya per kaus', value: r.biayaPerKaus, kind: 'rp' },
+          { label: 'Total harga pesanan', value: r.totalHarga, kind: 'rp' },
+          { label: 'Total biaya pesanan', value: r.totalBiaya, kind: 'rp' },
+          { label: 'Waktu kerja', value: r.jamKerja, kind: 'int', suffix: 'jam' },
+        ],
+        note: 'Coba ubah jumlah kaus: biaya screen dan persiapan tetap, sehingga pesanan kecil butuh harga per kaus lebih tinggi. Bulatkan harga ke atas.',
+      };
+    },
+  },
 };
 
 const rupiah = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 });

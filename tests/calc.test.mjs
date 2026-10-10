@@ -104,3 +104,51 @@ test('Modal usaha', () => {
   near(r.cadangan, 1.7e6);
   near(r.total, 18.7e6);
 });
+
+test('Pesangon: tabel PP 35/2021', () => {
+  assert.equal(c.kelipatanPesangon(0.5), 1);
+  assert.equal(c.kelipatanPesangon(1), 2);
+  assert.equal(c.kelipatanPesangon(7.9), 8);
+  assert.equal(c.kelipatanPesangon(8), 9);
+  assert.equal(c.kelipatanPesangon(20), 9);
+  assert.equal(c.kelipatanUpmk(2.9), 0);
+  assert.equal(c.kelipatanUpmk(3), 2);
+  assert.equal(c.kelipatanUpmk(6), 3);
+  assert.equal(c.kelipatanUpmk(21), 8);
+  assert.equal(c.kelipatanUpmk(23.9), 8);
+  assert.equal(c.kelipatanUpmk(24), 10);
+});
+
+test('Pesangon: upah Rp6 juta, 5 tahun, efisiensi', () => {
+  // UP 6 × 6jt = 36jt; UPMK 2 × 6jt = 12jt; total 48jt, di bawah Rp50jt → PPh 0
+  const r = c.pesangon({ upah: 6e6, masaKerja: 5, alasan: 'efisiensi' });
+  assert.equal(r.up, 36e6);
+  assert.equal(r.upmk, 12e6);
+  assert.equal(r.pajak, 0);
+  // Pensiun 10 tahun upah 8jt: UP 9 × 8jt × 1,75 = 126jt; UPMK 4 × 8jt = 32jt; total 158jt
+  // PPh: 0 + 5% × 50jt + 15% × 58jt = 2,5jt + 8,7jt = 11,2jt
+  const p = c.pesangon({ upah: 8e6, masaKerja: 10, alasan: 'pensiun' });
+  assert.equal(p.up, 126e6);
+  assert.equal(p.upmk, 32e6);
+  assert.equal(p.pajak, 11.2e6);
+  assert.equal(c.pesangon({ upah: 6e6, masaKerja: 5, alasan: 'pailit' }).up, 18e6);
+});
+
+test('Deposito: Rp10 juta, 4%, 12 bulan', () => {
+  // Bunga 400.000, pajak 20% = 80.000, bersih 320.000
+  const r = c.deposito({ pokok: 10e6, bungaTahunan: 4, tenor: 12 });
+  near(r.bungaKotor, 400000);
+  near(r.pajak, 80000);
+  near(r.totalAkhir, 10320000);
+  assert.equal(r.diAtasTbp, true);
+  // Rp5 juta tidak dipotong pajak
+  assert.equal(c.deposito({ pokok: 5e6, bungaTahunan: 3, tenor: 6 }).pajak, 0);
+});
+
+test('Harga sablon: 24 kaus 1 warna = Rp42.000 per kaus (contoh artikel)', () => {
+  // Bahan: 24×32.000 + 60.000 + 24×1.500 + 24×1.000 = 888.000; jam: 2 + 24×10/60 = 6; upah 120.000
+  const r = c.hargaSablon({ jumlah: 24, hargaKaus: 32000, warna: 1, biayaScreen: 60000, tintaPerKaus: 1500, upahPerJam: 20000, jamPersiapan: 2, menitCetak: 10, kemasan: 1000, margin: 35 });
+  near(r.totalBiaya, 1008000);
+  near(r.biayaPerKaus, 42000);
+  near(r.hargaPerKaus, 64615.38);
+});

@@ -20,7 +20,7 @@ faq:
 
 Usaha sablon kaos bisa dimulai dari rumah dengan **sablon manual (screen printing) dan modal sekitar Rp3 juta** untuk meja sablon, screen, rakel, tinta, alat penyinaran, dan kaus uji coba. Kuncinya ada di tiga hal: memilih metode yang cocok dengan jenis pesanan, menghitung harga per kaus dengan benar (termasuk biaya persiapan yang sama besar untuk pesanan kecil maupun besar), dan mendapatkan pesanan rutin dari komunitas, sekolah, dan kantor.
 
-Hitung harga jualmu dengan [kalkulator harga jual & margin](/kalkulator-harga-jual/) setelah biaya per kaus diketahui.
+Hitung biaya dan harga per kaus untuk jumlah pesanan dan jumlah warna berapa pun dengan [kalkulator harga sablon kaos](/kalkulator-harga-sablon/), atau tentukan harga dari biaya yang sudah diketahui dengan [kalkulator harga jual & margin](/kalkulator-harga-jual/).
 
 ## Memilih metode sablon
 

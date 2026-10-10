@@ -417,6 +417,136 @@ export const calculatorContent = [
     artikel: ['modal-usaha-kue-rumahan', 'lama-balik-modal-usaha'],
     kalkulator: ['kalkulator-bep', 'kalkulator-cicilan'],
   },
+  {
+    slug: 'kalkulator-pesangon',
+    kategori: 'karyawan',
+    nama: 'Kalkulator Pesangon PHK',
+    keyword: 'kalkulator pesangon',
+    title: 'Kalkulator Pesangon PHK 2026 Sesuai PP 35/2021 + Pajaknya',
+    h1: 'Kalkulator Pesangon PHK (PP 35/2021)',
+    description:
+      'Hitung pesangon PHK sesuai PP 35/2021: uang pesangon, penghargaan masa kerja, dan penggantian hak menurut alasan PHK, plus perkiraan PPh 21 final.',
+    intro:
+      'Pesangon PHK terdiri dari uang pesangon dan uang penghargaan masa kerja yang besarnya ditentukan masa kerja, dikalikan pengali sesuai alasan PHK, ditambah uang penggantian hak. Masukkan upah, masa kerja, dan alasan PHK untuk melihat perkiraan minimal yang menjadi hak pekerja.',
+    rumus: 'Total = (kelipatan pesangon × upah × pengali) + (kelipatan UPMK × upah) + uang penggantian hak',
+    body: `
+<h2>Tabel kelipatan menurut masa kerja</h2>
+<table>
+  <thead><tr><th>Masa kerja</th><th>Uang pesangon</th><th>Masa kerja</th><th>Uang penghargaan masa kerja</th></tr></thead>
+  <tbody>
+    <tr><td>Kurang dari 1 tahun</td><td>1 bulan upah</td><td>3 – kurang dari 6 tahun</td><td>2 bulan upah</td></tr>
+    <tr><td>1 – kurang dari 2 tahun</td><td>2 bulan</td><td>6 – kurang dari 9 tahun</td><td>3 bulan</td></tr>
+    <tr><td>2 – kurang dari 3 tahun</td><td>3 bulan</td><td>9 – kurang dari 12 tahun</td><td>4 bulan</td></tr>
+    <tr><td>3 – kurang dari 4 tahun</td><td>4 bulan</td><td>12 – kurang dari 15 tahun</td><td>5 bulan</td></tr>
+    <tr><td>4 – kurang dari 5 tahun</td><td>5 bulan</td><td>15 – kurang dari 18 tahun</td><td>6 bulan</td></tr>
+    <tr><td>5 – kurang dari 6 tahun</td><td>6 bulan</td><td>18 – kurang dari 21 tahun</td><td>7 bulan</td></tr>
+    <tr><td>6 – kurang dari 7 tahun</td><td>7 bulan</td><td>21 – kurang dari 24 tahun</td><td>8 bulan</td></tr>
+    <tr><td>7 – kurang dari 8 tahun</td><td>8 bulan</td><td>24 tahun atau lebih</td><td>10 bulan</td></tr>
+    <tr><td>8 tahun atau lebih</td><td>9 bulan</td><td></td><td></td></tr>
+  </tbody>
+</table>
+<h2>Pengali menurut alasan PHK</h2>
+<p>PP 35/2021 mengatur pengali uang pesangon yang berbeda, misalnya 1 kali untuk efisiensi yang mencegah kerugian, 0,5 kali untuk perusahaan yang merugi atau pailit, 0,75 kali untuk keadaan memaksa yang tidak membuat perusahaan tutup, 1,75 kali untuk pensiun, dan 2 kali untuk pekerja yang meninggal dunia atau sakit berkepanjangan. Uang penghargaan masa kerja umumnya 1 kali. Ketentuan lengkapnya ada di Pasal 40–57 PP 35/2021.</p>
+<h2>Contoh</h2>
+<p>Upah Rp6.000.000, masa kerja 5 tahun, PHK karena efisiensi untuk mencegah kerugian. Uang pesangon 6 × Rp6.000.000 = Rp36.000.000, uang penghargaan masa kerja 2 × Rp6.000.000 = Rp12.000.000. Total <strong>Rp48.000.000</strong>, di bawah Rp50 juta sehingga PPh 21 final pesangonnya nol.</p>
+<h2>Pajak pesangon</h2>
+<p>Pesangon dikenai PPh 21 final menurut PP 68/2009: 0% sampai Rp50 juta, 5% di atas Rp50 juta sampai Rp100 juta, 15% di atas Rp100 juta sampai Rp500 juta, dan 25% di atas Rp500 juta. Untuk pemberi kerja, pesangon adalah biaya besar yang perlu dicadangkan; baca juga <a href="/cara-menghitung-pph-21/">cara menghitung PPh 21</a> dan hitung kebutuhan cadangan dengan <a href="/kalkulator-dana-darurat/">kalkulator dana darurat</a>.</p>`,
+    faq: [
+      {
+        q: 'Apakah karyawan kontrak (PKWT) mendapat pesangon?',
+        a: 'Karyawan kontrak tidak mendapat pesangon PKWTT, tetapi berhak atas uang kompensasi saat kontrak berakhir sesuai masa kerjanya menurut PP 35/2021.',
+      },
+      {
+        q: 'Apakah karyawan yang mengundurkan diri mendapat pesangon?',
+        a: 'Tidak mendapat uang pesangon dan uang penghargaan masa kerja. Pekerja yang mengundurkan diri berhak atas uang penggantian hak dan uang pisah yang besarnya diatur dalam perjanjian kerja atau peraturan perusahaan.',
+      },
+      {
+        q: 'Upah apa yang dipakai untuk menghitung pesangon?',
+        a: 'Upah sebulan terakhir yang terdiri dari gaji pokok dan tunjangan tetap. Tunjangan tidak tetap, seperti uang makan yang dibayar per kehadiran, tidak ikut dihitung.',
+      },
+    ],
+    artikel: ['cara-menghitung-pph-21', 'mengatur-arus-kas-usaha'],
+    kalkulator: ['kalkulator-gaji-bersih', 'kalkulator-thr'],
+  },
+  {
+    slug: 'kalkulator-deposito',
+    kategori: 'pribadi',
+    nama: 'Kalkulator Bunga Deposito',
+    keyword: 'kalkulator bunga deposito',
+    title: 'Kalkulator Bunga Deposito: Hitung Bunga Bersih Setelah Pajak',
+    h1: 'Kalkulator Bunga Deposito',
+    description:
+      'Hitung bunga deposito bersih setelah pajak 20%, total dana saat jatuh tempo, dan cek apakah bunganya masih di bawah tingkat bunga penjaminan LPS.',
+    intro:
+      'Bunga deposito dihitung dari jumlah deposito dikali bunga per tahun dan lama tenor, lalu dipotong pajak final 20% bila saldo di atas Rp7,5 juta. Masukkan jumlah, bunga, dan tenor untuk melihat bunga bersih dan apakah simpanan masih dijamin LPS.',
+    rumus: 'Bunga bersih = pokok × bunga per tahun × (tenor ÷ 12) × (1 − 20%)',
+    body: `
+<h2>Contoh</h2>
+<p>Deposito Rp10.000.000 dengan bunga 4% per tahun selama 12 bulan. Bunga sebelum pajak Rp400.000, dipotong pajak 20% sebesar Rp80.000, sehingga bunga bersih <strong>Rp320.000</strong> dan total dana saat jatuh tempo Rp10.320.000.</p>
+<h2>Pajak bunga deposito</h2>
+<p>Bunga deposito dikenai PPh final 20% yang dipotong langsung oleh bank, sesuai PP 131/2000 sebagaimana diubah PP 123/2015. Bunga dari deposito dan tabungan yang jumlahnya tidak melebihi Rp7.500.000 (dan bukan hasil memecah simpanan) tidak dipotong pajak. Karena final, bunga ini tidak dihitung ulang di SPT, cukup dilaporkan.</p>
+<h2>Penjaminan LPS</h2>
+<p>LPS menjamin simpanan sampai Rp2 miliar per nasabah per bank, dengan syarat bunga tidak melebihi tingkat bunga penjaminan (TBP). TBP bank umum untuk rupiah adalah 3,75% pada periode Juli–September 2026 dan diperbarui berkala. Kalau bunga deposito di atas TBP, simpanan tidak dijamin. Cek angka terbaru di lps.go.id sebelum menempatkan dana.</p>
+<h2>Deposito untuk pemilik usaha</h2>
+<p>Deposito cocok untuk menyimpan dana cadangan usaha atau dana darurat yang tidak dipakai dalam waktu dekat. Pilih tenor sesuai kapan dana mungkin dibutuhkan, karena pencairan sebelum jatuh tempo biasanya dikenai penalti. Panduan memilih bank ada di <a href="/rekening-bisnis-terbaik/">memilih rekening bisnis</a>.</p>`,
+    faq: [
+      {
+        q: 'Apakah bunga deposito selalu kena pajak?',
+        a: 'Bunga dipotong pajak final 20% bila jumlah deposito dan tabungan di bank tersebut melebihi Rp7.500.000. Simpanan sampai Rp7.500.000 yang bukan hasil pemecahan tidak dipotong pajak.',
+      },
+      {
+        q: 'Kenapa bunga di bank berbeda sedikit dari kalkulator?',
+        a: 'Bank biasanya menghitung bunga berdasarkan jumlah hari sebenarnya dalam setahun. Kalkulator ini memakai perhitungan per bulan sebagai perkiraan, sehingga selisihnya kecil.',
+      },
+      {
+        q: 'Apa yang terjadi kalau deposito dicairkan sebelum jatuh tempo?',
+        a: 'Umumnya bank mengenakan penalti atau tidak memberikan bunga penuh. Ketentuannya berbeda di setiap bank, jadi tanyakan sebelum membuka deposito.',
+      },
+    ],
+    artikel: ['rekening-bisnis-terbaik', 'asuransi-usaha-umkm'],
+    kalkulator: ['kalkulator-dana-darurat', 'kalkulator-zakat-penghasilan'],
+  },
+  {
+    slug: 'kalkulator-harga-sablon',
+    kategori: 'usaha',
+    nama: 'Kalkulator Harga Sablon Kaos',
+    keyword: 'kalkulator ongkos produksi sablon',
+    title: 'Kalkulator Harga Sablon Kaos: Hitung Biaya & Harga per Kaus',
+    h1: 'Kalkulator Harga Sablon Kaos',
+    description:
+      'Hitung biaya dan harga jual sablon kaos per pesanan: kaus polos, screen per warna, tinta, kemasan, dan upah, termasuk harga untuk pesanan kecil.',
+    intro:
+      'Harga sablon per kaus dihitung dari biaya kaus polos, screen dan tinta untuk setiap warna, kemasan, dan upah kerja, lalu ditambah margin. Biaya screen dan persiapan sama besar untuk pesanan kecil maupun besar, sehingga jumlah kaus sangat memengaruhi harga per kaus.',
+    rumus: 'Harga per kaus = (biaya bahan + upah) ÷ jumlah kaus ÷ (1 − margin)',
+    body: `
+<h2>Contoh</h2>
+<p>Pesanan 24 kaus satu warna. Kaus polos 24 × Rp32.000, screen Rp60.000, tinta Rp1.500 per kaus, kemasan Rp1.000 per kaus, dan upah 6 jam × Rp20.000 (2 jam persiapan + 24 kaus × 10 menit). Total biaya Rp1.008.000 atau <strong>Rp42.000 per kaus</strong>. Dengan margin 35%, harga jual Rp64.615, dibulatkan Rp65.000.</p>
+<h2>Kenapa pesanan kecil lebih mahal per kaus</h2>
+<p>Coba ubah jumlah kaus menjadi 6 di kalkulator. Biaya screen dan waktu persiapan tetap, tetapi dibagi ke lebih sedikit kaus, sehingga biaya per kaus naik. Inilah alasan penyablon memakai daftar harga berjenjang. Langkah lengkap memulai usahanya ada di <a href="/memulai-usaha-sablon-kaos/">cara memulai usaha sablon kaos</a>.</p>
+<h2>Tips menekan biaya</h2>
+<ul>
+  <li>Kurangi jumlah warna; setiap warna menambah screen, tinta, dan waktu.</li>
+  <li>Kumpulkan pesanan dengan desain sama agar biaya persiapan terbagi.</li>
+  <li>Beli kaus polos dalam jumlah besar dari pemasok tetap.</li>
+  <li>Hitung harga dengan margin, bukan markup; bedanya dijelaskan di <a href="/perbedaan-margin-dan-markup/">perbedaan margin dan markup</a>.</li>
+</ul>`,
+    faq: [
+      {
+        q: 'Berapa margin yang wajar untuk sablon kaos?',
+        a: 'Tidak ada angka baku. Pastikan margin cukup untuk menutup biaya tetap usaha, risiko kaus rusak, dan revisi desain. Bandingkan juga dengan harga penyablon lain di daerahmu.',
+      },
+      {
+        q: 'Apakah kalkulator ini bisa untuk sablon DTF?',
+        a: 'Bisa dengan menyesuaikan input: isi biaya cetak DTF per kaus di kolom tinta, biaya screen 0, dan waktu persiapan sesuai prosesnya.',
+      },
+      {
+        q: 'Bagaimana menghitung kaus dengan ukuran berbeda harga?',
+        a: 'Pakai harga kaus polos rata-rata tertimbang sesuai jumlah tiap ukuran, atau hitung ukuran besar secara terpisah.',
+      },
+    ],
+    artikel: ['memulai-usaha-sablon-kaos', 'perbedaan-margin-dan-markup'],
+    kalkulator: ['kalkulator-harga-jual', 'kalkulator-hpp'],
+  },
 ];
 
 export const getCalculator = (slug) => calculatorContent.find((c) => c.slug === slug);

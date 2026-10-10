@@ -133,6 +133,7 @@ Contoh angka (ilustrasi): kalau total potongan TER Januari–November Rp2.800.00
 - Berikan bukti potong kepada karyawan untuk lampiran SPT Tahunan mereka.
 - Gaji, iuran BPJS bagian perusahaan, dan THR termasuk biaya tetap yang menentukan titik impas dan [lama balik modal usaha](/lama-balik-modal-usaha/).
 - Siapkan dana THR sejak awal tahun; hitung besarnya dengan [kalkulator THR](/kalkulator-thr/).
+- Pahami juga kewajiban pesangon bila hubungan kerja berakhir; perkiraannya bisa dihitung dengan [kalkulator pesangon](/kalkulator-pesangon/).
 
 Kalau usahamu sendiri memakai tarif final 0,5% dari omzet, baca juga [panduan pajak UMKM 0,5%](/pajak-umkm-0-5-persen/). Pajak usaha dan PPh 21 karyawan adalah dua kewajiban yang berbeda.
 

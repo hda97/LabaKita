@@ -52,6 +52,7 @@ Tanda: ✅ selesai di kode · 👤 harus dilakukan pemilik · ⏳ berjalan sesua
 |---|---|
 | Bulan 1: 5 kalkulator inti + artikel pendamping | ✅ HPP, harga jual & margin, BEP, cicilan, gaji bersih + 5 artikel pendamping |
 | Bulan 2: 5 kalkulator berikutnya | ✅ THR, zakat, pajak UMKM, dana darurat, modal usaha |
+| Kalkulator tambahan dari rencana keyword | ✅ pesangon PHK (PP 35/2021), bunga deposito, harga sablon kaos (total 13 kalkulator) |
 | Bulan 2–3: 8 panduan, 6 hobi, 4 modal | ✅ 30 artikel terbit (Panduan 13, Modal & Keuangan 8, Hobi Jadi Usaha 9), target 25–30 tercapai |
 | Topik dengan angka yang sering berubah (biaya admin marketplace, MDR QRIS, iuran BPJS, KUR, SPT, PP 20/2026, PPh 22 marketplace) | ✅ diverifikasi lewat pencarian web Oktober 2026; daftar fakta dan jadwal cek ulang di [FAKTA-DIPERIKSA.md](FAKTA-DIPERIKSA.md). 👤 Cek ulang ke sumber primer tiap 3 bulan |
 | Template artikel (jawaban langsung, contoh angka, kesalahan umum, FAQ, terkait, tanggal & penulis) | ✅ semua artikel 1.200+ kata, diperiksa otomatis |
@@ -78,7 +79,7 @@ Tanda: ✅ selesai di kode · 👤 harus dilakukan pemilik · ⏳ berjalan sesua
 | Tugas | Status |
 |---|---|
 | Formulir email "template pembukuan gratis" | ✅ komponen siap + `assets/template-pembukuan-umkm.xlsx`; 👤 buat akun newsletter (MailerLite/Brevo/Mailchimp), isi `newsletterAction`, dan pasang template sebagai email otomatis |
-| Pinterest, grup Facebook, TikTok/Reels, WhatsApp Channel | ✅ materi siap: 120 pin + CSV, gambar pratinjau tautan, 10 naskah video, template jawaban grup, pesan WhatsApp, email sambutan ([MATERI-PROMOSI.md](MATERI-PROMOSI.md)). 👤 Unggah dan jalankan setelah situs online |
+| Pinterest, grup Facebook, TikTok/Reels, WhatsApp Channel | ✅ materi siap: 129 pin + CSV, gambar pratinjau tautan, 10 naskah video, template jawaban grup, pesan WhatsApp, email sambutan ([MATERI-PROMOSI.md](MATERI-PROMOSI.md)). 👤 Unggah dan jalankan setelah situs online |
 
 ## Fase 7 — AdSense
 

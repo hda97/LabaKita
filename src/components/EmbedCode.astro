@@ -20,7 +20,10 @@ const HEIGHTS: Record<string, number> = {
   'kalkulator-zakat-penghasilan': 820,
   'kalkulator-pajak-umkm': 960,
   'kalkulator-dana-darurat': 890,
-  'kalkulator-modal-usaha': 1360
+  'kalkulator-modal-usaha': 1360,
+  'kalkulator-pesangon': 1440,
+  'kalkulator-deposito': 1070,
+  'kalkulator-harga-sablon': 1720
 };
 const height = HEIGHTS[slug] ?? 1200;
 const src = new URL(`/embed/${slug}/`, site.url).href;
