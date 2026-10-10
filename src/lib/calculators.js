@@ -178,7 +178,7 @@ export const calculators = {
       rp('omzetTahun', 'Omzet (peredaran bruto) setahun', 600000000),
       select('jenis', 'Jenis wajib pajak', 'orang', [
         ['orang', 'Orang pribadi'],
-        ['badan', 'Badan (PT, CV, firma, koperasi)'],
+        ['badan', 'PT perorangan atau koperasi'],
       ]),
     ],
     compute(v) {
@@ -193,7 +193,9 @@ export const calculators = {
         ],
         note: r.melebihiBatas
           ? 'Omzet di atas Rp4,8 miliar setahun tidak lagi memakai tarif 0,5%. Gunakan pembukuan dan tarif umum.'
-          : 'Pajak dibayar setiap bulan dari omzet bulan itu. Untuk orang pribadi, pajak baru dibayar setelah omzet kumulatif tahun itu melewati Rp500 juta.',
+          : v.jenis === 'badan'
+            ? 'PT perorangan dan koperasi membayar 0,5% dari seluruh omzet. Sejak PP 20/2026, CV, firma, dan PT biasa tidak lagi bisa memakai tarif ini kecuali dalam masa transisi.'
+            : 'Pajak dibayar setiap bulan dari omzet bulan itu. Untuk orang pribadi, pajak baru dibayar setelah omzet kumulatif tahun itu melewati Rp500 juta.',
       };
     },
   },

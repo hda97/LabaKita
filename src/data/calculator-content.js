@@ -314,7 +314,9 @@ export const calculatorContent = [
     rumus: 'Pajak = 0,5% × (omzet setahun − Rp500 juta untuk orang pribadi)',
     body: `
 <h2>Contoh</h2>
-<p>Pedagang perorangan dengan omzet Rp600.000.000 setahun. Rp500.000.000 pertama tidak kena pajak, sisanya Rp100.000.000 × 0,5% = <strong>Rp500.000</strong> setahun. Kalau usaha yang sama berbentuk CV atau PT, seluruh omzet dikenai 0,5%, yaitu Rp3.000.000.</p>
+<p>Pedagang perorangan dengan omzet Rp600.000.000 setahun. Rp500.000.000 pertama tidak kena pajak, sisanya Rp100.000.000 × 0,5% = <strong>Rp500.000</strong> setahun. Kalau usaha yang sama berbentuk PT perorangan atau koperasi, seluruh omzet dikenai 0,5%, yaitu Rp3.000.000.</p>
+<h2>Siapa yang bisa memakai tarif 0,5%</h2>
+<p>Sejak <strong>PP 20 Tahun 2026</strong> yang mengubah PP 55/2022, tarif ini hanya untuk wajib pajak orang pribadi, PT perorangan yang didirikan satu orang, dan koperasi. Untuk orang pribadi dan PT perorangan tidak ada lagi batas waktu. CV, firma, dan PT biasa tidak lagi bisa memakainya, kecuali yang masih memiliki surat keterangan yang berlaku selama masa transisi.</p>
 <h2>Cara membayar per bulan</h2>
 <ol>
   <li>Catat omzet setiap bulan.</li>
@@ -329,12 +331,12 @@ export const calculatorContent = [
         a: 'Pajaknya nol, tetapi wajib pajak yang sudah punya NPWP tetap wajib melaporkan SPT Tahunan, termasuk omzet usahanya.',
       },
       {
-        q: 'Apakah batas Rp500 juta berlaku untuk PT dan CV?',
-        a: 'Tidak. Batas omzet tidak kena pajak Rp500 juta hanya untuk wajib pajak orang pribadi.',
+        q: 'Apakah batas Rp500 juta berlaku untuk PT perorangan dan koperasi?',
+        a: 'Tidak. Batas omzet tidak kena pajak Rp500 juta hanya untuk wajib pajak orang pribadi. PT perorangan dan koperasi membayar 0,5% dari seluruh omzet.',
       },
       {
         q: 'Sampai kapan tarif 0,5% bisa dipakai?',
-        a: 'Tarif ini punya batas waktu yang berbeda untuk orang pribadi, CV/firma/koperasi, dan PT, dan ketentuannya pernah diperpanjang. Cek aturan terbaru di pajak.go.id.',
+        a: 'Sejak PP 20 Tahun 2026, orang pribadi dan PT perorangan dapat memakai tarif 0,5% tanpa batas waktu selama omzetnya tidak lebih dari Rp4,8 miliar setahun. Koperasi masih memiliki batas waktu. Cek ketentuan terbaru di pajak.go.id.',
       },
     ],
     artikel: ['pajak-umkm-0-5-persen', 'perbedaan-margin-dan-markup'],

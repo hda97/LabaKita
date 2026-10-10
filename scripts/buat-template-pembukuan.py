@@ -38,7 +38,7 @@ rows = [
     ('Catatan', BOLD),
     ('Baris pertama di Kas Harian adalah contoh. Hapus isinya (bukan barisnya) sebelum mulai mencatat.', NORMAL),
     ('Penjualan dicatat sebesar omzet kotor, sebelum dipotong biaya marketplace. Potongan dicatat sebagai pengeluaran.', NORMAL),
-    ('PPh Final 0,5% mengikuti PP 55/2022: orang pribadi tidak dikenai pajak atas omzet sampai Rp500 juta setahun.', NORMAL),
+    ('PPh Final 0,5% mengikuti PP 55/2022 sebagaimana diubah PP 20/2026: orang pribadi tidak dikenai pajak atas omzet sampai Rp500 juta setahun.', NORMAL),
     ('Aturan pajak dapat berubah; cek pajak.go.id. Hasil adalah perkiraan, bukan nasihat pajak.', NORMAL),
     ('Kalkulator dan panduan lainnya: https://labakita.pages.dev', NORMAL),
 ]
@@ -65,15 +65,15 @@ for r, label, val, fmt, editable in items:
     c.font = INPUT if editable else NORMAL
     if editable:
         c.fill = FILL_IN
-ps['C6'] = 'PP 55/2022: Rp500 juta hanya untuk orang pribadi, badan Rp0.'
-ps['C7'] = 'PP 55/2022 Pasal 57. Cek perubahan aturan di pajak.go.id.'
+ps['C6'] = 'Rp500 juta hanya untuk orang pribadi; PT perorangan dan koperasi Rp0.'
+ps['C7'] = 'PP 55/2022 jo. PP 20/2026. Cek perubahan aturan di pajak.go.id.'
 ps['A9'] = 'Daftar kategori'; ps['A9'].font = BOLD
 for i, k in enumerate(KATEGORI):
     ps.cell(10 + i, 1, k).font = NORMAL
 ps.column_dimensions['A'].width = 32
 ps.column_dimensions['B'].width = 20
 ps.column_dimensions['C'].width = 60
-dv_wp = DataValidation(type='list', formula1='"Orang pribadi,Badan"', allow_blank=False)
+dv_wp = DataValidation(type='list', formula1='"Orang pribadi,PT perorangan/koperasi"', allow_blank=False)
 ps.add_data_validation(dv_wp); dv_wp.add('B4')
 KAT_RANGE = f'Pengaturan!$A$10:$A${9 + len(KATEGORI)}'
 
