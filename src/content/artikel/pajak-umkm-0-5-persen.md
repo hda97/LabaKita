@@ -104,6 +104,10 @@ Batas Rp500 juta dan batas Rp4,8 miliar dihitung dari **jumlah omzet seluruh usa
 
 PP 20/2026 juga menutup celah memecah usaha. Untuk menentukan batas Rp4,8 miliar, omzet **suami dan istri** yang memilih pisah harta atau memisahkan kewajiban pajaknya digabung, termasuk omzet PT perorangan yang mereka dirikan. Satu orang yang mendirikan beberapa PT perorangan juga tidak bisa lagi memakai batas Rp4,8 miliar untuk masing-masing perusahaan.
 
+## Kalau berjualan di marketplace
+
+Sejak **1 Oktober 2026**, Shopee, Tokopedia, Lazada, dan Blibli ditunjuk sebagai pemungut **PPh Pasal 22 sebesar 0,5%** dari omzet penjual berdasarkan PMK 37 Tahun 2025. Penjual orang pribadi dengan omzet sampai Rp500 juta setahun tidak dipungut bila menyampaikan surat pernyataan ke platform. PPh 22 yang sudah dipungut dapat diperhitungkan dengan PPh final UMKM, sehingga simpan bukti pungutnya dan jangan menyetor dua kali untuk omzet yang sama. Rinciannya ada di [biaya admin marketplace](/biaya-admin-marketplace/).
+
 ## Contoh format pencatatan omzet
 
 | Tanggal | Keterangan | Omzet | Omzet kumulatif tahun ini |

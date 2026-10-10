@@ -2,7 +2,7 @@
 
 Website kalkulator & panduan untuk usaha kecil dan keuangan pribadi, dibangun mengikuti dokumen *Workflow Website Usaha & Keuangan sampai Monetisasi Iklan*. Situs statis (Astro) yang siap dipasang gratis di Cloudflare Pages.
 
-**Isi saat ini:** 10 kalkulator, 19 artikel (1.200+ kata, tersebar di 3 pilar), 5 halaman wajib AdSense, sitemap, robots.txt, ads.txt, pencarian, schema markup, dan slot iklan yang tinggal diaktifkan.
+**Isi saat ini:** 10 kalkulator, 30 artikel (1.200+ kata, tersebar di 3 pilar), 5 halaman wajib AdSense, sitemap, robots.txt, ads.txt, pencarian, schema markup, dan slot iklan yang tinggal diaktifkan.
 
 ## Mulai
 
@@ -33,7 +33,7 @@ Semua ada di **`site.config.mjs`**: nama situs, domain, email, ID Google Analyti
 | `src/lib/rehype-ads.mjs` | Menyisipkan iklan di dalam artikel (setelah paragraf pembuka dan tiap ±350 kata) |
 | `scripts/check-site.mjs` | Pemeriksaan otomatis aturan workflow pada hasil build |
 | `data/keyword-plan.csv` | 100 keyword per pilar beserta halaman tujuannya (Fase 1) |
-| `data/kalender-konten.csv` | Status artikel terbit dan jadwal 11 artikel berikutnya sampai total 30 (Fase 4) |
+| `data/kalender-konten.csv` | Status 30 artikel terbit (target Fase 4 tercapai) |
 | `assets/template-pembukuan-umkm.xlsx` | Template pembukuan untuk hadiah formulir email (Fase 6 & 9) |
 
 ## Dokumentasi
@@ -42,3 +42,4 @@ Semua ada di **`site.config.mjs`**: nama situs, domain, email, ID Google Analyti
 - [docs/DEPLOY.md](docs/DEPLOY.md): domain, Cloudflare Pages, Search Console, Bing, Analytics.
 - [docs/MENULIS-KONTEN.md](docs/MENULIS-KONTEN.md): cara menambah artikel dan kalkulator sesuai template dan standar kualitas.
 - [docs/ADSENSE.md](docs/ADSENSE.md): syarat, langkah daftar, mengaktifkan iklan, dan larangan.
+- [docs/FAKTA-DIPERIKSA.md](docs/FAKTA-DIPERIKSA.md): angka dan aturan yang sering berubah, di mana dipakai, dan kapan dicek ulang.

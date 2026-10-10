@@ -51,8 +51,8 @@ Tanda: ✅ selesai di kode · 👤 harus dilakukan pemilik · ⏳ berjalan sesua
 |---|---|
 | Bulan 1: 5 kalkulator inti + artikel pendamping | ✅ HPP, harga jual & margin, BEP, cicilan, gaji bersih + 5 artikel pendamping |
 | Bulan 2: 5 kalkulator berikutnya | ✅ THR, zakat, pajak UMKM, dana darurat, modal usaha |
-| Bulan 2–3: 8 panduan, 6 hobi, 4 modal | ⏳ 19 artikel terbit (Panduan 6, Modal & Keuangan 4, Hobi Jadi Usaha 9); 11 artikel berikutnya terjadwal di `data/kalender-konten.csv` sampai total 30 |
-| Topik dengan angka yang sering berubah (biaya admin marketplace, MDR QRIS, iuran BPJS mandiri, syarat & bunga KUR, cara lapor SPT) | 👤 ditulis setelah angkanya dicek langsung di sumber resmi saat menulis; jangan mengandalkan draf tanpa verifikasi |
+| Bulan 2–3: 8 panduan, 6 hobi, 4 modal | ✅ 30 artikel terbit (Panduan 13, Modal & Keuangan 8, Hobi Jadi Usaha 9), target 25–30 tercapai |
+| Topik dengan angka yang sering berubah (biaya admin marketplace, MDR QRIS, iuran BPJS, KUR, SPT, PP 20/2026, PPh 22 marketplace) | ✅ diverifikasi lewat pencarian web Oktober 2026; daftar fakta dan jadwal cek ulang di [FAKTA-DIPERIKSA.md](FAKTA-DIPERIKSA.md). 👤 Cek ulang ke sumber primer tiap 3 bulan |
 | Template artikel (jawaban langsung, contoh angka, kesalahan umum, FAQ, terkait, tanggal & penulis) | ✅ semua artikel 1.200+ kata, diperiksa otomatis |
 | Rumus kalkulator diuji dengan contoh manual | ✅ `npm test` (12 tes) + uji di browser |
 | E-E-A-T: sumber resmi | ✅ setiap artikel regulasi/keuangan punya bagian sumber resmi |

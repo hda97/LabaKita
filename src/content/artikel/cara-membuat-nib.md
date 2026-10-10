@@ -96,7 +96,7 @@ Baca pernyataan mandiri (komitmen memenuhi standar dan kewajiban usaha), centang
 | Menengah tinggi | NIB + sertifikat standar yang diverifikasi instansi berwenang |
 | Tinggi | NIB + izin dari instansi berwenang |
 
-Sebagian besar usaha rumahan seperti kue, kerajinan, jasa foto, dan sablon kecil termasuk risiko rendah atau menengah rendah. Produk pangan olahan yang dikemas dan diberi label umumnya juga membutuhkan sertifikat produksi pangan industri rumah tangga (PIRT), yang persyaratan teknisnya mengikuti ketentuan dinas kesehatan setempat. Untuk kewajiban sertifikasi halal, cek ketentuan terbaru di situs BPJPH (halal.go.id).
+Sebagian besar usaha rumahan seperti kue, kerajinan, jasa foto, dan sablon kecil termasuk risiko rendah atau menengah rendah. Produk pangan olahan rumahan yang dikemas dan diberi label, seperti kue kering dan keripik, umumnya juga membutuhkan sertifikat produksi pangan industri rumah tangga (SPP-IRT/PIRT); langkahnya ada di [cara mengurus PIRT](/cara-mengurus-pirt/). Pangan yang harus disimpan beku atau dingin tidak bisa memakai PIRT dan memerlukan izin edar BPOM. Untuk kewajiban sertifikasi halal, cek ketentuan terbaru di situs BPJPH (halal.go.id).
 
 ## Setelah NIB terbit
 

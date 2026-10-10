@@ -146,5 +146,5 @@ Untuk usaha perorangan, omzet sampai Rp500 juta setahun tidak dikenai PPh Final 
 ## Sumber resmi
 
 - Sistem OSS (oss.go.id) untuk mengurus NIB dan perizinan berusaha berbasis risiko.
-- Dinas kesehatan kabupaten/kota setempat untuk persyaratan sertifikat produksi pangan industri rumah tangga (PIRT) dan penyuluhan keamanan pangan.
+- Dinas kesehatan kabupaten/kota setempat dan sppirt.pom.go.id untuk persyaratan sertifikat produksi pangan industri rumah tangga (PIRT) dan penyuluhan keamanan pangan. Langkahnya dijelaskan di [cara mengurus PIRT](/cara-mengurus-pirt/).
 - Otoritas Jasa Keuangan (ojk.go.id) untuk mengecek legalitas pemberi pinjaman.

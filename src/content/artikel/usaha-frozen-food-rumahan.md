@@ -14,8 +14,8 @@ faq:
     a: 'Bergantung pada jenis produk, kebersihan proses, kemasan, dan kestabilan suhu beku. Uji sendiri dengan menyimpan sampel dan memeriksanya secara berkala, lalu tetapkan batas simpan yang aman dan cantumkan di label.'
   - q: 'Bagaimana cara mengirim frozen food?'
     a: 'Untuk jarak dekat, gunakan kurir instan atau antar sendiri dengan cool box dan ice gel. Pengiriman jarak jauh memerlukan kemasan berinsulasi dan layanan kirim cepat, dan risikonya lebih besar.'
-  - q: 'Apakah frozen food perlu izin PIRT?'
-    a: 'Produk pangan olahan rumahan yang dikemas dan diberi label umumnya membutuhkan sertifikat produksi pangan industri rumah tangga. Mulai dari NIB di OSS, lalu tanyakan persyaratan teknisnya ke dinas kesehatan setempat.'
+  - q: 'Apakah frozen food bisa memakai izin PIRT?'
+    a: 'Tidak. Pangan yang harus disimpan beku termasuk pangan dengan penanganan khusus dalam rantai distribusi, sehingga tidak bisa memakai SPP-IRT. Untuk diedarkan dalam kemasan berlabel, frozen food perlu izin edar dari BPOM. Tanyakan pendampingan UMKM ke Balai POM setempat.'
   - q: 'Apakah frozen food bisa dijual di marketplace?'
     a: 'Bisa, terutama untuk pembeli di kota yang sama dengan pengiriman instan. Cantumkan dengan jelas area pengiriman dan cara penyimpanan, serta masukkan potongan biaya layanan ke harga jual.'
 ---
@@ -84,7 +84,9 @@ Mulai dengan 2–3 produk, lalu tambah varian setelah tahu mana yang paling laku
 
 ## Label kemasan
 
-Label memuat nama produk, komposisi, berat bersih atau jumlah isi, tanggal produksi, batas simpan, cara penyimpanan ("simpan di freezer"), cara memasak, dan kontak penjual. Produk yang dijual dengan label ke pasar yang lebih luas umumnya membutuhkan izin produksi pangan rumah tangga; legalitas dasarnya dimulai dari [NIB lewat OSS](/cara-membuat-nib/).
+Label memuat nama produk, komposisi, berat bersih atau jumlah isi, tanggal produksi, batas simpan, cara penyimpanan ("simpan di freezer"), cara memasak, dan kontak penjual.
+
+**Soal izin, frozen food berbeda dengan kue kering.** Pangan yang harus disimpan beku termasuk pangan dengan penanganan khusus dalam rantai distribusi, sehingga **tidak bisa memakai SPP-IRT (PIRT)** menurut Peraturan BPOM Nomor 4 Tahun 2024. Untuk diedarkan dalam kemasan berlabel, misalnya dititipkan di toko atau dijual di marketplace, frozen food memerlukan **izin edar BPOM**. Mulailah dari NIB lewat [OSS](/cara-membuat-nib/), lalu tanyakan persyaratan dan program pendampingan UMKM ke Balai POM terdekat.
 
 Untuk membantu pembeli, sertakan petunjuk memasak yang jelas di label atau kartu kecil: apakah perlu dicairkan dulu, berapa lama dikukus atau digoreng, dan saran penyajian. Pembeli yang berhasil memasak dengan hasil enak lebih mungkin membeli lagi.
 
@@ -153,7 +155,7 @@ Kalau ketiganya terpenuhi, pertimbangkan menambah alat atau tenaga. Hitung dulu 
 ## Sumber resmi
 
 - Sistem OSS (oss.go.id) untuk NIB.
-- Dinas kesehatan kabupaten/kota untuk persyaratan sertifikat produksi pangan industri rumah tangga dan penyuluhan keamanan pangan.
+- Badan POM dan Balai POM setempat untuk izin edar pangan olahan, termasuk pangan beku, serta Peraturan BPOM Nomor 4 Tahun 2024 tentang jenis pangan yang dapat memakai SPP-IRT (sppirt.pom.go.id).
 
 ## Rangkuman
 
