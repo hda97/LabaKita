@@ -133,7 +133,7 @@ Secara umum pencipta foto adalah fotografer, sehingga hak pakai klien perlu ditu
 - **Portofolio sebelum-sesudah.** Foto ulang produk milik teman atau UMKM sekitar secara gratis atau murah, lalu tampilkan perbandingan foto lama dan baru.
 - **Datangi penjual marketplace lokal** yang fotonya masih gelap atau tidak seragam, tunjukkan contoh hasil.
 - **Kerja sama** dengan penyablon, pembuat kue, dan perajin di sekitarmu. Usaha seperti di [cara memulai usaha sablon kaos](/memulai-usaha-sablon-kaos/) butuh foto katalog setiap ada desain baru.
-- **Komunitas UMKM** dan bazar lokal.
+- **Komunitas UMKM** dan bazar lokal. Perajin, penjual tanaman, dan usaha frozen food adalah calon klien yang rutin butuh foto katalog; lihat contohnya di [usaha kerajinan tangan](/usaha-kerajinan-tangan/).
 - **Paket langganan bulanan** untuk usaha yang rutin mengeluarkan produk baru, supaya penghasilanmu lebih stabil.
 
 Setelah pesanan rutin, urus legalitas dasar lewat [cara membuat NIB online](/cara-membuat-nib/).

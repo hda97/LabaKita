@@ -89,6 +89,7 @@ Dengan penjualan stabil 40 loyang per bulan, modal standar Rp10.230.000 kembali 
 ## Tempat menjual di awal
 
 - **Lingkaran terdekat:** teman, tetangga, grup WhatsApp keluarga dan kantor. Paling murah untuk menguji rasa dan harga.
+- **Musim hari raya:** pre-order kue kering dan hampers; panduannya di [usaha kue kering Lebaran](/usaha-kue-kering-lebaran/).
 - **Media sosial:** foto produk yang terang dan konsisten, testimoni pembeli, dan jadwal pre-order yang jelas.
 - **Titip jual:** kafe, warung, atau koperasi kantor. Hitung potongan komisinya sebagai biaya per unit.
 - **Marketplace dan aplikasi pesan-antar makanan:** jangkauan lebih luas, tetapi potongan biaya layanannya harus masuk perhitungan harga jual.

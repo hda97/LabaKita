@@ -101,7 +101,7 @@ Selain flat dan efektif, perhatikan juga apakah bunganya **tetap** (fixed) sepan
 3. Berapa denda keterlambatan per hari atau per bulan?
 4. Bagaimana rumus dan biaya pelunasan dipercepat?
 5. Apakah ada agunan, dan apa yang terjadi bila cicilan macet?
-6. Apakah lembaga ini terdaftar dan diawasi OJK?
+6. Apakah lembaga ini terdaftar dan diawasi OJK? Cara mengeceknya ada di [pinjaman modal usaha resmi](/pinjaman-modal-usaha-resmi/).
 
 ## Cara membaca tabel angsuran dari bank
 
