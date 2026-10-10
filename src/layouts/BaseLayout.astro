@@ -16,6 +16,10 @@ const { title, description, type = 'website', schema = [], noindex = false, news
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
 const path = Astro.url.pathname;
+// Gambar pratinjau: public/og/<slug>.png bila ada (dibuat scripts/buat-gambar-sosial.cjs), selain itu default.
+import { existsSync } from 'node:fs';
+const ogSlug = path === '/' ? 'default' : path.replace(/^\/|\/$/g, '');
+const ogImage = new URL(`/og/${existsSync(`public/og/${ogSlug}.png`) ? ogSlug : 'default'}.png`, site.url).href;
 
 const menu = [
   { href: '/kalkulator/', label: 'Kalkulator' },
@@ -48,7 +52,10 @@ const organization = {
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#0f7b55" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap.xml" />

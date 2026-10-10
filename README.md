@@ -35,6 +35,9 @@ Semua ada di **`site.config.mjs`**: nama situs, domain, email, ID Google Analyti
 | `data/keyword-plan.csv` | 100 keyword per pilar beserta halaman tujuannya (Fase 1) |
 | `data/kalender-konten.csv` | Status 30 artikel terbit (target Fase 4 tercapai) |
 | `assets/template-pembukuan-umkm.xlsx` | Template pembukuan untuk hadiah formulir email (Fase 6 & 9) |
+| `src/pages/embed/` | Kalkulator versi sematan untuk blog lain (backlink, Fase 5) |
+| `public/og/`, `public/pin/` | Gambar pratinjau tautan dan 120 pin Pinterest, dibuat `scripts/buat-gambar-sosial.cjs` |
+| `data/materi-promosi/` | Teks hook pin dan CSV unggah massal Pinterest |
 
 ## Dokumentasi
 
@@ -42,4 +45,5 @@ Semua ada di **`site.config.mjs`**: nama situs, domain, email, ID Google Analyti
 - [docs/DEPLOY.md](docs/DEPLOY.md): domain, Cloudflare Pages, Search Console, Bing, Analytics.
 - [docs/MENULIS-KONTEN.md](docs/MENULIS-KONTEN.md): cara menambah artikel dan kalkulator sesuai template dan standar kualitas.
 - [docs/ADSENSE.md](docs/ADSENSE.md): syarat, langkah daftar, mengaktifkan iklan, dan larangan.
+- [docs/MATERI-PROMOSI.md](docs/MATERI-PROMOSI.md): materi Pinterest, naskah video pendek, template jawaban grup, WhatsApp Channel, dan email.
 - [docs/FAKTA-DIPERIKSA.md](docs/FAKTA-DIPERIKSA.md): angka dan aturan yang sering berubah, di mana dipakai, dan kapan dicek ulang.

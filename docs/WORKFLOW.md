@@ -25,6 +25,7 @@ Tanda: ✅ selesai di kode · 👤 harus dilakukan pemilik · ⏳ berjalan sesua
 | Tugas | Status |
 |---|---|
 | Situs statis (Astro) untuk Cloudflare Pages | ✅ |
+| Pratinjau tidak diindeks di labakita.netlify.app | ✅ proyek Netlify dibuat dan `netlify.toml` siap. 👤 Hubungkan repo di app.netlify.com/projects/labakita (deploy dari sesi cloud diblokir kebijakan jaringan) |
 | HTTPS | 👤 otomatis di Cloudflare Pages setelah deploy |
 | Tema ringan & responsif di HP | ✅ tanpa framework JS, font sistem, diuji tanpa scroll horizontal di lebar 390 px |
 | URL pendek tanpa tanggal (`/kalkulator-hpp/`) | ✅ |
@@ -70,14 +71,14 @@ Tanda: ✅ selesai di kode · 👤 harus dilakukan pemilik · ⏳ berjalan sesua
 | Schema HowTo | Tidak dipakai: Google berhenti menampilkan hasil kaya HowTo sejak 2023, jadi tidak menambah apa pun. Langkah-langkah tetap ditulis sebagai daftar bernomor |
 | Tidak ada dua halaman membidik keyword sama | ✅ judul & deskripsi unik dicek otomatis; pemetaan keyword → halaman di `keyword-plan.csv` |
 | Rutin bulanan Search Console, backlink | 👤 |
-| Kalkulator bisa disematkan situs lain (backlink) | ✅ tidak ada header yang memblokir iframe; aturan penyematan di S&K |
+| Kalkulator bisa disematkan situs lain (backlink) | ✅ halaman `/embed/<kalkulator>/` + kode sematan siap salin di setiap kalkulator, dengan tautan kredit di luar iframe |
 
 ## Fase 6 — Trafik awal
 
 | Tugas | Status |
 |---|---|
 | Formulir email "template pembukuan gratis" | ✅ komponen siap + `assets/template-pembukuan-umkm.xlsx`; 👤 buat akun newsletter (MailerLite/Brevo/Mailchimp), isi `newsletterAction`, dan pasang template sebagai email otomatis |
-| Pinterest, grup Facebook, TikTok/Reels, WhatsApp Channel | 👤 tanpa spam link |
+| Pinterest, grup Facebook, TikTok/Reels, WhatsApp Channel | ✅ materi siap: 120 pin + CSV, gambar pratinjau tautan, 10 naskah video, template jawaban grup, pesan WhatsApp, email sambutan ([MATERI-PROMOSI.md](MATERI-PROMOSI.md)). 👤 Unggah dan jalankan setelah situs online |
 
 ## Fase 7 — AdSense
 
