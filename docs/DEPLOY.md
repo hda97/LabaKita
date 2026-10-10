@@ -39,7 +39,7 @@ Kalau proyek dibuat lewat **Workers & Pages → Create → Workers → Import a 
 
 Pengaturan build di **Settings → Build**:
 
-- Build command: `npm run build` (pratinjau) atau `npm run build:prod` (setelah domain final)
+- Build command: boleh kosong, karena `wrangler.jsonc` menjalankan `npm run build` otomatis saat deploy. Untuk mode produksi setelah domain final, set build variable `SITE_INDEXABLE` = `true`
 - Deploy command: `npx wrangler deploy`
 - Root directory: kosong (akar repo)
 - Build variables: `SITE_URL` = alamat situs, misalnya `https://labakita.<akunmu>.workers.dev` atau domainmu; Node mengikuti `.nvmrc` (22)
