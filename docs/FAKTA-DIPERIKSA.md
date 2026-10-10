@@ -24,6 +24,8 @@ Angka dan aturan di bawah dipakai di artikel dan kalkulator. Semuanya diverifika
 | Pesangon PHK | Tabel kelipatan dan pengali alasan PHK PP 35/2021 Pasal 40–57; PPh 21 final pesangon 0%/5%/15%/25% (PP 68/2009) | Kalkulator pesangon | PP 35/2021, PP 68/2009 |
 | Pajak bunga deposito | PPh final 20%; tidak dipotong bila deposito + tabungan ≤ Rp7,5 juta. Klaim tarif bertingkat 10/20/30% di satu blog tidak terkonfirmasi sumber resmi | Kalkulator deposito | PP 131/2000 jo. PP 123/2015, pajak.go.id |
 | Tingkat bunga penjaminan LPS | 3,75% bank umum rupiah, Juli–September 2026 (default kalkulator, bisa diubah pengguna) | Kalkulator deposito | lps.go.id (diperbarui berkala) |
+| Upah lembur | Upah sejam = 1/173 upah sebulan; hari kerja 1,5× jam pertama, 2× berikutnya (maks. 4 jam/hari, 18 jam/minggu); pengali hari libur sistem 6 dan 5 hari kerja | Kalkulator lembur, artikel lembur | PP 35/2021 |
+| PT perorangan | Pendirian lewat AHU, PNBP Rp50.000 untuk usaha mikro dan kecil, tanpa notaris | Artikel PT perorangan vs CV | ahu.go.id, PP 8/2021 |
 | BI-FAST | Biaya maksimal Rp2.500 per transaksi | Rekening bisnis | Bank Indonesia |
 | Penjaminan LPS | Sampai Rp2 miliar per nasabah per bank | Rekening bisnis | lps.go.id |
 

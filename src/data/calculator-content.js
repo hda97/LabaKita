@@ -547,6 +547,55 @@ export const calculatorContent = [
     artikel: ['memulai-usaha-sablon-kaos', 'perbedaan-margin-dan-markup'],
     kalkulator: ['kalkulator-harga-jual', 'kalkulator-hpp'],
   },
+  {
+    slug: 'kalkulator-lembur',
+    kategori: 'karyawan',
+    nama: 'Kalkulator Upah Lembur',
+    keyword: 'kalkulator lembur',
+    title: 'Kalkulator Upah Lembur 2026 Sesuai PP 35/2021',
+    h1: 'Kalkulator Upah Lembur',
+    description:
+      'Hitung upah lembur karyawan sesuai PP 35/2021 untuk hari kerja dan hari libur, sistem 5 atau 6 hari kerja, lengkap dengan upah sejam dan total sebulan.',
+    intro:
+      'Upah lembur dihitung dari upah sejam, yaitu 1/173 upah sebulan, dikali pengali sesuai jam ke berapa dan jenis harinya. Pada hari kerja, jam pertama dibayar 1,5 kali upah sejam dan jam berikutnya 2 kali. Pada hari libur, pengalinya lebih besar.',
+    rumus: 'Upah lembur = jumlah pengali tiap jam × (upah sebulan ÷ 173)',
+    body: `
+<h2>Tabel pengali lembur</h2>
+<table>
+  <thead><tr><th>Jenis hari</th><th>Jam lembur</th><th>Pengali upah sejam</th></tr></thead>
+  <tbody>
+    <tr><td>Hari kerja</td><td>Jam pertama</td><td>1,5 kali</td></tr>
+    <tr><td>Hari kerja</td><td>Jam kedua dan seterusnya (maks. 4 jam)</td><td>2 kali</td></tr>
+    <tr><td>Libur, sistem 6 hari kerja</td><td>Jam 1–7</td><td>2 kali</td></tr>
+    <tr><td>Libur, sistem 6 hari kerja</td><td>Jam 8</td><td>3 kali</td></tr>
+    <tr><td>Libur, sistem 6 hari kerja</td><td>Jam 9–11</td><td>4 kali</td></tr>
+    <tr><td>Libur, sistem 5 hari kerja</td><td>Jam 1–8</td><td>2 kali</td></tr>
+    <tr><td>Libur, sistem 5 hari kerja</td><td>Jam 9</td><td>3 kali</td></tr>
+    <tr><td>Libur, sistem 5 hari kerja</td><td>Jam 10–12</td><td>4 kali</td></tr>
+  </tbody>
+</table>
+<p>Ada ketentuan khusus bila hari libur resmi jatuh pada hari kerja terpendek dalam sistem 6 hari kerja. Penjelasan lengkap, batas jam lembur, dan kewajiban pemberi kerja ada di <a href="/cara-menghitung-upah-lembur/">cara menghitung upah lembur</a>.</p>
+<h2>Contoh</h2>
+<p>Upah sebulan Rp5.190.000, sehingga upah sejam Rp30.000. Lembur 3 jam di hari kerja: (1,5 + 2 + 2) × Rp30.000 = <strong>Rp165.000</strong>. Lembur 9 jam di hari libur pada sistem 6 hari kerja: (7 × 2 + 3 + 4) × Rp30.000 = Rp630.000.</p>
+<h2>Untuk pemilik usaha</h2>
+<p>Upah lembur adalah biaya yang sering terlupa saat menghitung harga, terutama menjelang musim ramai. Masukkan perkiraan lembur ke biaya tenaga kerja di <a href="/kalkulator-hpp/">kalkulator HPP</a>, dan hitung potongan pajak karyawan dengan <a href="/kalkulator-gaji-bersih/">kalkulator gaji bersih</a>.</p>`,
+    faq: [
+      {
+        q: 'Kenapa upah sejam dibagi 173?',
+        a: 'Angka 173 adalah rata-rata jam kerja sebulan untuk 40 jam per minggu (40 × 52 minggu ÷ 12 bulan). Pembagian ini ditetapkan dalam PP 35/2021.',
+      },
+      {
+        q: 'Berapa batas maksimal lembur?',
+        a: 'Lembur paling lama 4 jam dalam sehari dan 18 jam dalam seminggu, di luar lembur pada hari istirahat mingguan atau hari libur resmi.',
+      },
+      {
+        q: 'Apakah semua karyawan berhak upah lembur?',
+        a: 'Karyawan dengan jabatan tertentu, seperti pemikir, perencana, pelaksana, atau pengendali jalannya perusahaan yang waktu kerjanya tidak dapat dibatasi dan mendapat upah lebih tinggi, tidak berhak atas upah lembur bila diatur demikian dalam perjanjian kerja.',
+      },
+    ],
+    artikel: ['cara-menghitung-upah-lembur', 'cara-menghitung-pph-21'],
+    kalkulator: ['kalkulator-gaji-bersih', 'kalkulator-pesangon'],
+  },
 ];
 
 export const getCalculator = (slug) => calculatorContent.find((c) => c.slug === slug);

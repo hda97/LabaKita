@@ -314,3 +314,27 @@ export function hargaSablon({ jumlah, hargaKaus, warna, biayaScreen, tintaPerKau
   const harga = perKaus / (1 - n(margin) / 100);
   return { totalBiaya: total, jamKerja: jam, biayaPerKaus: perKaus, hargaPerKaus: harga, totalHarga: harga * q };
 }
+
+/**
+ * Upah lembur (PP 35/2021). jenis: 'kerja' (hari kerja), 'libur6' / 'libur5'
+ * (hari istirahat mingguan atau libur resmi pada sistem 6 / 5 hari kerja).
+ * dasarUpah: upah sebulan yang dipakai (gaji pokok + tunjangan tetap).
+ */
+export function upahLembur({ dasarUpah, jenis = 'kerja', jam, hariPerBulan = 1 }) {
+  const u = n(dasarUpah);
+  const j = Math.max(0, Math.round(n(jam)));
+  if (u <= 0) return { error: 'Upah harus lebih dari 0.' };
+  const batas = { kerja: 4, libur6: 11, libur5: 12 }[jenis];
+  if (!batas) return { error: 'Jenis hari tidak dikenal.' };
+  if (j > batas) return { error: `Lembur maksimal ${batas} jam untuk jenis hari ini.` };
+  const tarif = (k) => {
+    if (jenis === 'kerja') return k === 1 ? 1.5 : 2;
+    if (jenis === 'libur6') return k <= 7 ? 2 : k === 8 ? 3 : 4;
+    return k <= 8 ? 2 : k === 9 ? 3 : 4;
+  };
+  let pengali = 0;
+  for (let k = 1; k <= j; k++) pengali += tarif(k);
+  const sejam = u / 173;
+  const perHari = pengali * sejam;
+  return { upahSejam: sejam, pengali, perHari, perBulan: perHari * Math.max(0, n(hariPerBulan)) };
+}

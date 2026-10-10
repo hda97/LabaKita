@@ -152,3 +152,16 @@ test('Harga sablon: 24 kaus 1 warna = Rp42.000 per kaus (contoh artikel)', () =>
   near(r.biayaPerKaus, 42000);
   near(r.hargaPerKaus, 64615.38);
 });
+
+test('Upah lembur: upah Rp5.190.000 → Rp30.000 per jam', () => {
+  // Hari kerja 3 jam: 1,5 + 2 + 2 = 5,5 × 30.000 = 165.000
+  const a = c.upahLembur({ dasarUpah: 5190000, jenis: 'kerja', jam: 3 });
+  near(a.upahSejam, 30000);
+  near(a.perHari, 165000);
+  // Libur, 6 hari kerja, 9 jam: 7×2 + 3 + 4 = 21 × 30.000 = 630.000
+  near(c.upahLembur({ dasarUpah: 5190000, jenis: 'libur6', jam: 9 }).perHari, 630000);
+  // Libur, 5 hari kerja, 9 jam: 8×2 + 3 = 19 × 30.000 = 570.000
+  near(c.upahLembur({ dasarUpah: 5190000, jenis: 'libur5', jam: 9 }).perHari, 570000);
+  near(c.upahLembur({ dasarUpah: 5190000, jenis: 'kerja', jam: 2, hariPerBulan: 10 }).perBulan, 1050000);
+  assert.ok(c.upahLembur({ dasarUpah: 5190000, jenis: 'kerja', jam: 5 }).error);
+});

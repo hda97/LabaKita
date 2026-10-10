@@ -342,6 +342,32 @@ export const calculators = {
       };
     },
   },
+
+  'kalkulator-lembur': {
+    fields: [
+      rp('dasarUpah', 'Upah sebulan (gaji pokok + tunjangan tetap)', 5190000),
+      select('jenis', 'Hari lembur', 'kerja', [
+        ['kerja', 'Hari kerja biasa'],
+        ['libur6', 'Hari libur / istirahat (sistem 6 hari kerja)'],
+        ['libur5', 'Hari libur / istirahat (sistem 5 hari kerja)'],
+      ]),
+      num('jam', 'Lama lembur', 3, { suffix: 'jam', min: 0, max: 12 }),
+      num('hariPerBulan', 'Berapa kali lembur seperti ini sebulan', 1, { suffix: 'kali', min: 0 }),
+    ],
+    compute(v) {
+      const r = c.upahLembur(v);
+      if (r.error) return r;
+      return {
+        rows: [
+          { label: 'Upah lembur per hari', value: r.perHari, kind: 'rp', main: true },
+          { label: 'Upah lembur sebulan', value: r.perBulan, kind: 'rp' },
+          { label: 'Upah sejam (1/173 upah sebulan)', value: r.upahSejam, kind: 'rp' },
+          { label: 'Total pengali', value: r.pengali, kind: 'int', suffix: '× upah sejam' },
+        ],
+        note: 'Bila upah terdiri dari gaji pokok dan tunjangan tidak tetap, dasar perhitungan minimal 75% dari total upah. Upah lembur menambah penghasilan bruto untuk PPh 21.',
+      };
+    },
+  },
 };
 
 const rupiah = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 });

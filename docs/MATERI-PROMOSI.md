@@ -15,11 +15,11 @@ Aturan utama dari workflow: **jangan spam tautan**. Satu jawaban yang benar-bena
 
 **Yang sudah disiapkan**
 
-- `public/pin/<halaman>-1.jpg`, `-2.jpg`, `-3.jpg`: 3 desain pin vertikal (1000×1500) untuk setiap kalkulator dan artikel, total 129 pin.
+- `public/pin/<halaman>-1.jpg`, `-2.jpg`, `-3.jpg`: 3 desain pin vertikal (1000×1500) untuk setiap kalkulator dan artikel, total 144 pin.
   - Variasi 1: hook + angka besar (contoh: "Hitung HPP dalam 2 menit — Rp9.000").
   - Variasi 2: judul + 3 poin isi.
   - Variasi 3: pertanyaan dari FAQ.
-- `data/materi-promosi/pinterest.csv`: daftar 129 pin (judul, URL gambar, papan, deskripsi, tautan) dalam format unggah massal Pinterest.
+- `data/materi-promosi/pinterest.csv`: daftar 144 pin (judul, URL gambar, papan, deskripsi, tautan) dalam format unggah massal Pinterest.
 - `public/og/<halaman>.png`: gambar pratinjau 1200×630 yang otomatis muncul saat tautan dibagikan di WhatsApp, Facebook, dan X.
 
 **Langkah**

@@ -213,5 +213,30 @@
     "hook": "Harga sablon per kaus yang pas",
     "angka": "Rp65.000",
     "label": "24 kaus satu warna, margin 35%"
+  },
+  "kalkulator-lembur": {
+    "hook": "Lembur 3 jam dibayar berapa?",
+    "angka": "Rp165.000",
+    "label": "upah Rp5,19 juta, lembur di hari kerja"
+  },
+  "cara-menghitung-upah-lembur": {
+    "hook": "Hitung lembur tanpa salah",
+    "angka": "1/173",
+    "label": "upah sejam dari upah sebulan"
+  },
+  "pt-perorangan-vs-cv": {
+    "hook": "PT perorangan atau CV?",
+    "angka": "Rp50.000",
+    "label": "biaya resmi mendirikan PT perorangan"
+  },
+  "gaji-pemilik-usaha": {
+    "hook": "Sudah menggaji diri sendiri?",
+    "angka": "Rp2,4 juta",
+    "label": "160 jam kerja × Rp15.000 per jam"
+  },
+  "usaha-hampers": {
+    "hook": "Hampers untung berapa?",
+    "angka": "Rp285.000",
+    "label": "harga paket dari HPP Rp185.000"
   }
 }
