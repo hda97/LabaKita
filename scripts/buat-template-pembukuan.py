@@ -40,7 +40,7 @@ rows = [
     ('Penjualan dicatat sebesar omzet kotor, sebelum dipotong biaya marketplace. Potongan dicatat sebagai pengeluaran.', NORMAL),
     ('PPh Final 0,5% mengikuti PP 55/2022 sebagaimana diubah PP 20/2026: orang pribadi tidak dikenai pajak atas omzet sampai Rp500 juta setahun.', NORMAL),
     ('Aturan pajak dapat berubah; cek pajak.go.id. Hasil adalah perkiraan, bukan nasihat pajak.', NORMAL),
-    ('Kalkulator dan panduan lainnya: https://labakita.pages.dev', NORMAL),
+    ('Kalkulator dan panduan lainnya: https://labakita.wjzyy9fpzd.workers.dev', NORMAL),
 ]
 for i, (text, font) in enumerate(rows, 1):
     c = ws.cell(i, 1, text)

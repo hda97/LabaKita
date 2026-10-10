@@ -3,9 +3,9 @@
 export default {
   name: 'LabaKita',
   tagline: 'Kalkulator & panduan usaha kecil dan keuangan pribadi',
-  // Ganti dengan domain sendiri setelah dibeli (tanpa garis miring di akhir).
+  // Alamat situs. Saat ini alamat Cloudflare Workers; ganti dengan domain sendiri setelah dibeli (tanpa garis miring di akhir).
   // Bisa ditimpa saat build dengan variabel lingkungan SITE_URL (misalnya untuk pratinjau Netlify).
-  url: process.env.SITE_URL || 'https://labakita.pages.dev',
+  url: process.env.SITE_URL || 'https://labakita.wjzyy9fpzd.workers.dev',
   // false = situs pratinjau: semua halaman diberi noindex dan robots.txt memblokir mesin pencari.
   // Ubah ke true (atau set SITE_INDEXABLE=true) setelah situs memakai domain final.
   indexable: process.env.SITE_INDEXABLE ? process.env.SITE_INDEXABLE === 'true' : false,
