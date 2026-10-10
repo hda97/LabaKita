@@ -4,6 +4,7 @@ import site from '../../site.config.mjs';
 import { calculatorContent } from '../data/calculator-content.js';
 import { pilar } from '../data/pilar.js';
 import { getArticles } from '../lib/content.js';
+import Card from '../components/Card.astro';
 
 const articles = await getArticles();
 const intiSlugs = ['kalkulator-hpp', 'kalkulator-harga-jual', 'kalkulator-bep', 'kalkulator-cicilan', 'kalkulator-gaji-bersih', 'kalkulator-pajak-umkm'];
@@ -27,41 +28,43 @@ const website = {
   description="Kalkulator HPP, harga jual, BEP, cicilan KUR, gaji bersih, dan pajak UMKM gratis, plus panduan praktis mengelola usaha kecil dengan contoh angka nyata."
   schema={[website]}
 >
-  <h1>Hitung usaha dengan benar, ambil keputusan dengan tenang</h1>
-  <p class="lead">
-    {site.name} membantu pemilik usaha kecil dan karyawan menghitung modal, harga jual, pinjaman, gaji, dan pajak, dengan kalkulator gratis dan panduan berisi contoh angka nyata.
-  </p>
+  <div class="wrap-wide" slot="wide">
+    <section class="hero">
+      <p class="kicker">Kalkulator &amp; panduan usaha kecil</p>
+      <h1>Hitung usaha dengan benar, ambil keputusan dengan tenang</h1>
+      <p class="lead">
+        {site.name} membantu pemilik usaha kecil dan karyawan menghitung modal, harga jual, pinjaman, gaji, dan pajak, dengan kalkulator gratis dan panduan berisi contoh angka nyata.
+      </p>
+      <p class="hero-cta">
+        <a class="btn btn-lg" href="/kalkulator/">Lihat {calculatorContent.length} kalkulator →</a>
+        <a class="btn btn-lg btn-outline" href="/hobi-jadi-usaha/">Mulai dari hobi</a>
+      </p>
+    </section>
 
-  <h2>Kalkulator paling sering dipakai</h2>
-  <ul class="cards">
+    <h2>Kalkulator paling sering dipakai</h2>
+    <ul class="cards">
+      {inti.map((c) => <Card slug={c.slug} title={c.nama} text={c.rumus.split('  ·  ')[0]} tag="Kalkulator" />)}
+    </ul>
+
     {
-      inti.map((c) => (
-        <li class="card">
-          <a href={`/${c.slug}/`}>{c.nama}</a>
-          <p>{c.rumus.split('  ·  ')[0]}</p>
-        </li>
-      ))
+      Object.entries(pilar).map(([id, p]) => {
+        const list = articles.filter((a) => a.data.pilar === id).slice(0, 3);
+        return (
+          <section>
+            <h2>
+              <a href={p.url}>{p.nama}</a>
+            </h2>
+            <ul class="cards">
+              {list.map((a) => (
+                <Card slug={a.id} title={a.data.h1} tag={p.nama} />
+              ))}
+            </ul>
+            <p>
+              <a href={p.url}>Semua artikel {p.nama} →</a>
+            </p>
+          </section>
+        );
+      })
     }
-  </ul>
-  <p><a class="btn" href="/kalkulator/">Lihat semua {calculatorContent.length} kalkulator</a></p>
-
-  {
-    Object.entries(pilar).map(([id, p]) => {
-      const list = articles.filter((a) => a.data.pilar === id).slice(0, 4);
-      return (
-        <section>
-          <h2>
-            <a href={p.url}>{p.nama}</a>
-          </h2>
-          <ul>
-            {list.map((a) => (
-              <li>
-                <a href={`/${a.id}/`}>{a.data.h1}</a>
-              </li>
-            ))}
-          </ul>
-        </section>
-      );
-    })
-  }
+  </div>
 </BaseLayout>

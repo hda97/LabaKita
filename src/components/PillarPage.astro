@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
+import Card from './Card.astro';
 import { pilar } from '../data/pilar.js';
 import { getArticles, calcBySlug } from '../lib/content.js';
 import { breadcrumbSchema } from '../lib/schema.js';
@@ -22,28 +23,18 @@ const crumbs = [
 ---
 
 <BaseLayout title={p.judul} description={p.deskripsi} schema={[breadcrumbSchema(crumbs)]}>
-  <Breadcrumbs items={crumbs} />
-  <h1>{p.nama}</h1>
-  <p class="lead">{p.deskripsi}</p>
-  <h2>Artikel</h2>
-  <ul class="cards">
-    {
-      articles.map((a) => (
-        <li class="card">
-          <a href={`/${a.id}/`}>{a.data.h1}</a>
-          <p>{a.data.description}</p>
-        </li>
-      ))
-    }
-  </ul>
-  <h2>Kalkulator yang dipakai di artikel ini</h2>
-  <ul class="cards">
-    {
-      calcs.map((c) => (
-        <li class="card">
-          <a href={`/${c.slug}/`}>{c.nama}</a>
-        </li>
-      ))
-    }
-  </ul>
+  <div class="wrap-wide" slot="wide">
+    <Breadcrumbs items={crumbs} />
+    <p class="kicker">Kategori · {articles.length} artikel</p>
+    <h1>{p.nama}</h1>
+    <p class="lead">{p.deskripsi}</p>
+    <h2>Artikel</h2>
+    <ul class="cards">
+      {articles.map((a) => <Card slug={a.id} title={a.data.h1} text={a.data.description} tag={p.nama} />)}
+    </ul>
+    <h2>Kalkulator yang dipakai di artikel ini</h2>
+    <ul class="cards">
+      {calcs.map((c) => <Card slug={c.slug} title={c.nama} text={c.intro.split('. ')[0] + '.'} tag="Kalkulator" />)}
+    </ul>
+  </div>
 </BaseLayout>

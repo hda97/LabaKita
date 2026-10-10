@@ -338,3 +338,20 @@ export function upahLembur({ dasarUpah, jenis = 'kerja', jam, hariPerBulan = 1 }
   const perHari = pengali * sejam;
   return { upahSejam: sejam, pengali, perHari, perBulan: perHari * Math.max(0, n(hariPerBulan)) };
 }
+
+/**
+ * Hitungan cepat usaha dari hobi: laba per bulan, margin, lama balik modal, dan penjualan minimum.
+ * biaya = biaya bahan & kemasan per unit; tetap = biaya tetap per bulan.
+ * status: 'rugi' (harga ≤ biaya), 'tipis' (margin < 30% atau laba bulanan ≤ 0), atau 'sehat'.
+ */
+export function labaHobi({ modal, harga, biaya, unit, tetap }) {
+  const h = n(harga);
+  if (h <= 0) return { error: 'Harga jual harus lebih dari 0.' };
+  const perUnit = h - n(biaya);
+  const labaBulanan = perUnit * n(unit) - n(tetap);
+  const margin = (perUnit / h) * 100;
+  const balikModalBulan = labaBulanan > 0 ? n(modal) / labaBulanan : null;
+  const minUnit = perUnit > 0 ? Math.ceil(n(tetap) / perUnit) : null;
+  const status = perUnit <= 0 ? 'rugi' : margin < 30 || labaBulanan <= 0 ? 'tipis' : 'sehat';
+  return { untungPerUnit: perUnit, labaBulanan, margin, balikModalBulan, minUnit, status };
+}

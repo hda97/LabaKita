@@ -16,6 +16,10 @@ npm run check      # validasi hasil build (tautan, meta, aturan internal link, j
 
 Butuh Node.js 22.12 atau lebih baru (lihat `.nvmrc`).
 
+## Tampilan
+
+Tipografi Source Serif 4 (judul) dan IBM Plex Sans/Mono (isi), warna hijau tunggal, mode gelap, dan tombol A−/A+ untuk ukuran teks. Semua token warna ada di awal `src/styles/global.css`. Pilihan tema, ukuran teks, artikel yang sudah dibaca, langkah yang dicentang, dan hasil kuis hanya disimpan di `localStorage` perangkat pembaca (tidak dikirim ke server).
+
 ## Mengubah identitas, Analytics, dan iklan
 
 Semua ada di **`site.config.mjs`**: nama situs, domain, email, ID Google Analytics 4, ID AdSense, saklar iklan, ID slot iklan, dan URL formulir newsletter. Nilai kosong berarti fiturnya mati. Lihat [docs/ADSENSE.md](docs/ADSENSE.md) untuk urutan pengisiannya.
@@ -37,6 +41,8 @@ Semua ada di **`site.config.mjs`**: nama situs, domain, email, ID Google Analyti
 | `assets/template-pembukuan-umkm.xlsx` | Template pembukuan untuk hadiah formulir email (Fase 6 & 9) |
 | `src/pages/embed/` | Kalkulator versi sematan untuk blog lain (backlink, Fase 5) |
 | `public/og/`, `public/pin/` | Gambar pratinjau tautan dan 144 pin Pinterest, dibuat `scripts/buat-gambar-sosial.cjs` |
+| `public/thumb/` | Thumbnail kartu artikel/kalkulator (WebP 480×252), dibuat `scripts/buat-thumbnail.py` dari `public/og/` |
+| `src/pages/hobi-jadi-usaha/index.astro`, `src/data/hobi.js` | Halaman Hobi Jadi Usaha: kuis, 7 langkah, kalkulator laba, dan saringan artikel per hobi |
 | `data/materi-promosi/` | Teks hook pin dan CSV unggah massal Pinterest |
 
 ## Dokumentasi

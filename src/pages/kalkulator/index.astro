@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Card from '../../components/Card.astro';
 import { calculatorContent, kategoriKalkulator } from '../../data/calculator-content.js';
 import { breadcrumbSchema } from '../../lib/schema.js';
 
@@ -25,26 +26,26 @@ const itemList = {
   description="Kalkulator gratis untuk usaha kecil dan keuangan pribadi: HPP, harga jual, BEP, modal usaha, cicilan KUR, pajak UMKM, gaji bersih, THR, zakat, dan lainnya."
   schema={[breadcrumbSchema(crumbs), itemList]}
 >
-  <Breadcrumbs items={crumbs} />
-  <h1>Kalkulator Usaha &amp; Keuangan</h1>
-  <p class="lead">
-    Semua kalkulator gratis, tanpa daftar, dan langsung menghitung di perangkatmu. Setiap kalkulator dilengkapi rumus, contoh angka, dan panduan terkait.
-  </p>
-  {
-    kategoriKalkulator.map((k) => (
-      <section>
-        <h2>{k.nama}</h2>
-        <ul class="cards">
-          {calculatorContent
-            .filter((c) => c.kategori === k.id)
-            .map((c) => (
-              <li class="card">
-                <a href={`/${c.slug}/`}>{c.nama}</a>
-                <p>{c.intro.split('. ')[0]}.</p>
-              </li>
-            ))}
-        </ul>
-      </section>
-    ))
-  }
+  <div class="wrap-wide" slot="wide">
+    <Breadcrumbs items={crumbs} />
+    <p class="kicker">{calculatorContent.length} kalkulator · gratis, tanpa daftar</p>
+    <h1>Kalkulator Usaha &amp; Keuangan</h1>
+    <p class="lead">
+      Semua kalkulator gratis, tanpa daftar, dan langsung menghitung di perangkatmu. Setiap kalkulator dilengkapi rumus, contoh angka, dan panduan terkait.
+    </p>
+    {
+      kategoriKalkulator.map((k) => (
+        <section>
+          <h2>{k.nama}</h2>
+          <ul class="cards">
+            {calculatorContent
+              .filter((c) => c.kategori === k.id)
+              .map((c) => (
+                <Card slug={c.slug} title={c.nama} text={`${c.intro.split('. ')[0]}.`} tag={k.nama} />
+              ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
 </BaseLayout>

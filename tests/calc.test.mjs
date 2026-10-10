@@ -165,3 +165,19 @@ test('Upah lembur: upah Rp5.190.000 → Rp30.000 per jam', () => {
   near(c.upahLembur({ dasarUpah: 5190000, jenis: 'kerja', jam: 2, hariPerBulan: 10 }).perBulan, 1050000);
   assert.ok(c.upahLembur({ dasarUpah: 5190000, jenis: 'kerja', jam: 5 }).error);
 });
+
+test('Laba hobi: (25.000 − 14.000) × 120 − 200.000 = 1.120.000; balik modal 1.500.000 / 1.120.000 bulan', () => {
+  const r = c.labaHobi({ modal: 1500000, harga: 25000, biaya: 14000, unit: 120, tetap: 200000 });
+  assert.equal(r.untungPerUnit, 11000);
+  assert.equal(r.labaBulanan, 1120000);
+  near(r.margin, 44);
+  near(r.balikModalBulan, 1500000 / 1120000);
+  assert.equal(r.minUnit, 19); // 200.000 / 11.000 = 18,2 → 19 unit
+  assert.equal(r.status, 'sehat');
+  const rugi = c.labaHobi({ modal: 1000, harga: 10000, biaya: 12000, unit: 10, tetap: 0 });
+  assert.equal(rugi.status, 'rugi');
+  assert.equal(rugi.minUnit, null);
+  assert.equal(rugi.balikModalBulan, null);
+  assert.equal(c.labaHobi({ modal: 0, harga: 10000, biaya: 8000, unit: 10, tetap: 0 }).status, 'tipis');
+  assert.ok(c.labaHobi({ modal: 0, harga: 0, biaya: 0, unit: 0, tetap: 0 }).error);
+});

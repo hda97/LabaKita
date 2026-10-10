@@ -11,19 +11,19 @@ const { slug, nama } = Astro.props;
 // Tinggi iframe diukur dari halaman sematan di lebar 320 px (layar HP tersempit) + cadangan 60 px.
 // Ukur ulang bila input atau teks kalkulator berubah.
 const HEIGHTS: Record<string, number> = {
-  'kalkulator-hpp': 860,
-  'kalkulator-harga-jual': 870,
+  'kalkulator-hpp': 870,
+  'kalkulator-harga-jual': 940,
   'kalkulator-bep': 1070,
   'kalkulator-cicilan': 970,
   'kalkulator-gaji-bersih': 1660,
   'kalkulator-thr': 720,
-  'kalkulator-zakat-penghasilan': 820,
+  'kalkulator-zakat-penghasilan': 840,
   'kalkulator-pajak-umkm': 960,
-  'kalkulator-dana-darurat': 890,
+  'kalkulator-dana-darurat': 900,
   'kalkulator-modal-usaha': 1360,
   'kalkulator-pesangon': 1440,
-  'kalkulator-deposito': 1070,
-  'kalkulator-harga-sablon': 1720,
+  'kalkulator-deposito': 1080,
+  'kalkulator-harga-sablon': 1760,
   'kalkulator-lembur': 1170
 };
 const height = HEIGHTS[slug] ?? 1200;

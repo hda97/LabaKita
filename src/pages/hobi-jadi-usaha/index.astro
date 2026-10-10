@@ -1,5 +1,1042 @@
 ---
-import PillarPage from '../../components/PillarPage.astro';
+// Halaman pilar Hobi Jadi Usaha: kuis, 7 langkah, kalkulator laba, dan daftar artikel per hobi.
+// Semua isi tampil sebagai HTML statis; JavaScript hanya menambah interaksi dan progres di perangkat.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Card from '../../components/Card.astro';
+import { pilar } from '../../data/pilar.js';
+import { kategoriHobi, artikelHobi, unggulan, sampingan, kuis, ideHobi, mulaiDengan, ritme, langkah } from '../../data/hobi.js';
+import { getArticles } from '../../lib/content.js';
+import { breadcrumbSchema } from '../../lib/schema.js';
+import { labaHobi } from '../../lib/calc.js';
+import { formatRupiah } from '../../lib/calculators.js';
+
+const p = pilar.hobi;
+const articles = await getArticles();
+const byId = (id: string) => {
+  const a = articles.find((x) => x.id === id);
+  if (!a) throw new Error(`Halaman hobi menautkan artikel yang belum terbit: ${id}`);
+  return a;
+};
+const menit = (a: any) => Math.max(3, Math.round((a.body ?? '').split(/\s+/).length / 200));
+const jumlahPilar = articles.filter((a) => a.data.pilar === 'hobi').length;
+
+// Artikel pilar hobi yang belum dimasukkan ke kategori hobi mana pun tetap tampil (di "Dasar usaha").
+const sudah = new Set(Object.values(artikelHobi).flat());
+const sisa = articles.filter((a) => a.data.pilar === 'hobi' && !sudah.has(a.id)).map((a) => a.id);
+const grid = kategoriHobi.flatMap((k) =>
+  [...artikelHobi[k.id], ...(k.id === 'dasar' ? sisa : [])].map((id) => ({ a: byId(id), k })),
+);
+const featured = byId(unggulan);
+const side = sampingan.map(byId);
+const namaHobi = (id: string) => kategoriHobi.find((k) => grid.some((g) => g.a.id === id && g.k === k))?.nama ?? p.nama;
+
+// Data kuis untuk skrip: judul artikel dipakai di hasil rekomendasi.
+const kuisData = {
+  ide: ideHobi,
+  mulai: mulaiDengan,
+  ritme,
+  judul: Object.fromEntries(
+    Object.values(ideHobi)
+      .flatMap((i) => i.baca)
+      .map((id) => [id, byId(id).data.h1]),
+  ),
+  label: Object.fromEntries(kuis[0].pilihan),
+  grid: grid.map((g) => [g.a.id, g.a.data.h1]),
+};
+
+const fields = [
+  { name: 'modal', label: 'Modal awal', prefix: 'Rp', value: 1500000 },
+  { name: 'harga', label: 'Harga jual per unit', prefix: 'Rp', value: 25000 },
+  { name: 'biaya', label: 'Biaya bahan & kemasan per unit', prefix: 'Rp', value: 14000 },
+  { name: 'unit', label: 'Perkiraan terjual per bulan', suffix: 'unit', value: 120 },
+  { name: 'tetap', label: 'Biaya tetap per bulan', prefix: 'Rp', value: 200000, hint: 'Internet, listrik tambahan, iklan' },
+];
+const awal = labaHobi(Object.fromEntries(fields.map((f) => [f.name, f.value])) as any) as any;
+const balik = (b: number | null) => (b === null ? 'Belum tercapai' : b < 1 ? 'Kurang dari 1 bulan' : `${b.toFixed(1).replace('.', ',')} bulan`);
+const tips = {
+  rugi: 'Harga jual masih di bawah biaya per unit. Naikkan harga atau cari bahan yang lebih hemat sebelum mulai.',
+  tipis: 'Marginnya tipis. Coba naikkan harga sedikit, atau hitung ulang biaya kemasan dan ongkos yang tersembunyi.',
+  sehat: 'Angkanya sehat. Mulai dari jumlah kecil dulu, lalu tambah produksi setelah pesanan stabil.',
+};
+
+const crumbs = [
+  { name: 'Beranda', href: '/' },
+  { name: p.nama, href: p.url },
+];
+const itemList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: grid.map((g, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: g.a.data.h1,
+    url: new URL(`/${g.a.id}/`, Astro.site).href,
+  })),
+};
+const toc = [
+  ['mulai', 'Mulai'],
+  ['kuis', 'Kuis'],
+  ['langkah', '7 langkah'],
+  ['kalkulator', 'Kalkulator'],
+  ['artikel', 'Artikel'],
+  ['lanjut', 'Baca berikutnya'],
+];
 ---
 
-<PillarPage id="hobi" />
+<BaseLayout title={p.judul} description={p.deskripsi} schema={[breadcrumbSchema(crumbs), itemList]}>
+  <div slot="wide" class="hb">
+    <nav class="hb-toc" aria-label="Daftar isi halaman">
+      <div class="wrap-wide hb-toc-row">
+        <span class="hb-toc-label">Daftar isi</span>
+        {toc.map(([id, label]) => <a href={`#${id}`} data-toc={id}>{label}</a>)}
+      </div>
+    </nav>
+
+    <section id="mulai" class="wrap-wide hb-hero">
+      <div>
+        <Breadcrumbs items={crumbs} />
+        <p class="kicker">Kategori · {jumlahPilar} artikel</p>
+        <h1>Hobi jadi usaha, satu langkah kecil tiap minggu.</h1>
+        <p class="lead">
+          Panduan praktis untuk pemula, ibu rumah tangga, dan karyawan yang ingin hobinya menghasilkan. Mulai dari kuis singkat, ikuti tujuh langkahnya, dan hitung untungmu sebelum keluar modal.
+        </p>
+        <p class="hb-cta">
+          <a class="btn btn-lg" href="#kuis">Ikuti kuis 2 menit →</a>
+          <a class="btn btn-lg btn-outline" href="#langkah">Lihat 7 langkah</a>
+        </p>
+      </div>
+      <aside class="hb-panel" aria-label="Progres belajarmu">
+        <div class="hb-panel-head">
+          <span class="hb-label">Progres belajarmu</span>
+          <span class="hb-small">tersimpan di perangkat ini</span>
+        </div>
+        <p class="hb-big"><span data-read-count>0</span> <span class="hb-small">dari {grid.length} artikel dibaca</span></p>
+        <div class="hb-bar"><span data-read-bar></span></div>
+        <dl class="hb-stats">
+          <div><dt>Langkah selesai</dt><dd><span data-done-count>0</span> / {langkah.length}</dd></div>
+          <div><dt>Hasil kuis</dt><dd data-quiz-badge>Belum diisi</dd></div>
+        </dl>
+        <p class="hb-small hb-next-label">Lanjutkan membaca</p>
+        <a class="hb-next" href={`/${grid[0].a.id}/`} data-next>{grid[0].a.data.h1} <span aria-hidden="true">→</span></a>
+      </aside>
+    </section>
+
+    <section class="wrap-wide hb-featured" aria-labelledby="unggulan">
+      <article class="hb-feat">
+        <a class="thumb" href={`/${featured.id}/`} tabindex="-1" aria-hidden="true">
+          <img src={`/thumb/${featured.id}.webp`} alt="" width="480" height="252" loading="lazy" decoding="async" />
+        </a>
+        <div>
+          <p class="card-tag">Pilihan editor · {namaHobi(featured.id)}</p>
+          <h2 id="unggulan"><a href={`/${featured.id}/`}>{featured.data.h1}</a></h2>
+          <p class="hb-muted">{featured.data.description}</p>
+          <p class="hb-small">{menit(featured)} menit baca</p>
+        </div>
+      </article>
+      <ul class="hb-side">
+        {
+          side.map((a) => (
+            <li>
+              <p class="card-tag">{namaHobi(a.id)}</p>
+              <h3>
+                <a href={`/${a.id}/`}>{a.data.h1}</a>
+              </h3>
+              <p class="hb-small">{menit(a)} menit baca</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section id="kuis" class="hb-band hb-quiz-band">
+      <div class="hb-narrow">
+        <p class="kicker">Kuis · 3 pertanyaan</p>
+        <h2>Hobimu cocok jadi usaha apa?</h2>
+        <form class="hb-quiz" data-quiz novalidate onsubmit="return false">
+          {
+            kuis.map((q, i) => (
+              <fieldset data-q={i}>
+                <legend>
+                  <span class="hb-label">
+                    Pertanyaan {i + 1} dari {kuis.length}
+                  </span>
+                  <span class="hb-q">{q.judul}</span>
+                </legend>
+                <div class="hb-options">
+                  {q.pilihan.map(([value, label]) => (
+                    <label class="hb-option">
+                      <input type="radio" name={q.key} value={value} required />
+                      <span>{label}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+            ))
+          }
+          <p class="hb-quiz-actions">
+            <button class="btn btn-outline" type="button" data-quiz-back hidden>← Kembali</button>
+            <button class="btn" type="submit" data-quiz-submit>Lihat rekomendasi</button>
+          </p>
+          <p class="hb-small" data-quiz-msg aria-live="polite"></p>
+        </form>
+        <div class="hb-result" data-quiz-result hidden tabindex="-1"></div>
+        <noscript><p class="hb-small">Kuis butuh JavaScript. Tanpa kuis, kamu tetap bisa memilih artikel sesuai hobi di bagian Artikel.</p></noscript>
+      </div>
+    </section>
+
+    <section id="langkah" class="wrap-wide hb-steps">
+      <div>
+        <p class="kicker">Panduan · {langkah.length} langkah</p>
+        <h2>Dari hobi ke penjualan pertama.</h2>
+        <p class="hb-muted">
+          Tandai setiap langkah yang sudah kamu kerjakan. Progresnya tersimpan di perangkat ini, jadi kamu bisa kembali minggu depan dan lanjut dari sini.
+        </p>
+        <p class="hb-big"><span><span data-done-pct>0</span>%</span> <span class="hb-small">selesai</span></p>
+        <div class="hb-bar hb-bar-short"><span data-done-bar></span></div>
+        <p class="hb-small" data-step-msg>Berikutnya: {langkah[0][0].toLowerCase()}.</p>
+      </div>
+      <ol class="hb-step-list">
+        {
+          langkah.map(([judul, isi], i) => (
+            <li data-step={i}>
+              <button type="button" class="hb-check" aria-pressed="false" aria-label={`Tandai langkah ${i + 1} selesai: ${judul}`}>
+                <span aria-hidden="true">{i + 1}</span>
+              </button>
+              <div>
+                <p class="hb-label">Langkah {i + 1}</p>
+                <h3>{judul}</h3>
+                <p class="hb-muted" set:html={isi} />
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section id="kalkulator" class="hb-band hb-calc-band">
+      <div class="wrap-wide">
+        <p class="kicker">Kalkulator</p>
+        <h2>Berapa untungnya, kapan balik modal?</h2>
+        <form class="calc hb-calc" data-laba novalidate onsubmit="return false">
+          <div class="calc-fields">
+            {
+              fields.map((f) => (
+                <div class="field">
+                  <label for={`hb-${f.name}`}>{f.label}</label>
+                  <div class="input-row">
+                    {f.prefix && <span class="prefix">{f.prefix}</span>}
+                    <input id={`hb-${f.name}`} name={f.name} type="number" inputmode="numeric" min="0" step="any" value={f.value} />
+                    {f.suffix && <span class="suffix">{f.suffix}</span>}
+                  </div>
+                  {f.hint && <span class="hint">{f.hint}</span>}
+                </div>
+              ))
+            }
+          </div>
+          <section class="result" aria-live="polite" aria-labelledby="hb-hasil">
+            <h3 id="hb-hasil">Perkiraan laba bersih per bulan</h3>
+            <p class="hb-profit" data-out="laba" data-status={awal.status}>{formatRupiah(awal.labaBulanan)}</p>
+            <dl>
+              <div class="row"><dt>Untung per unit</dt><dd data-out="unit">{formatRupiah(awal.untungPerUnit)}</dd></div>
+              <div class="row"><dt>Margin</dt><dd data-out="margin">{Math.round(awal.margin)}%</dd></div>
+              <div class="row"><dt>Balik modal</dt><dd data-out="balik">{balik(awal.balikModalBulan)}</dd></div>
+              <div class="row"><dt>Minimal terjual agar tidak rugi</dt><dd data-out="min">{awal.minUnit} unit/bulan</dd></div>
+            </dl>
+            <p class="result-note" data-out="tip">{tips[awal.status as keyof typeof tips]}</p>
+          </section>
+        </form>
+        <p class="hb-small">
+          Perlu lebih rinci? Pakai <a href="/kalkulator-hpp/">kalkulator HPP</a>, <a href="/kalkulator-bep/">kalkulator BEP</a>, dan <a href="/kalkulator-modal-usaha/">kalkulator modal usaha</a>.
+        </p>
+      </div>
+    </section>
+
+    <section id="artikel" class="wrap-wide hb-articles">
+      <div class="hb-articles-head">
+        <div>
+          <p class="kicker">Semua artikel</p>
+          <h2>Pilih berdasarkan hobimu.</h2>
+        </div>
+        <button type="button" class="hb-chip" data-unread aria-pressed="false">Sembunyikan yang sudah dibaca</button>
+      </div>
+      <div class="hb-filters" role="group" aria-label="Saring artikel menurut hobi">
+        <button type="button" class="hb-chip" data-filter="semua" aria-pressed="true">Semua <span>{grid.length}</span></button>
+        {
+          kategoriHobi.map((k) => (
+            <button type="button" class="hb-chip" data-filter={k.id} aria-pressed="false">
+              {k.nama} <span>{grid.filter((g) => g.k.id === k.id).length}</span>
+            </button>
+          ))
+        }
+      </div>
+      <ul class="cards" data-grid>
+        {
+          grid.map(({ a, k }) => (
+            <Card slug={a.id} title={a.data.h1} text={a.data.description} tag={`${k.nama} · ${menit(a)} mnt`} attrs={{ 'data-hobi': k.id }} />
+          ))
+        }
+      </ul>
+      <p class="hb-muted" data-empty hidden>Semua artikel di kategori ini sudah kamu baca. Coba kategori lain, atau pakai kalkulator untuk menghitung rencanamu.</p>
+    </section>
+
+    <section id="lanjut" class="wrap-wide hb-more">
+      <p class="kicker">Baca berikutnya</p>
+      <h2>Kategori yang sering dibaca setelah ini</h2>
+      <ul class="hb-more-list">
+        <li>
+          <a href="/kalkulator/"><strong>Kalkulator →</strong><span>HPP, harga jual, BEP, modal usaha, dan kalkulator lain untuk menghitung sebelum membeli bahan.</span></a>
+        </li>
+        <li>
+          <a href={pilar.panduan.url}><strong>{pilar.panduan.nama} →</strong><span>NIB, PIRT, QRIS, pajak UMKM, dan cara berjualan di marketplace.</span></a>
+        </li>
+        <li>
+          <a href={pilar.modal.url}><strong>{pilar.modal.nama} →</strong><span>Arus kas, pinjaman yang aman, KUR, dan gaji untuk diri sendiri.</span></a>
+        </li>
+      </ul>
+    </section>
+
+    <script type="application/json" id="hb-data" set:html={JSON.stringify(kuisData)} />
+  </div>
+</BaseLayout>
+
+<script>
+  import { labaHobi } from '../../lib/calc.js';
+  import { formatRupiah } from '../../lib/calculators.js';
+
+  const KEY = 'lk-hobi';
+  const data = JSON.parse(document.getElementById('hb-data')!.textContent!);
+  const esc = (s: string) =>
+    String(s).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]!);
+  const load = <T,>(k: string, d: T): T => {
+    try {
+      return JSON.parse(localStorage.getItem(k) || 'null') ?? d;
+    } catch {
+      return d;
+    }
+  };
+  const save = (k: string, v: unknown) => {
+    try {
+      localStorage.setItem(k, JSON.stringify(v));
+    } catch {}
+  };
+  const state = load<{ done: number[]; quiz: Record<string, string> | null }>(KEY, { done: [], quiz: null });
+  if (!Array.isArray(state.done)) state.done = [];
+  const read: string[] = load('lk-dibaca', []);
+  const $ = <T extends Element = HTMLElement>(s: string) => document.querySelector<T>(s)!;
+
+  // ---- Progres di panel hero
+  const gridIds: string[] = data.grid.map((g: string[]) => g[0]);
+  const readHere = gridIds.filter((id) => read.includes(id));
+  $('[data-read-count]').textContent = String(readHere.length);
+  $<HTMLElement>('[data-read-bar]').style.width = `${(readHere.length / gridIds.length) * 100}%`;
+  const next = data.grid.find((g: string[]) => !read.includes(g[0]));
+  const nextEl = $<HTMLAnchorElement>('[data-next]');
+  if (next) {
+    nextEl.href = `/${next[0]}/`;
+    nextEl.innerHTML = `${esc(next[1])} <span aria-hidden="true">→</span>`;
+  } else {
+    nextEl.href = '#lanjut';
+    nextEl.innerHTML = 'Semua sudah dibaca. Lihat kategori lain <span aria-hidden="true">→</span>';
+  }
+
+  // ---- Tujuh langkah
+  const steps = [...document.querySelectorAll<HTMLElement>('[data-step]')];
+  const renderSteps = () => {
+    steps.forEach((li, i) => {
+      const on = state.done.includes(i);
+      li.classList.toggle('done', on);
+      li.querySelector('button')!.setAttribute('aria-pressed', String(on));
+      li.querySelector('.hb-check span')!.textContent = on ? '✓' : String(i + 1);
+    });
+    const n = state.done.length;
+    const pct = Math.round((n / steps.length) * 100);
+    $('[data-done-count]').textContent = String(n);
+    $('[data-done-pct]').textContent = String(pct);
+    $<HTMLElement>('[data-done-bar]').style.width = `${pct}%`;
+    const open = steps.findIndex((_, i) => !state.done.includes(i));
+    $('[data-step-msg]').textContent =
+      open < 0 ? 'Semua langkah selesai. Saatnya menambah kanal jualan kedua.' : `Berikutnya: ${steps[open].querySelector('h3')!.textContent!.toLowerCase()}.`;
+  };
+  steps.forEach((li, i) =>
+    li.querySelector('button')!.addEventListener('click', () => {
+      state.done = state.done.includes(i) ? state.done.filter((x) => x !== i) : [...state.done, i].sort();
+      save(KEY, state);
+      renderSteps();
+    }),
+  );
+  renderSteps();
+
+  // ---- Kuis: satu pertanyaan per layar
+  const form = $<HTMLFormElement>('[data-quiz]');
+  const sets = [...form.querySelectorAll<HTMLFieldSetElement>('fieldset')];
+  const back = $<HTMLButtonElement>('[data-quiz-back]');
+  const submit = $<HTMLButtonElement>('[data-quiz-submit]');
+  const result = $<HTMLElement>('[data-quiz-result]');
+  const badge = $('[data-quiz-badge]');
+  let current = 0;
+  form.classList.add('stepped');
+  const show = (i: number) => {
+    current = i;
+    sets.forEach((s, j) => (s.hidden = j !== i));
+    back.hidden = i === 0;
+    submit.hidden = i < sets.length - 1;
+  };
+  const value = (k: string) => (form.elements.namedItem(k) as RadioNodeList).value;
+  const renderResult = (q: Record<string, string>) => {
+    const I = data.ide[q.hobi];
+    if (!I) return false;
+    const m = Number(q.modal);
+    const w = Number(q.waktu);
+    result.innerHTML = `
+      <p class="kicker">Rekomendasi untukmu</p>
+      <h3 class="hb-idea">${esc(I.ide[m])}</h3>
+      <p class="hb-muted">${esc(I.alasan)}</p>
+      <dl class="hb-reco">
+        <div><dt>Mulai dengan</dt><dd>${esc(data.mulai[m])}</dd></div>
+        <div><dt>Ritme kerja</dt><dd>${esc(data.ritme[w])}</dd></div>
+      </dl>
+      <p class="hb-small">Baca dulu:</p>
+      <ul class="hb-reads">${I.baca.map((id: string) => `<li><a href="/${id}/">${esc(data.judul[id])} <span aria-hidden="true">→</span></a></li>`).join('')}</ul>
+      <p class="hb-quiz-actions">
+        <a class="btn" href="#kalkulator">Hitung untungnya →</a>
+        <button class="btn btn-outline" type="button" data-quiz-reset>Ulangi kuis</button>
+      </p>`;
+    result.hidden = false;
+    form.hidden = true;
+    badge.textContent = data.label[q.hobi];
+    result.querySelector('[data-quiz-reset]')!.addEventListener('click', () => {
+      state.quiz = null;
+      save(KEY, state);
+      form.reset();
+      form.hidden = false;
+      result.hidden = true;
+      badge.textContent = 'Belum diisi';
+      show(0);
+      (sets[0].querySelector('input') as HTMLInputElement).focus();
+    });
+    return true;
+  };
+  form.addEventListener('change', (e) => {
+    const t = e.target as HTMLInputElement;
+    const i = sets.findIndex((s) => s.contains(t));
+    if (i < sets.length - 1) {
+      show(i + 1);
+      (sets[i + 1].querySelector('input') as HTMLInputElement).focus();
+    }
+  });
+  back.addEventListener('click', () => show(Math.max(0, current - 1)));
+  form.addEventListener('submit', () => {
+    const q = { hobi: value('hobi'), modal: value('modal'), waktu: value('waktu') };
+    const missing = sets.findIndex((s) => !s.querySelector('input:checked'));
+    if (missing >= 0) {
+      show(missing);
+      $('[data-quiz-msg]').textContent = 'Pilih salah satu jawaban dulu.';
+      return;
+    }
+    $('[data-quiz-msg]').textContent = '';
+    state.quiz = q;
+    save(KEY, state);
+    renderResult(q);
+    result.focus();
+  });
+  show(0);
+  if (state.quiz && !renderResult(state.quiz)) state.quiz = null;
+
+  // ---- Kalkulator laba
+  const calc = $<HTMLFormElement>('[data-laba]');
+  const TIPS: Record<string, string> = {
+    rugi: 'Harga jual masih di bawah biaya per unit. Naikkan harga atau cari bahan yang lebih hemat sebelum mulai.',
+    tipis: 'Marginnya tipis. Coba naikkan harga sedikit, atau hitung ulang biaya kemasan dan ongkos yang tersembunyi.',
+    sehat: 'Angkanya sehat. Mulai dari jumlah kecil dulu, lalu tambah produksi setelah pesanan stabil.',
+  };
+  const out = (k: string) => calc.querySelector<HTMLElement>(`[data-out="${k}"]`)!;
+  const updateCalc = () => {
+    const v = (k: string) => Number((calc.elements.namedItem(k) as HTMLInputElement).value) || 0;
+    const r: any = labaHobi({ modal: v('modal'), harga: v('harga'), biaya: v('biaya'), unit: v('unit'), tetap: v('tetap') });
+    if (r.error) {
+      out('laba').textContent = '–';
+      out('laba').dataset.status = 'rugi';
+      out('tip').textContent = r.error;
+      ['unit', 'margin', 'balik', 'min'].forEach((k) => (out(k).textContent = '–'));
+      return;
+    }
+    out('laba').textContent = formatRupiah(r.labaBulanan);
+    out('laba').dataset.status = r.status;
+    out('unit').textContent = formatRupiah(r.untungPerUnit);
+    out('margin').textContent = `${Math.round(r.margin)}%`;
+    out('balik').textContent =
+      r.balikModalBulan === null ? 'Belum tercapai' : r.balikModalBulan < 1 ? 'Kurang dari 1 bulan' : `${r.balikModalBulan.toFixed(1).replace('.', ',')} bulan`;
+    out('min').textContent = r.minUnit === null ? 'Tidak tercapai' : `${r.minUnit} unit/bulan`;
+    out('tip').textContent = TIPS[r.status];
+  };
+  calc.addEventListener('input', updateCalc);
+  updateCalc();
+
+  // ---- Saring artikel
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-grid] .card')];
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+  const unreadBtn = $<HTMLButtonElement>('[data-unread]');
+  let filter = 'semua';
+  let unreadOnly = false;
+  const applyFilter = () => {
+    let shown = 0;
+    cards.forEach((c) => {
+      const ok = (filter === 'semua' || c.dataset.hobi === filter) && !(unreadOnly && read.includes(c.dataset.slug!));
+      c.hidden = !ok;
+      if (ok) shown++;
+    });
+    chips.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filter === filter)));
+    unreadBtn.setAttribute('aria-pressed', String(unreadOnly));
+    $<HTMLElement>('[data-empty]').hidden = shown > 0;
+  };
+  chips.forEach((b) =>
+    b.addEventListener('click', () => {
+      filter = b.dataset.filter!;
+      applyFilter();
+    }),
+  );
+  unreadBtn.addEventListener('click', () => {
+    unreadOnly = !unreadOnly;
+    applyFilter();
+  });
+
+  // ---- Daftar isi: sorot bagian yang sedang dibaca
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-toc]')];
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        links.forEach((l) => (l.dataset.toc === en.target.id ? l.setAttribute('aria-current', 'true') : l.removeAttribute('aria-current')));
+      });
+    },
+    { rootMargin: '-45% 0px -50% 0px' },
+  );
+  links.forEach((l) => {
+    const s = document.getElementById(l.dataset.toc!);
+    if (s) io.observe(s);
+  });
+</script>
+
+<style>
+  .hb h2 {
+    font-size: clamp(2rem, 4.4vw, 3rem);
+    line-height: 1.08;
+    margin: 0 0 20px;
+  }
+  .hb section {
+    scroll-margin-top: 64px;
+  }
+  .hb-toc {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    margin-top: -24px;
+  }
+  .hb-toc-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .hb-toc-label {
+    font: 500 0.6875rem var(--mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-right: 12px;
+  }
+  .hb-toc a {
+    display: block;
+    padding: 14px 12px;
+    font-size: 0.875rem;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+  }
+  .hb-toc a[aria-current] {
+    color: var(--ink);
+    font-weight: 600;
+    border-bottom-color: var(--accent);
+  }
+  .hb-label {
+    display: block;
+    font: 500 0.6875rem var(--mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 6px;
+  }
+  .hb-small {
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+  .hb-muted {
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .hb-big {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 0 0 10px;
+    font: 600 3rem/1 var(--serif);
+  }
+  .hb-big .hb-small {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.9375rem;
+  }
+  .hb-bar {
+    height: 6px;
+    background: var(--soft);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .hb-bar span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    transition: width 0.3s;
+  }
+  .hb-bar-short {
+    max-width: 360px;
+  }
+
+  /* Hero */
+  .hb-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    gap: 40px;
+    align-items: end;
+    padding-top: 24px;
+    padding-bottom: 48px;
+  }
+  .hb-hero > div,
+  .hb-hero > aside {
+    min-width: 0;
+  }
+  .hb-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+  }
+  .hb-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 28px 0 0;
+  }
+  .hb-panel {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 28px;
+  }
+  .hb-panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .hb-panel-head .hb-label {
+    margin: 0;
+  }
+  .hb-stats {
+    margin: 20px 0 0;
+  }
+  .hb-stats div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 0.875rem;
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+  }
+  .hb-stats dt {
+    color: var(--muted);
+  }
+  .hb-stats dd {
+    margin: 0;
+    font-weight: 600;
+    text-align: right;
+  }
+  .hb-next-label {
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    margin: 4px 0 6px;
+  }
+  .hb-next {
+    font: 600 1.2rem/1.3 var(--serif);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .hb-next span {
+    color: var(--accent);
+  }
+
+  /* Unggulan */
+  .hb-featured {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding-bottom: 72px;
+  }
+  .hb-featured::before {
+    content: '';
+    flex-basis: 100%;
+    border-top: 1px solid var(--ink);
+    margin-bottom: -4px;
+  }
+  .hb-feat {
+    flex: 2 1 560px;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 24px;
+    align-items: center;
+  }
+  .hb-feat .thumb {
+    display: block;
+    aspect-ratio: 1200 / 630;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .hb-feat img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hb .hb-feat h2 {
+    font-size: clamp(1.75rem, 3.2vw, 2.375rem);
+    line-height: 1.1;
+    margin: 0 0 14px;
+  }
+  .hb-feat h2 a,
+  .hb-side a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .hb-feat h2 a:hover,
+  .hb-side a:hover {
+    color: var(--accent);
+  }
+  .card-tag {
+    font: 500 0.6875rem var(--mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+  .hb-side {
+    flex: 1 1 280px;
+    min-width: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .hb-side li {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hb-side h3 {
+    font-size: 1.3rem;
+    line-height: 1.25;
+    margin: 0 0 8px;
+  }
+  .hb-side .hb-small {
+    margin: 0;
+  }
+
+  /* Pita berwarna */
+  .hb-band {
+    padding: 72px 16px;
+  }
+  .hb-quiz-band {
+    background: var(--accent-soft);
+  }
+  .hb-calc-band {
+    background: var(--soft);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .hb-narrow {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  /* Kuis */
+  .hb-quiz,
+  .hb-result {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: clamp(20px, 4vw, 44px);
+  }
+  .hb-quiz fieldset {
+    border: 0;
+    margin: 0 0 24px;
+    padding: 0;
+    min-width: 0;
+  }
+  .hb-quiz.stepped fieldset {
+    margin-bottom: 8px;
+  }
+  .hb-quiz legend {
+    padding: 0;
+    margin-bottom: 18px;
+  }
+  .hb-q {
+    display: block;
+    font: 600 1.6rem/1.25 var(--serif);
+  }
+  .hb-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+    gap: 10px;
+  }
+  .hb-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 56px;
+    padding: 12px 16px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .hb-option:hover,
+  .hb-option:has(input:checked) {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .hb-option input {
+    accent-color: var(--accent);
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    flex: none;
+  }
+  .hb-quiz-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 16px 0 0;
+  }
+  .hb-result:focus {
+    outline: none;
+  }
+  .hb-result :global(.hb-idea) {
+    font-size: clamp(1.75rem, 3.6vw, 2.5rem);
+    line-height: 1.1;
+    margin: 0 0 14px;
+  }
+  .hb-result :global(.hb-reco) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 14px;
+    margin: 0 0 24px;
+  }
+  .hb-result :global(.hb-reco div) {
+    border-top: 2px solid var(--accent);
+    padding-top: 12px;
+  }
+  .hb-result :global(.hb-reco dt) {
+    font-size: 0.8125rem;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .hb-result :global(.hb-reco dd) {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .hb-result :global(.hb-reads) {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+  }
+  .hb-result :global(.hb-reads li) {
+    margin-bottom: 8px;
+  }
+  .hb-result :global(.hb-reads a) {
+    font: 600 1.2rem/1.35 var(--serif);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .hb-result :global(.hb-reads span) {
+    color: var(--accent);
+  }
+
+  /* Langkah */
+  .hb-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 48px;
+    padding-top: 80px;
+    padding-bottom: 72px;
+  }
+  .hb-steps > * {
+    min-width: 0;
+  }
+  .hb-step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--ink);
+  }
+  .hb-step-list li {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 14px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .hb-step-list h3 {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+  .hb-step-list .hb-muted {
+    margin: 6px 0 0;
+    font-size: 0.9375rem;
+  }
+  .hb-step-list li.done h3 {
+    text-decoration: line-through;
+    text-decoration-color: var(--muted);
+  }
+  .hb-check {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    font: 700 0.875rem var(--sans);
+    cursor: pointer;
+    padding: 0;
+    margin-top: 2px;
+  }
+  .hb-check:hover {
+    border-color: var(--accent);
+  }
+  li.done .hb-check {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
+  }
+
+  /* Kalkulator */
+  .hb-calc {
+    margin-top: 32px;
+  }
+  .hb-calc .result h3 {
+    font: 400 0.875rem var(--sans);
+    color: var(--muted);
+    margin: 0 0 6px;
+  }
+  .hb-profit {
+    font: 600 clamp(2.25rem, 5vw, 3.25rem)/1.05 var(--serif);
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    margin: 0 0 20px;
+    overflow-wrap: anywhere;
+  }
+  .hb-profit[data-status='rugi'] {
+    color: var(--warn);
+  }
+
+  /* Artikel */
+  .hb-articles {
+    padding-top: 80px;
+    padding-bottom: 56px;
+  }
+  .hb-articles-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px 24px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .hb-articles-head h2 {
+    margin: 0;
+  }
+  .hb-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .hb-chip {
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    font: 500 0.875rem var(--sans);
+    cursor: pointer;
+  }
+  .hb-chip span {
+    opacity: 0.6;
+    font-size: 0.75rem;
+  }
+  .hb-chip[aria-pressed='true'] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--bg);
+  }
+
+  /* Baca berikutnya */
+  .hb-more {
+    border-top: 1px solid var(--line);
+    padding-top: 64px;
+  }
+  .hb-more h2 {
+    font-size: clamp(1.75rem, 3.6vw, 2.375rem);
+  }
+  .hb-more-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--ink);
+  }
+  .hb-more-list a {
+    display: block;
+    height: 100%;
+    padding: 24px 24px 24px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .hb-more-list strong {
+    display: block;
+    font: 600 1.5rem var(--serif);
+    margin-bottom: 8px;
+  }
+  .hb-more-list a:hover strong {
+    color: var(--accent);
+  }
+  .hb-more-list span {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+</style>

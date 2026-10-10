@@ -1,0 +1,30 @@
+---
+// Kartu artikel/kalkulator dengan thumbnail (public/thumb/<slug>.webp, dibuat scripts/buat-thumbnail.py).
+import { existsSync } from 'node:fs';
+
+interface Props {
+  slug: string;
+  title: string;
+  text?: string;
+  tag?: string;
+  heading?: 'h2' | 'h3';
+  attrs?: Record<string, string>;
+}
+const { slug, title, text, tag, heading = 'h3', attrs = {} } = Astro.props;
+const thumb = existsSync(`public/thumb/${slug}.webp`) ? `/thumb/${slug}.webp` : null;
+const H = heading;
+---
+
+<li class="card" data-slug={slug} {...attrs}>
+  {
+    thumb && (
+      <a class="thumb" href={`/${slug}/`} tabindex="-1" aria-hidden="true">
+        <img src={thumb} alt="" width="480" height="252" loading="lazy" decoding="async" />
+      </a>
+    )
+  }
+  {tag && <span class="card-tag">{tag}</span>}
+  <H class="card-title"><a href={`/${slug}/`}>{title}</a></H>
+  {text && <p>{text}</p>}
+  <span class="read-flag" hidden>✓ Sudah dibaca</span>
+</li>

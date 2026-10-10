@@ -49,7 +49,7 @@ Konfigurasi ini sudah diuji dengan `wrangler deploy --dry-run` dan `wrangler dev
 
 ## 4. Kecepatan (target PageSpeed HP ≥ 80 sebelum iklan)
 
-Situs ini tanpa framework JavaScript di sisi browser, font sistem, dan CSS kecil, jadi skornya tinggi secara bawaan. Setelah deploy, cek di pagespeed.web.dev untuk beranda, satu kalkulator, dan satu artikel. Gambar yang ditambahkan nanti sebaiknya WebP, dengan nama file dan alt text deskriptif.
+Situs ini tanpa framework JavaScript di sisi browser dan CSS-nya kecil. Font (Source Serif 4, IBM Plex Sans, IBM Plex Mono) dimuat dari Google Fonts dengan `display=swap`, jadi teks langsung tampil dengan font cadangan sambil font dimuat. Thumbnail kartu memakai WebP kecil (480×252) dan dimuat saat digulir (lazy). Setelah deploy, cek di pagespeed.web.dev untuk beranda, satu kalkulator, dan satu artikel. Gambar yang ditambahkan nanti sebaiknya WebP, dengan nama file dan alt text deskriptif.
 
 ## 5. Google Analytics 4 (sejak hari pertama)
 

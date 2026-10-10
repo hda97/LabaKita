@@ -73,12 +73,19 @@ if (kind === 'calc') {
 const Content = kind === 'article' ? (await render(entry)).Content : null;
 ---
 
-<BaseLayout title={page.title} description={page.description} type={kind === 'article' ? 'article' : 'website'} schema={page.schema}>
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  type={kind === 'article' ? 'article' : 'website'}
+  schema={page.schema}
+  articleSlug={kind === 'article' ? entry.id : undefined}
+>
   <Breadcrumbs items={page.crumbs} />
 
   {
     kind === 'calc' && (
       <article>
+        <p class="kicker">Kalkulator · gratis, tanpa daftar</p>
         <h1>{calc.h1}</h1>
         <p class="lead">{calc.intro}</p>
         <Calculator slug={calc.slug} />
@@ -117,6 +124,7 @@ const Content = kind === 'article' ? (await render(entry)).Content : null;
   {
     kind === 'article' && (
       <article>
+        <p class="kicker">{page.pilar.nama}</p>
         <h1>{entry.data.h1}</h1>
         <p class="meta">
           Diperbarui {formatTanggal(entry.data.updated)} · oleh <a href="/tentang/">{site.owner.name}</a> ·{' '}
