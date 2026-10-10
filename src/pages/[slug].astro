@@ -7,6 +7,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Calculator from '../components/Calculator.astro';
 import Faq from '../components/Faq.astro';
 import AdSlot from '../components/AdSlot.astro';
+import EmbedCode from '../components/EmbedCode.astro';
 import site from '../../site.config.mjs';
 import { calculatorContent } from '../data/calculator-content.js';
 import { pilar } from '../data/pilar.js';
@@ -104,6 +105,7 @@ const Content = kind === 'article' ? (await render(entry)).Content : null;
             </li>
           </ul>
         </section>
+        <EmbedCode slug={calc.slug} nama={calc.nama} />
         <p class="note">
           Hasil kalkulator adalah perkiraan berdasarkan angka yang dimasukkan dan aturan yang berlaku saat halaman ini diperbarui. Untuk keputusan pajak, hukum, atau pinjaman, cek ke sumber resmi atau profesional. Baca <a href="/disclaimer/">disclaimer</a>.
         </p>

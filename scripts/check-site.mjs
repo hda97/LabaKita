@@ -84,6 +84,8 @@ for (const file of pages) {
     descriptions.set(desc, route);
   }
 
+  if (route.startsWith('/embed/')) continue; // halaman sematan sengaja tanpa menu dan footer
+
   for (const wajib of ['/tentang/', '/kontak/', '/kebijakan-privasi/', '/disclaimer/', '/syarat-ketentuan/']) {
     if (!html.includes(`href="${wajib}"`)) fail(route, `footer tidak menautkan ${wajib}`);
   }

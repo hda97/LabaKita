@@ -1,0 +1,57 @@
+---
+// Kode sematan untuk blog/komunitas (strategi backlink Fase 5).
+// Tautan kredit ditaruh di luar iframe supaya terbaca sebagai tautan dari situs penyemat.
+import site from '../../site.config.mjs';
+
+interface Props {
+  slug: string;
+  nama: string;
+}
+const { slug, nama } = Astro.props;
+// Tinggi iframe diukur dari halaman sematan di lebar 320 px (layar HP tersempit) + cadangan 60 px.
+// Ukur ulang bila input atau teks kalkulator berubah.
+const HEIGHTS: Record<string, number> = {
+  'kalkulator-hpp': 860,
+  'kalkulator-harga-jual': 870,
+  'kalkulator-bep': 1070,
+  'kalkulator-cicilan': 970,
+  'kalkulator-gaji-bersih': 1660,
+  'kalkulator-thr': 720,
+  'kalkulator-zakat-penghasilan': 820,
+  'kalkulator-pajak-umkm': 960,
+  'kalkulator-dana-darurat': 890,
+  'kalkulator-modal-usaha': 1360
+};
+const height = HEIGHTS[slug] ?? 1200;
+const src = new URL(`/embed/${slug}/`, site.url).href;
+const page = new URL(`/${slug}/`, site.url).href;
+const code = `<iframe src="${src}" title="${nama} - ${site.name}" width="100%" height="${height}" style="border:0;max-width:640px" loading="lazy"></iframe>
+<p style="font-size:13px">${nama} oleh <a href="${page}">${site.name}</a></p>`;
+---
+
+<section class="related" aria-labelledby="sematkan">
+  <h2 id="sematkan">Sematkan kalkulator ini di situsmu</h2>
+  <p style="margin-top:0">
+    Gratis untuk blog, situs komunitas, dan sekolah. Salin kode di bawah dan tempel di bagian HTML halamanmu. Mohon biarkan tautan kreditnya tetap ada.
+  </p>
+  <label for={`embed-${slug}`} class="skip">Kode sematan</label>
+  <textarea id={`embed-${slug}`} readonly rows="5" style="width:100%;font:13px/1.4 ui-monospace,monospace;padding:8px;border:1px solid var(--line);border-radius:8px">{code}</textarea>
+  <button type="button" class="btn" data-copy={`embed-${slug}`} style="margin-top:8px">Salin kode</button>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('button[data-copy]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const ta = document.getElementById(btn.dataset.copy!) as HTMLTextAreaElement;
+      ta.select();
+      try {
+        await navigator.clipboard.writeText(ta.value);
+      } catch {
+        document.execCommand('copy');
+      }
+      const old = btn.textContent;
+      btn.textContent = 'Tersalin';
+      setTimeout(() => (btn.textContent = old), 1500);
+    });
+  });
+</script>

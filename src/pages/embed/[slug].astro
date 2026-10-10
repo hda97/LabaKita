@@ -1,0 +1,42 @@
+---
+// Versi kalkulator untuk disematkan (iframe) di situs lain. Tidak diindeks;
+// canonical mengarah ke halaman kalkulator utama.
+import '../../styles/global.css';
+import Calculator from '../../components/Calculator.astro';
+import site from '../../../site.config.mjs';
+import { calculatorContent } from '../../data/calculator-content.js';
+
+export function getStaticPaths() {
+  return calculatorContent.map((calc) => ({ params: { slug: calc.slug }, props: { calc } }));
+}
+const { calc } = Astro.props;
+const mainUrl = new URL(`/${calc.slug}/`, site.url).href;
+---
+
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{calc.nama} | {site.name}</title>
+    <meta name="description" content={calc.description} />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={mainUrl} />
+    <style>
+      body { background: transparent; }
+      .embed { padding: 8px 12px 12px; }
+      .embed h1 { font-size: 1.15rem; margin: 4px 0 0; }
+      .embed .calc { margin: 10px 0; }
+      .embed-credit { font-size: 0.82rem; color: var(--muted); margin: 0; }
+    </style>
+  </head>
+  <body>
+    <main class="embed">
+      <h1>{calc.nama}</h1>
+      <Calculator slug={calc.slug} />
+      <p class="embed-credit">
+        Kalkulator gratis dari <a href={mainUrl} target="_blank" rel="noopener">{site.name}</a>. Lihat rumus dan panduan lengkapnya di sana.
+      </p>
+    </main>
+  </body>
+</html>
