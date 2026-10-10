@@ -1,0 +1,19 @@
+---
+import site from '../../site.config.mjs';
+---
+
+{
+  site.newsletterAction && (
+    <section class="newsletter" aria-labelledby="nl-title">
+      <h2 id="nl-title" style="margin-top:0;font-size:1.1rem">Dapatkan template pembukuan gratis</h2>
+      <p style="margin:4px 0 10px">
+        Daftarkan email untuk menerima template pembukuan usaha, kalkulator baru, dan kabar perubahan aturan pajak &amp; KUR.
+      </p>
+      <form action={site.newsletterAction} method="post" target="_blank">
+        <label for="nl-email" class="skip">Email</label>
+        <input id="nl-email" type="email" name={site.newsletterEmailField} required placeholder="email@contoh.com" />
+        <button class="btn" type="submit">Kirim template</button>
+      </form>
+    </section>
+  )
+}

@@ -1,0 +1,134 @@
+---
+import site from '../../site.config.mjs';
+import '../styles/global.css';
+import Newsletter from '../components/Newsletter.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  type?: 'website' | 'article';
+  schema?: object[];
+  noindex?: boolean;
+  newsletter?: boolean;
+}
+
+const { title, description, type = 'website', schema = [], noindex = false, newsletter = true } = Astro.props;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+const path = Astro.url.pathname;
+
+const menu = [
+  { href: '/kalkulator/', label: 'Kalkulator' },
+  { href: '/panduan/', label: 'Panduan' },
+  { href: '/modal-keuangan/', label: 'Modal & Keuangan' },
+  { href: '/hobi-jadi-usaha/', label: 'Hobi Jadi Usaha' },
+];
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  url: site.url,
+  email: site.email,
+};
+---
+
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#0f7b55" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap.xml" />
+    {
+      site.gaMeasurementId && (
+        <>
+          <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${site.gaMeasurementId}`} />
+          <script is:inline define:vars={{ id: site.gaMeasurementId }}>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', id);
+          </script>
+        </>
+      )
+    }
+    {
+      site.adsenseClient && (
+        <script
+          is:inline
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${site.adsenseClient}`}
+          crossorigin="anonymous"
+        />
+      )
+    }
+    {[organization, ...schema].map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+  </head>
+  <body>
+    <a class="skip" href="#isi">Langsung ke isi</a>
+    <header class="site-header">
+      <div class="wrap-wide">
+        <div class="header-row">
+          <a class="logo" href="/">Laba<span>Kita</span></a>
+          <form class="search" action="/cari/" method="get" role="search">
+            <label for="q-header" class="skip">Cari</label>
+            <input id="q-header" type="search" name="q" placeholder="Cari kalkulator/panduan" />
+            <button type="submit">Cari</button>
+          </form>
+        </div>
+        <nav aria-label="Menu utama">
+          <ul class="nav">
+            {
+              menu.map((m) => (
+                <li>
+                  <a href={m.href} aria-current={path.startsWith(m.href) ? 'page' : undefined}>
+                    {m.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="isi">
+      <slot name="wide" />
+      <div class="wrap">
+        <slot />
+        {newsletter && <Newsletter />}
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap-wide">
+        <ul>
+          <li><a href="/tentang/">Tentang Kami</a></li>
+          <li><a href="/kontak/">Kontak</a></li>
+          <li><a href="/kebijakan-privasi/">Kebijakan Privasi</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+          <li><a href="/syarat-ketentuan/">Syarat &amp; Ketentuan</a></li>
+        </ul>
+        <ul>
+          {menu.map((m) => <li><a href={m.href}>{m.label}</a></li>)}
+        </ul>
+        <p>
+          © {new Date().getFullYear()} {site.name}. Informasi di situs ini bersifat umum dan bukan nasihat keuangan, pajak, atau hukum. Hasil kalkulator adalah perkiraan.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

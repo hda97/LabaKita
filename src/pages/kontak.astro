@@ -1,0 +1,20 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import site from '../../site.config.mjs';
+---
+
+<PageLayout
+  title="Kontak"
+  h1="Hubungi Kami"
+  description={`Hubungi ${site.name} untuk pertanyaan, koreksi angka atau aturan, usulan kalkulator baru, dan kerja sama. Kami membalas email dalam 2–3 hari kerja.`}
+>
+  <p>Kami senang menerima pertanyaan, koreksi, dan usulan. Kirim email ke:</p>
+  <p class="formula"><a href={`mailto:${site.email}`}>{site.email}</a></p>
+  <p>Agar cepat ditindaklanjuti, tuliskan di subjek email salah satu keperluan berikut:</p>
+  <ul>
+    <li><strong>Koreksi</strong>: sebutkan halaman dan bagian yang keliru, serta sumber aturannya bila ada.</li>
+    <li><strong>Usulan kalkulator</strong>: perhitungan apa yang kamu butuhkan untuk usaha atau keuanganmu.</li>
+    <li><strong>Kerja sama</strong>: sponsor, ulasan produk, atau penyematan kalkulator di situsmu.</li>
+  </ul>
+  <p>Kami membalas dalam 2–3 hari kerja. Kami tidak melayani konsultasi pajak atau hukum pribadi, dan tidak pernah meminta data rekening, PIN, atau kode OTP.</p>
+</PageLayout>

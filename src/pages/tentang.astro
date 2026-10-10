@@ -1,0 +1,50 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import site from '../../site.config.mjs';
+---
+
+<PageLayout
+  title="Tentang Kami"
+  h1={`Tentang ${site.name}`}
+  description={`${site.name} adalah situs kalkulator dan panduan usaha kecil serta keuangan pribadi di Indonesia. Kenali pengelola, alasan situs dibuat, dan standarnya.`}
+>
+  <p>
+    {site.name} adalah situs berisi kalkulator gratis dan panduan praktis untuk pemilik usaha kecil, calon pengusaha, dan karyawan di Indonesia. Fokus kami
+    sederhana: membantu menghitung angka-angka penting seperti HPP, harga jual, titik impas, modal, cicilan pinjaman, gaji, dan pajak, lalu menjelaskan cara
+    memakai hasilnya untuk mengambil keputusan.
+  </p>
+
+  <h2>Siapa pengelolanya</h2>
+  <p>
+    {site.name} dikelola oleh <strong>{site.owner.name}</strong>, {site.owner.role.toLowerCase()}. Semua kalkulator dan artikel ditulis, diuji, dan diperbarui
+    oleh pengelola. Untuk pertanyaan, koreksi, atau kerja sama, silakan hubungi kami melalui halaman <a href="/kontak/">Kontak</a>.
+  </p>
+
+  <h2>Kenapa situs ini dibuat</h2>
+  <p>
+    Banyak usaha kecil berhenti bukan karena produknya kurang bagus, tetapi karena harga jual tidak menutup biaya, modal kerja habis sebelum penjualan stabil,
+    atau cicilan pinjaman terlalu berat. Informasi tentang cara menghitungnya sering tersebar, memakai istilah yang membingungkan, atau tidak disertai contoh
+    angka. {site.name} dibuat untuk mengumpulkan semuanya di satu tempat, dengan bahasa yang mudah dan contoh yang bisa langsung dicoba.
+  </p>
+
+  <h2>Standar penulisan</h2>
+  <ul>
+    <li><strong>Rumus diuji.</strong> Setiap kalkulator diuji dengan contoh yang dihitung manual sebelum diterbitkan.</li>
+    <li>
+      <strong>Sumber resmi.</strong> Aturan dan angka tentang pajak, BPJS, ketenagakerjaan, dan pinjaman merujuk ke sumber resmi seperti Direktorat Jenderal
+      Pajak, BPJS, Kementerian Ketenagakerjaan, OSS, dan OJK.
+    </li>
+    <li><strong>Diperbarui.</strong> Artikel pajak dan pinjaman diperiksa ulang setiap ada aturan baru dan minimal setiap tiga bulan. Tanggal pembaruan tercantum di setiap artikel.</li>
+    <li>
+      <strong>Contoh nyata.</strong> Contoh angka dibuat dari kondisi usaha sehari-hari. Kami boleh memakai alat bantu, termasuk AI, untuk riset dan draf, tetapi
+      setiap artikel disunting, diberi contoh, dan dicek faktanya oleh pengelola.
+    </li>
+    <li><strong>Transparan.</strong> Halaman yang berisi tautan affiliate atau konten bersponsor diberi keterangan.</li>
+  </ul>
+
+  <h2>Batasan</h2>
+  <p>
+    Konten {site.name} bersifat informasi umum, bukan nasihat keuangan, pajak, atau hukum untuk kondisi pribadi. Baca <a href="/disclaimer/">disclaimer</a>
+    selengkapnya.
+  </p>
+</PageLayout>

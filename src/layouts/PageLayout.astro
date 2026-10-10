@@ -1,0 +1,27 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { breadcrumbSchema } from '../lib/schema.js';
+import { formatTanggal } from '../lib/content.js';
+
+interface Props {
+  title: string;
+  h1: string;
+  description: string;
+  updated?: string;
+}
+const { title, h1, description, updated } = Astro.props;
+const crumbs = [
+  { name: 'Beranda', href: '/' },
+  { name: h1, href: Astro.url.pathname },
+];
+---
+
+<BaseLayout title={title} description={description} schema={[breadcrumbSchema(crumbs)]} newsletter={false}>
+  <Breadcrumbs items={crumbs} />
+  <article class="prose">
+    <h1>{h1}</h1>
+    {updated && <p class="meta">Terakhir diperbarui {formatTanggal(new Date(updated))}</p>}
+    <slot />
+  </article>
+</BaseLayout>

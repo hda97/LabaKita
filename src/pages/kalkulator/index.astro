@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { calculatorContent, kategoriKalkulator } from '../../data/calculator-content.js';
+import { breadcrumbSchema } from '../../lib/schema.js';
+
+const crumbs = [
+  { name: 'Beranda', href: '/' },
+  { name: 'Kalkulator', href: '/kalkulator/' },
+];
+const itemList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: calculatorContent.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.nama,
+    url: new URL(`/${c.slug}/`, Astro.site).href,
+  })),
+};
+---
+
+<BaseLayout
+  title="Kalkulator Usaha & Keuangan Gratis: HPP, BEP, Cicilan, Gaji, Pajak"
+  description="Kalkulator gratis untuk usaha kecil dan keuangan pribadi: HPP, harga jual, BEP, modal usaha, cicilan KUR, pajak UMKM, gaji bersih, THR, zakat, dan lainnya."
+  schema={[breadcrumbSchema(crumbs), itemList]}
+>
+  <Breadcrumbs items={crumbs} />
+  <h1>Kalkulator Usaha &amp; Keuangan</h1>
+  <p class="lead">
+    Semua kalkulator gratis, tanpa daftar, dan langsung menghitung di perangkatmu. Setiap kalkulator dilengkapi rumus, contoh angka, dan panduan terkait.
+  </p>
+  {
+    kategoriKalkulator.map((k) => (
+      <section>
+        <h2>{k.nama}</h2>
+        <ul class="cards">
+          {calculatorContent
+            .filter((c) => c.kategori === k.id)
+            .map((c) => (
+              <li class="card">
+                <a href={`/${c.slug}/`}>{c.nama}</a>
+                <p>{c.intro.split('. ')[0]}.</p>
+              </li>
+            ))}
+        </ul>
+      </section>
+    ))
+  }
+</BaseLayout>

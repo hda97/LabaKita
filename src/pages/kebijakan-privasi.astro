@@ -1,0 +1,84 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import site from '../../site.config.mjs';
+---
+
+<PageLayout
+  title="Kebijakan Privasi"
+  h1="Kebijakan Privasi"
+  updated="2026-10-10"
+  description={`Kebijakan privasi ${site.name}: data yang dikumpulkan, cookie, Google Analytics, iklan Google (cookie DoubleClick), dan cara menonaktifkan iklan personal.`}
+>
+  <p>
+    Kebijakan ini menjelaskan bagaimana {site.name} ({site.url}) mengumpulkan dan menggunakan data pengunjung. Dengan memakai situs ini, kamu menyetujui
+    kebijakan ini.
+  </p>
+
+  <h2>Data yang kami kumpulkan</h2>
+  <ul>
+    <li>
+      <strong>Angka di kalkulator.</strong> Semua perhitungan dilakukan di browser perangkatmu. Angka yang kamu masukkan tidak dikirim atau disimpan di server
+      kami.
+    </li>
+    <li>
+      <strong>Data penggunaan.</strong> Seperti kebanyakan situs, kami mencatat informasi teknis seperti halaman yang dibuka, perkiraan lokasi (kota/negara),
+      jenis perangkat, dan browser melalui layanan analitik.
+    </li>
+    <li><strong>Email.</strong> Hanya bila kamu mengirim email kepada kami atau mendaftar newsletter secara sukarela.</li>
+  </ul>
+
+  <h2>Cookie</h2>
+  <p>
+    Cookie adalah file kecil yang disimpan browser. Kami dan mitra kami memakai cookie untuk menghitung kunjungan, memahami cara situs dipakai, dan menampilkan
+    iklan. Kamu dapat menghapus atau memblokir cookie melalui pengaturan browser; sebagian fungsi situs mungkin terpengaruh.
+  </p>
+
+  <h2>Google Analytics</h2>
+  <p>
+    Kami memakai Google Analytics untuk memahami jumlah pengunjung dan halaman yang paling bermanfaat. Google Analytics memakai cookie dan memproses data sesuai
+    <a href="https://policies.google.com/privacy" rel="nofollow noopener" target="_blank">Kebijakan Privasi Google</a>. Kamu dapat menolak pelacakan dengan
+    <a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow noopener" target="_blank">add-on penonaktifan Google Analytics</a>.
+  </p>
+
+  <h2>Iklan Google</h2>
+  <ul>
+    <li>Vendor pihak ketiga, termasuk Google, memakai cookie untuk menayangkan iklan berdasarkan kunjungan sebelumnya ke situs ini atau situs lain.</li>
+    <li>
+      Penggunaan cookie iklan (termasuk cookie DoubleClick) memungkinkan Google dan mitranya menayangkan iklan kepada kamu berdasarkan kunjungan ke situs ini
+      dan/atau situs lain di internet.
+    </li>
+    <li>
+      Kamu dapat menonaktifkan iklan yang dipersonalisasi melalui
+      <a href="https://adssettings.google.com" rel="nofollow noopener" target="_blank">Setelan Iklan Google</a>, atau menonaktifkan cookie vendor pihak ketiga
+      melalui <a href="https://www.aboutads.info/choices/" rel="nofollow noopener" target="_blank">www.aboutads.info</a>.
+    </li>
+    <li>
+      Penjelasan cara Google memakai data dari situs mitra ada di
+      <a href="https://policies.google.com/technologies/partner-sites" rel="nofollow noopener" target="_blank">halaman Google tentang situs partner</a>.
+    </li>
+  </ul>
+  <p>Pengunjung dari Wilayah Ekonomi Eropa, Inggris, dan Swiss akan diminta persetujuan melalui pesan persetujuan (CMP) sebelum cookie iklan dipakai.</p>
+
+  <h2>Tautan affiliate dan situs lain</h2>
+  <p>
+    Beberapa halaman berisi tautan ke situs lain, termasuk tautan affiliate. Situs tersebut punya kebijakan privasi sendiri yang berada di luar kendali kami.
+  </p>
+
+  <h2>Newsletter</h2>
+  <p>
+    Email yang didaftarkan hanya dipakai untuk mengirim materi yang kamu minta, artikel baru, dan penawaran dari {site.name}. Setiap email berisi tautan untuk
+    berhenti berlangganan. Kami tidak menjual data email kepada pihak lain.
+  </p>
+
+  <h2>Hak kamu</h2>
+  <p>
+    Sesuai Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi, kamu berhak meminta akses, perbaikan, atau penghapusan data pribadi yang kami
+    simpan. Kirim permintaan ke <a href={`mailto:${site.email}`}>{site.email}</a>.
+  </p>
+
+  <h2>Anak-anak</h2>
+  <p>Situs ini tidak ditujukan untuk anak di bawah 13 tahun, dan kami tidak dengan sengaja mengumpulkan data mereka.</p>
+
+  <h2>Perubahan kebijakan</h2>
+  <p>Kebijakan ini dapat diperbarui sewaktu-waktu. Tanggal pembaruan terakhir tercantum di bagian atas halaman.</p>
+</PageLayout>

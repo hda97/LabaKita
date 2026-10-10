@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../../site.config.mjs';
+import { calculatorContent } from '../data/calculator-content.js';
+import { pilar } from '../data/pilar.js';
+import { getArticles } from '../lib/content.js';
+
+const articles = await getArticles();
+const intiSlugs = ['kalkulator-hpp', 'kalkulator-harga-jual', 'kalkulator-bep', 'kalkulator-cicilan', 'kalkulator-gaji-bersih', 'kalkulator-pajak-umkm'];
+const inti = intiSlugs.map((s) => calculatorContent.find((c) => c.slug === s));
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: site.name,
+  url: site.url,
+  inLanguage: 'id-ID',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${site.url}/cari/?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+};
+---
+
+<BaseLayout
+  title={`${site.name}: Kalkulator & Panduan Usaha Kecil dan Keuangan`}
+  description="Kalkulator HPP, harga jual, BEP, cicilan KUR, gaji bersih, dan pajak UMKM gratis, plus panduan praktis mengelola usaha kecil dengan contoh angka nyata."
+  schema={[website]}
+>
+  <h1>Hitung usaha dengan benar, ambil keputusan dengan tenang</h1>
+  <p class="lead">
+    {site.name} membantu pemilik usaha kecil dan karyawan menghitung modal, harga jual, pinjaman, gaji, dan pajak, dengan kalkulator gratis dan panduan berisi contoh angka nyata.
+  </p>
+
+  <h2>Kalkulator paling sering dipakai</h2>
+  <ul class="cards">
+    {
+      inti.map((c) => (
+        <li class="card">
+          <a href={`/${c.slug}/`}>{c.nama}</a>
+          <p>{c.rumus.split('  ·  ')[0]}</p>
+        </li>
+      ))
+    }
+  </ul>
+  <p><a class="btn" href="/kalkulator/">Lihat semua {calculatorContent.length} kalkulator</a></p>
+
+  {
+    Object.entries(pilar).map(([id, p]) => {
+      const list = articles.filter((a) => a.data.pilar === id).slice(0, 4);
+      return (
+        <section>
+          <h2>
+            <a href={p.url}>{p.nama}</a>
+          </h2>
+          <ul>
+            {list.map((a) => (
+              <li>
+                <a href={`/${a.id}/`}>{a.data.h1}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      );
+    })
+  }
+</BaseLayout>

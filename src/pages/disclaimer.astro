@@ -1,0 +1,49 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import site from '../../site.config.mjs';
+---
+
+<PageLayout
+  title="Disclaimer"
+  h1="Disclaimer"
+  updated="2026-10-10"
+  description={`Disclaimer ${site.name}: konten bersifat informasi umum, bukan nasihat keuangan, pajak, atau hukum. Hasil kalkulator adalah perkiraan; ada tautan affiliate.`}
+>
+  <h2>Bukan nasihat profesional</h2>
+  <p>
+    Seluruh konten di {site.name}, termasuk artikel, tabel, contoh, dan kalkulator, bersifat informasi umum dan edukasi. Konten ini bukan nasihat keuangan,
+    investasi, pajak, atau hukum untuk kondisi pribadimu. Untuk keputusan penting, konsultasikan dengan profesional yang berwenang, seperti konsultan pajak
+    terdaftar, perencana keuangan, atau penasihat hukum.
+  </p>
+
+  <h2>Hasil kalkulator adalah perkiraan</h2>
+  <p>
+    Kalkulator menghitung berdasarkan angka yang kamu masukkan dan aturan yang berlaku saat halaman diperbarui. Hasil dapat berbeda dengan perhitungan bank,
+    kantor pajak, BPJS, atau perusahaan karena pembulatan, biaya tambahan, perubahan aturan, atau kondisi khusus. Kami berusaha menjaga ketepatan rumus, tetapi
+    tidak menjamin hasilnya bebas kesalahan.
+  </p>
+
+  <h2>Aturan dapat berubah</h2>
+  <p>
+    Aturan pajak, iuran BPJS, suku bunga KUR, dan ketentuan pinjaman dapat berubah sewaktu-waktu. Selalu cek sumber resmi seperti pajak.go.id, bpjs-kesehatan.go.id,
+    bpjsketenagakerjaan.go.id, oss.go.id, dan ojk.go.id sebelum mengambil keputusan.
+  </p>
+
+  <h2>Tautan affiliate dan konten bersponsor</h2>
+  <p>
+    Beberapa halaman dapat berisi tautan affiliate. Bila kamu membeli melalui tautan tersebut, kami dapat menerima komisi tanpa biaya tambahan bagimu. Komisi
+    tidak memengaruhi penilaian kami. Konten bersponsor selalu diberi tanda "bersponsor".
+  </p>
+
+  <h2>Produk keuangan</h2>
+  <p>
+    {site.name} tidak mempromosikan pinjaman online ilegal, investasi tanpa izin, atau produk keuangan yang tidak diawasi OJK. Cek legalitas setiap lembaga
+    keuangan di situs resmi OJK sebelum bertransaksi.
+  </p>
+
+  <h2>Tanggung jawab</h2>
+  <p>
+    Penggunaan informasi di situs ini sepenuhnya menjadi tanggung jawab pengguna. {site.name} tidak bertanggung jawab atas kerugian yang timbul dari penggunaan
+    konten atau hasil kalkulator.
+  </p>
+</PageLayout>

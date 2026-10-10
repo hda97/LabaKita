@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import { pilar } from '../data/pilar.js';
+import { getArticles, calcBySlug } from '../lib/content.js';
+import { breadcrumbSchema } from '../lib/schema.js';
+
+interface Props {
+  id: 'panduan' | 'modal' | 'hobi';
+}
+const p = pilar[Astro.props.id];
+const articles = (await getArticles()).filter((a) => a.data.pilar === Astro.props.id);
+if (articles.length === 0) {
+  // Kategori kosong adalah salah satu alasan penolakan AdSense; jangan terbitkan halaman pilar tanpa isi.
+  throw new Error(`Pilar "${p.nama}" belum punya artikel. Tambahkan minimal satu artikel sebelum build.`);
+}
+const calcs = [...new Set(articles.map((a) => a.data.kalkulator))].map(calcBySlug);
+const crumbs = [
+  { name: 'Beranda', href: '/' },
+  { name: p.nama, href: p.url },
+];
+---
+
+<BaseLayout title={p.judul} description={p.deskripsi} schema={[breadcrumbSchema(crumbs)]}>
+  <Breadcrumbs items={crumbs} />
+  <h1>{p.nama}</h1>
+  <p class="lead">{p.deskripsi}</p>
+  <h2>Artikel</h2>
+  <ul class="cards">
+    {
+      articles.map((a) => (
+        <li class="card">
+          <a href={`/${a.id}/`}>{a.data.h1}</a>
+          <p>{a.data.description}</p>
+        </li>
+      ))
+    }
+  </ul>
+  <h2>Kalkulator yang dipakai di artikel ini</h2>
+  <ul class="cards">
+    {
+      calcs.map((c) => (
+        <li class="card">
+          <a href={`/${c.slug}/`}>{c.nama}</a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

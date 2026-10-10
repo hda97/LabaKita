@@ -1,0 +1,46 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import site from '../../site.config.mjs';
+---
+
+<PageLayout
+  title="Syarat & Ketentuan"
+  h1="Syarat & Ketentuan"
+  updated="2026-10-10"
+  description={`Syarat dan ketentuan ${site.name}: aturan memakai situs dan kalkulator, hak cipta konten, cara mengutip atau menyematkan kalkulator, dan batas tanggung jawab.`}
+>
+  <p>Dengan mengakses dan memakai {site.name} ({site.url}), kamu menyetujui syarat dan ketentuan berikut.</p>
+
+  <h2>Penggunaan situs</h2>
+  <ul>
+    <li>Situs dan kalkulator boleh dipakai gratis untuk keperluan pribadi maupun usaha.</li>
+    <li>Dilarang memakai situs untuk tindakan yang melanggar hukum, mengganggu kinerja situs, atau mengakses sistem tanpa izin.</li>
+    <li>Dilarang mengambil konten secara otomatis dalam jumlah besar (scraping) untuk diterbitkan ulang.</li>
+  </ul>
+
+  <h2>Hak cipta</h2>
+  <p>
+    Seluruh artikel, tabel, desain, dan kode kalkulator di {site.name} dilindungi hak cipta. Kamu boleh mengutip sebagian kecil konten dengan menyebutkan
+    sumber dan menautkan ke halaman aslinya. Menyalin seluruh artikel atau sebagian besar konten tanpa izin tertulis tidak diperbolehkan.
+  </p>
+
+  <h2>Menyematkan kalkulator</h2>
+  <p>
+    Blog, komunitas, dan situs UMKM boleh menautkan atau meminta izin menyematkan kalkulator kami dengan mencantumkan tautan balik ke {site.name}. Hubungi kami
+    melalui <a href="/kontak/">halaman kontak</a>.
+  </p>
+
+  <h2>Konten pihak ketiga</h2>
+  <p>
+    Situs ini dapat menampilkan iklan dan tautan ke situs pihak ketiga. Kami tidak bertanggung jawab atas isi, produk, atau kebijakan situs pihak ketiga.
+  </p>
+
+  <h2>Batas tanggung jawab</h2>
+  <p>
+    Konten disediakan "sebagaimana adanya" untuk informasi umum. Lihat <a href="/disclaimer/">disclaimer</a> dan <a href="/kebijakan-privasi/">kebijakan
+    privasi</a> untuk keterangan lengkap.
+  </p>
+
+  <h2>Perubahan</h2>
+  <p>Syarat dan ketentuan ini dapat diubah sewaktu-waktu. Versi terbaru selalu tersedia di halaman ini.</p>
+</PageLayout>

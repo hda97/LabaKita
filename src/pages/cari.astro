@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Cari"
+  description="Cari kalkulator dan panduan usaha kecil serta keuangan pribadi di LabaKita: HPP, harga jual, BEP, cicilan KUR, gaji bersih, pajak UMKM, dan lainnya."
+  noindex
+>
+  <h1>Cari kalkulator &amp; panduan</h1>
+  <form class="search" action="/cari/" method="get" role="search" style="margin-bottom:16px">
+    <label for="q-page" class="skip">Kata kunci</label>
+    <input id="q-page" type="search" name="q" placeholder="contoh: HPP, cicilan, pajak" style="flex:1;width:auto" />
+    <button type="submit">Cari</button>
+  </form>
+  <p id="status" class="meta" aria-live="polite"></p>
+  <ul id="hasil" class="cards"></ul>
+  <noscript><p>Pencarian memerlukan JavaScript. Buka <a href="/kalkulator/">daftar kalkulator</a> atau menu di atas.</p></noscript>
+</BaseLayout>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const q = (params.get('q') || '').trim();
+  const input = document.getElementById('q-page') as HTMLInputElement;
+  const status = document.getElementById('status')!;
+  const list = document.getElementById('hasil')!;
+  input.value = q;
+
+  const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+  if (q) {
+    status.textContent = 'Mencari…';
+    fetch('/search-index.json')
+      .then((r) => r.json())
+      .then((items: { url: string; title: string; description: string; text: string }[]) => {
+        const terms = norm(q).split(/\s+/).filter(Boolean);
+        const scored = items
+          .map((it) => {
+            const title = norm(it.title);
+            const body = norm(`${it.description} ${it.text}`);
+            let score = 0;
+            for (const t of terms) {
+              if (title.includes(t)) score += 5;
+              else if (body.includes(t)) score += 1;
+              else return { it, score: 0 };
+            }
+            return { it, score };
+          })
+          .filter((x) => x.score > 0)
+          .sort((a, b) => b.score - a.score);
+        status.textContent = scored.length ? `${scored.length} hasil untuk "${q}"` : `Tidak ada hasil untuk "${q}". Coba kata lain atau lihat semua kalkulator.`;
+        for (const { it } of scored) {
+          const li = document.createElement('li');
+          li.className = 'card';
+          const a = document.createElement('a');
+          a.href = it.url;
+          a.textContent = it.title;
+          const p = document.createElement('p');
+          p.textContent = it.description;
+          li.append(a, p);
+          list.append(li);
+        }
+      })
+      .catch(() => {
+        status.textContent = 'Pencarian sedang tidak tersedia.';
+      });
+  }
+</script>

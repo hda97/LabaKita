@@ -1,0 +1,29 @@
+---
+// Unit iklan manual. Hanya tampil bila adsEnabled = true, adsenseClient dan ID slot terisi.
+import site from '../../site.config.mjs';
+
+interface Props {
+  position: keyof typeof site.adSlots;
+}
+const { position } = Astro.props;
+const slot = site.adSlots[position];
+const show = site.adsEnabled && site.adsenseClient && slot;
+const format = position === 'endOfArticle' ? 'autorelaxed' : 'auto';
+---
+
+{
+  show && (
+    <div class="ad">
+      <span class="ad-label">Iklan</span>
+      <ins
+        class="adsbygoogle"
+        style="display:block"
+        data-ad-client={site.adsenseClient}
+        data-ad-slot={slot}
+        data-ad-format={format}
+        data-full-width-responsive={format === 'auto' ? 'true' : undefined}
+      />
+      <script is:inline>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  )
+}

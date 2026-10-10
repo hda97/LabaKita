@@ -1,0 +1,121 @@
+---
+import { calculators, formatRupiah, formatValue } from '../lib/calculators.js';
+
+interface Props {
+  slug: string;
+}
+const { slug } = Astro.props;
+const def = calculators[slug];
+if (!def) throw new Error(`Kalkulator tidak ditemukan: ${slug}`);
+
+// Hasil awal dihitung di server, supaya halaman langsung berisi angka tanpa JavaScript.
+const initialValues = Object.fromEntries(def.fields.map((f) => [f.name, f.value]));
+const initial = def.compute(initialValues);
+---
+
+<form class="calc" data-calc={slug} novalidate onsubmit="return false">
+  {
+    def.fields.map((f) => (
+      <div class="field">
+        <label for={`f-${f.name}`}>{f.label}</label>
+        {f.type === 'select' ? (
+          <select id={`f-${f.name}`} name={f.name}>
+            {f.options.map(([value, label]) => (
+              <option value={value} selected={String(f.value) === value}>
+                {label}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <div class="input-row">
+            {f.type === 'rp' && <span class="prefix">Rp</span>}
+            <input
+              id={`f-${f.name}`}
+              name={f.name}
+              type="number"
+              inputmode={f.type === 'rp' ? 'numeric' : 'decimal'}
+              min={f.min ?? 0}
+              max={f.max}
+              step={f.step ?? 'any'}
+              value={f.value}
+              data-rp={f.type === 'rp' ? '' : undefined}
+              aria-describedby={f.type === 'rp' ? `h-${f.name}` : undefined}
+            />
+            {f.suffix && <span class="suffix">{f.suffix}</span>}
+          </div>
+        )}
+        {f.type === 'rp' && (
+          <span class="hint" id={`h-${f.name}`} data-hint-for={f.name}>
+            {formatRupiah(Number(f.value))}
+          </span>
+        )}
+      </div>
+    ))
+  }
+  <section class="result" aria-live="polite" aria-labelledby={`r-${slug}`}>
+    <h2 id={`r-${slug}`}>Hasil perhitungan</h2>
+    <div data-result>
+      {
+        initial.error ? (
+          <p class="error">{initial.error}</p>
+        ) : (
+          <>
+            <dl>
+              {initial.rows.map((r) => (
+                <div class={r.main ? 'row main' : 'row'}>
+                  <dt>{r.label}</dt>
+                  <dd>{formatValue(r)}</dd>
+                </div>
+              ))}
+            </dl>
+            {initial.note && <p class="result-note">{initial.note}</p>}
+          </>
+        )
+      }
+    </div>
+  </section>
+</form>
+
+<script>
+  import { calculators, formatValue, formatRupiah } from '../lib/calculators.js';
+
+  const esc = (s: string) =>
+    String(s).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]!);
+
+  document.querySelectorAll<HTMLFormElement>('form[data-calc]').forEach((form) => {
+    const def = (calculators as Record<string, any>)[form.dataset.calc!];
+    const out = form.querySelector<HTMLElement>('[data-result]')!;
+
+    const read = () => {
+      const values: Record<string, string | number> = {};
+      for (const f of def.fields) {
+        const el = form.elements.namedItem(f.name) as HTMLInputElement | HTMLSelectElement;
+        values[f.name] = f.type === 'select' ? el.value : el.value === '' ? 0 : Number(el.value);
+      }
+      return values;
+    };
+
+    const update = () => {
+      form.querySelectorAll<HTMLInputElement>('input[data-rp]').forEach((input) => {
+        const hint = form.querySelector<HTMLElement>(`[data-hint-for="${input.name}"]`);
+        if (hint) hint.textContent = input.value === '' ? '' : formatRupiah(Number(input.value));
+      });
+      const res = def.compute(read());
+      if (res.error) {
+        out.innerHTML = `<p class="error">${esc(res.error)}</p>`;
+        return;
+      }
+      const rows = res.rows
+        .map(
+          (r: any) =>
+            `<div class="row${r.main ? ' main' : ''}"><dt>${esc(r.label)}</dt><dd>${esc(formatValue(r))}</dd></div>`,
+        )
+        .join('');
+      out.innerHTML = `<dl>${rows}</dl>${res.note ? `<p class="result-note">${esc(res.note)}</p>` : ''}`;
+    };
+
+    form.addEventListener('input', update);
+    form.addEventListener('change', update);
+    update();
+  });
+</script>

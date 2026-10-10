@@ -1,0 +1,149 @@
+---
+// Satu rute untuk semua kalkulator (/kalkulator-xxx/) dan artikel (/judul-artikel/),
+// supaya URL tetap pendek tanpa folder atau tanggal.
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Calculator from '../components/Calculator.astro';
+import Faq from '../components/Faq.astro';
+import AdSlot from '../components/AdSlot.astro';
+import site from '../../site.config.mjs';
+import { calculatorContent } from '../data/calculator-content.js';
+import { pilar } from '../data/pilar.js';
+import { getArticles, relatedArticles, calcBySlug, formatTanggal } from '../lib/content.js';
+import { breadcrumbSchema, faqSchema, articleSchema, webAppSchema } from '../lib/schema.js';
+
+export async function getStaticPaths() {
+  const articles = await getArticles();
+  const calcPaths = calculatorContent.map((calc) => ({ params: { slug: calc.slug }, props: { kind: 'calc', calc } }));
+  const articlePaths = articles.map((entry) => ({ params: { slug: entry.id }, props: { kind: 'article', entry } }));
+  const seen = new Set();
+  for (const p of [...calcPaths, ...articlePaths]) {
+    if (seen.has(p.params.slug)) throw new Error(`URL ganda: /${p.params.slug}/`);
+    seen.add(p.params.slug);
+  }
+  return [...calcPaths, ...articlePaths];
+}
+
+const { kind, calc, entry } = Astro.props as any;
+const path = Astro.url.pathname;
+const articles = await getArticles();
+const articleById = (id: string) => articles.find((a) => a.id === id);
+
+let page: any;
+if (kind === 'calc') {
+  const crumbs = [
+    { name: 'Beranda', href: '/' },
+    { name: 'Kalkulator', href: '/kalkulator/' },
+    { name: calc.nama, href: path },
+  ];
+  page = {
+    title: calc.title,
+    description: calc.description,
+    crumbs,
+    schema: [webAppSchema({ name: calc.nama, description: calc.description, path }), faqSchema(calc.faq), breadcrumbSchema(crumbs)],
+    relatedArticles: calc.artikel.map(articleById).filter(Boolean),
+    relatedCalcs: calc.kalkulator.map(calcBySlug),
+  };
+} else {
+  const d = entry.data;
+  const p = pilar[d.pilar];
+  const crumbs = [
+    { name: 'Beranda', href: '/' },
+    { name: p.nama, href: p.url },
+    { name: d.h1, href: path },
+  ];
+  const { same, cross } = relatedArticles(entry, articles);
+  page = {
+    title: d.title,
+    description: d.description,
+    crumbs,
+    schema: [
+      articleSchema({ title: d.title, description: d.description, path, published: d.published, updated: d.updated }),
+      faqSchema(d.faq),
+      breadcrumbSchema(crumbs),
+    ],
+    pilar: p,
+    mainCalc: calcBySlug(d.kalkulator),
+    same,
+    cross,
+  };
+}
+const Content = kind === 'article' ? (await render(entry)).Content : null;
+---
+
+<BaseLayout title={page.title} description={page.description} type={kind === 'article' ? 'article' : 'website'} schema={page.schema}>
+  <Breadcrumbs items={page.crumbs} />
+
+  {
+    kind === 'calc' && (
+      <article>
+        <h1>{calc.h1}</h1>
+        <p class="lead">{calc.intro}</p>
+        <Calculator slug={calc.slug} />
+        <AdSlot position="afterResult" />
+        <h2>Rumus</h2>
+        <p class="formula">{calc.rumus}</p>
+        <div class="prose" set:html={calc.body} />
+        <Faq items={calc.faq} />
+        <section class="related" aria-labelledby="terkait">
+          <h2 id="terkait">Panduan terkait</h2>
+          <ul>
+            {page.relatedArticles.map((a: any) => (
+              <li>
+                <a href={`/${a.id}/`}>{a.data.h1}</a>
+              </li>
+            ))}
+            {page.relatedCalcs.map((c: any) => (
+              <li>
+                <a href={`/${c.slug}/`}>{c.nama}</a>
+              </li>
+            ))}
+            <li>
+              <a href="/kalkulator/">Semua kalkulator</a>
+            </li>
+          </ul>
+        </section>
+        <p class="note">
+          Hasil kalkulator adalah perkiraan berdasarkan angka yang dimasukkan dan aturan yang berlaku saat halaman ini diperbarui. Untuk keputusan pajak, hukum, atau pinjaman, cek ke sumber resmi atau profesional. Baca <a href="/disclaimer/">disclaimer</a>.
+        </p>
+        <AdSlot position="endOfArticle" />
+      </article>
+    )
+  }
+
+  {
+    kind === 'article' && (
+      <article>
+        <h1>{entry.data.h1}</h1>
+        <p class="meta">
+          Diperbarui {formatTanggal(entry.data.updated)} · oleh <a href="/tentang/">{site.owner.name}</a> ·{' '}
+          <a href={page.pilar.url}>{page.pilar.nama}</a>
+        </p>
+        <div class="prose">
+          <Content />
+        </div>
+        <Faq items={entry.data.faq} />
+        <section class="related" aria-labelledby="terkait">
+          <h2 id="terkait">Kalkulator &amp; artikel terkait</h2>
+          <ul>
+            <li>
+              <a href={`/${page.mainCalc.slug}/`}>{page.mainCalc.nama}</a>
+            </li>
+            {[...page.same, ...page.cross].map((a: any) => (
+              <li>
+                <a href={`/${a.id}/`}>{a.data.h1}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <p class="author">
+          Ditulis oleh <a href="/tentang/">{site.owner.name}</a>, {site.owner.role}. Terbit {formatTanggal(entry.data.published)}, diperbarui{' '}
+          {formatTanggal(entry.data.updated)}. Artikel ini bersifat informasi umum; aturan pajak dan pinjaman dapat berubah, cek sumber resmi
+          sebelum mengambil keputusan.
+        </p>
+        <AdSlot position="endOfArticle" />
+      </article>
+    )
+  }
+</BaseLayout>
