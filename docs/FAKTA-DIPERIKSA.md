@@ -9,7 +9,7 @@ Angka dan aturan di bawah dipakai di artikel dan kalkulator. Semuanya diverifika
 | Jangka waktu | Tanpa batas untuk orang pribadi dan PT perorangan; koperasi dibatasi | Artikel pajak UMKM | PP 20/2026 |
 | Omzet tidak kena pajak | Rp500 juta/tahun, hanya orang pribadi | Kalkulator & artikel pajak, template Excel | UU PPh Pasal 7 ayat (2a), PP 55/2022 Pasal 60 |
 | Penggabungan omzet | Suami-istri pisah harta/pisah kewajiban + PT perorangan yang didirikannya | Artikel pajak UMKM | PP 20/2026 (Pasal 58 PP 55/2022 yang diubah) |
-| PPh 22 marketplace | 0,5% omzet sejak 1 Okt 2026 oleh Shopee, Tokopedia, Lazada, Blibli; dikecualikan bagi orang pribadi omzet ≤ Rp500 juta dengan surat pernyataan | Biaya admin marketplace, daftar Shopee, pajak UMKM, SPT | PMK 37/2025, pengumuman DJP |
+| PPh 22 marketplace | 0,5% omzet mulai **1 November 2026** (ditunda; marketplace ditunjuk ulang, sebelumnya Shopee, Tokopedia, Lazada, Blibli; pungutan sebelum tanggal itu dikembalikan); dikecualikan bagi orang pribadi omzet ≤ Rp500 juta dengan surat pernyataan | Biaya admin marketplace, daftar Shopee, pajak UMKM, SPT | PMK 37/2025, PENG-46/PJ.09/2026 (diverifikasi ulang 12 Okt 2026) |
 | Batas lapor SPT Tahunan | Orang pribadi 31 Maret, badan 30 April | Lapor SPT, NPWP | UU KUP |
 | Denda telat lapor SPT Tahunan | Rp100.000 (OP), Rp1.000.000 (badan) | Lapor SPT | UU KUP Pasal 7 |
 | NIK sebagai NPWP | Berlaku penuh sejak 1 Juli 2024 | NPWP, NIB, SPT | PMK 112/2022 jo. PMK 136/2023 |
@@ -19,7 +19,7 @@ Angka dan aturan di bawah dipakai di artikel dan kalkulator. Semuanya diverifika
 | Komponen gaji bersih | BPJS Kes 1%/4% (batas Rp12 juta), JHT 2%/3,7%, JP 1%/2%, batas upah JP Rp10.547.400 (default, **cek tiap awal tahun**) | Kalkulator gaji bersih, artikel PPh 21 | BPJS Ketenagakerjaan, PP 58/2023, PMK 168/2023 |
 | KUR | Super mikro ≤ Rp10 juta 3%; mikro >Rp10–100 juta dan kecil >Rp100–500 juta 6% (pengajuan pertama); berulang bisa lebih tinggi; tanpa agunan tambahan ≤ Rp100 juta; NPWP disyaratkan | Syarat KUR, cicilan, pinjaman resmi | Permenko Perekonomian tentang KUR (2026), kur.ekon.go.id |
 | SPP-IRT (PIRT) | Lewat OSS + sppirt.pom.go.id; pangan beku/dingin dikecualikan; umumnya berlaku 5 tahun | Artikel PIRT, frozen food, NIB, modal kue | PerBPOM 4/2024 |
-| Wajib halal UMK makanan-minuman | Mulai Oktober 2026; program SEHATI self declare gratis selama kuota | Artikel PIRT | bpjph.halal.go.id |
+| Wajib halal UMK makanan-minuman | Penahapan berakhir 17 Oktober 2026 (PP 42/2024), BPJPH menyatakan tidak ada penundaan lagi; SEHATI 2026 kuota 1,35 juta, gratis selama kuota | Artikel PIRT, sertifikasi halal | bpjph.halal.go.id |
 | Biaya admin marketplace | Shopee non-Mall ±4,25–10% per sub-kategori sejak 31 Juli 2026 (dilaporkan media); biaya per pesanan Rp1.250 hanya dipakai sebagai contoh | Biaya admin marketplace, daftar Shopee | Pusat edukasi penjual tiap platform |
 | Pesangon PHK | Tabel kelipatan dan pengali alasan PHK PP 35/2021 Pasal 40–57; PPh 21 final pesangon 0%/5%/15%/25% (PP 68/2009) | Kalkulator pesangon | PP 35/2021, PP 68/2009 |
 | Pajak bunga deposito | PPh final 20%; tidak dipotong bila deposito + tabungan ≤ Rp7,5 juta. Klaim tarif bertingkat 10/20/30% di satu blog tidak terkonfirmasi sumber resmi | Kalkulator deposito | PP 131/2000 jo. PP 123/2015, pajak.go.id |
@@ -41,9 +41,16 @@ Angka dan aturan di bawah dipakai di artikel dan kalkulator. Semuanya diverifika
 | Bunga koperasi simpan pinjam | Pinjaman maks 24%/tahun, simpanan maks 9%/tahun | Koperasi simpan pinjam | Permenkop UKM 8/2023 Pasal 26–27 (cek apakah sudah diubah) |
 | Pengawasan koperasi | Closed loop di Kemenkop; open loop/sektor jasa keuangan di OJK (UU P2SK); simpanan koperasi **tidak** dijamin LPS per Okt 2026 | Koperasi simpan pinjam, sumber modal | ojk.go.id, lps.go.id |
 | Aplikasi pembukuan | BukuKas tutup 26 Mei 2023; harga Accurate Online Rp333.000/bulan termasuk PPN per data usaha (2026) | Aplikasi pembukuan UMKM | accurate.id |
+| Seller Center Tokopedia & TikTok Shop | Satu Seller Center sejak April 2025 (seller-id.tokopedia.com); biaya pemrosesan pesanan Rp1.250 dan perubahan komisi Mei 2026 hanya dipakai sebagai contoh berlabel | Jualan di Tokopedia, TikTok Shop | Pusat edukasi penjual |
+| Permendag 19/2026 (PMSE) | Penjual marketplace minimal punya NIB; penjual baru diberi 6 bulan, penjual lama masa transisi (dilaporkan 18 bulan) | Jualan di Tokopedia, TikTok Shop | Kemendag (jdih.kemendag.go.id) |
+| Kriteria SEHATI self declare | NIB mikro/kecil, penjualan ≤ Rp15 miliar/tahun, maks 1 fasilitas produksi dan 1 outlet, bahan dipastikan halal, proses sederhana, diverifikasi pendamping PPH | Sertifikasi halal | Kepkaban BPJPH 146/2025 |
+| Sertifikasi halal reguler UMK | Rp300.000 permohonan + pemeriksaan LPH maks Rp350.000 (sumber 2021–2022, cek ulang) | Sertifikasi halal | PMK 57/2021 |
+| Tarif merek (PP 30/2026) | UMK Rp500.000 per kelas; umum Rp2.800.000 per kelas sejak 1 Agustus 2026; perlindungan 10 tahun dari tanggal penerimaan | Daftar merek dagang | dgip.go.id, PP 30/2026, UU 20/2016 |
+| UU Pelindungan Ketenagakerjaan | Disahkan DPR 6 Okt 2026, berlaku setelah transisi 1 tahun; sementara itu PP 35/2021 (PKWT maks 5 tahun, tanpa masa percobaan, kompensasi masa kerja/12 × upah) dan PP 36/2021 jo. PP 51/2023 tetap dipakai | Kontrak kerja karyawan | Kemnaker, JDIH |
 
 ## Koreksi yang sudah dilakukan saat verifikasi
 
 - **PP 20/2026**: kalkulator dan artikel pajak UMKM semula menyebut CV/PT boleh memakai tarif 0,5% dan masih memakai batas waktu lama. Sudah diperbarui.
 - **Frozen food**: artikel semula menyebut frozen food umumnya memerlukan PIRT. Yang benar, pangan beku dikecualikan dari SPP-IRT dan memerlukan izin edar BPOM. Sudah diperbarui, termasuk pernyataan PIRT di artikel NIB dan modal usaha kue.
 - **Pekerjaan bebas**: draf artikel freelance menyebut pengecualian pekerjaan bebas berlaku "sejak PP 20/2026". Diperbaiki: pengecualian sudah ada sejak PP 23/2018 dan PP 55/2022; PP 20/2026 merinci daftarnya.
+- **PPh 22 marketplace**: lima artikel dan materi promosi semula menyebut pemungutan berlaku sejak 1 Oktober 2026. Diperbaiki 12 Okt 2026: pemungutan ditunda dan dimulai 1 November 2026 (PENG-46/PJ.09/2026), marketplace pemungut ditunjuk ulang.

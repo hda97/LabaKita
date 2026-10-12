@@ -5,7 +5,7 @@ description: 'Panduan PPh Final UMKM 0,5% setelah PP 20/2026: siapa yang boleh m
 pilar: panduan
 keyword: 'pajak UMKM 0,5%'
 published: 2026-10-10
-updated: 2026-10-10
+updated: 2026-10-12
 kalkulator: kalkulator-pajak-umkm
 faq:
   - q: 'Apakah omzet di bawah Rp500 juta tetap harus lapor SPT?'
@@ -106,7 +106,7 @@ PP 20/2026 juga menutup celah memecah usaha. Untuk menentukan batas Rp4,8 miliar
 
 ## Kalau berjualan di marketplace
 
-Sejak **1 Oktober 2026**, Shopee, Tokopedia, Lazada, dan Blibli ditunjuk sebagai pemungut **PPh Pasal 22 sebesar 0,5%** dari omzet penjual berdasarkan PMK 37 Tahun 2025. Penjual orang pribadi dengan omzet sampai Rp500 juta setahun tidak dipungut bila menyampaikan surat pernyataan ke platform. PPh 22 yang sudah dipungut dapat diperhitungkan dengan PPh final UMKM, sehingga simpan bukti pungutnya dan jangan menyetor dua kali untuk omzet yang sama. Rinciannya ada di [biaya admin marketplace](/biaya-admin-marketplace/).
+Berdasarkan PMK 37 Tahun 2025, marketplace yang ditunjuk DJP memungut **PPh Pasal 22 sebesar 0,5%** dari omzet penjual. Jadwalnya sempat ditunda: menurut pengumuman DJP (PENG-46/PJ.09/2026), pemungutan dimulai **1 November 2026**, dan marketplace pemungutnya ditunjuk ulang (sebelumnya Shopee, Tokopedia, Lazada, dan Blibli). Pungutan yang terlanjur dipotong sebelum tanggal itu dikembalikan oleh marketplace. Penjual orang pribadi dengan omzet sampai Rp500 juta setahun tidak dipungut bila menyampaikan surat pernyataan ke platform. PPh 22 yang sudah dipungut dapat diperhitungkan dengan PPh final UMKM, sehingga simpan bukti pungutnya dan jangan menyetor dua kali untuk omzet yang sama. Rinciannya ada di [biaya admin marketplace](/biaya-admin-marketplace/).
 
 ## Contoh format pencatatan omzet
 

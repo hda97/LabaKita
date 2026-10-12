@@ -2,7 +2,7 @@
 
 Website kalkulator & panduan untuk usaha kecil dan keuangan pribadi, dibangun mengikuti dokumen *Workflow Website Usaha & Keuangan sampai Monetisasi Iklan*. Situs statis (Astro) yang siap dipasang gratis di Cloudflare Pages.
 
-**Isi saat ini:** 14 kalkulator, 34 artikel (1.200+ kata, tersebar di 3 pilar), 5 halaman wajib AdSense, sitemap, robots.txt, ads.txt, pencarian, schema markup, dan slot iklan yang tinggal diaktifkan.
+**Isi saat ini:** 14 kalkulator, 51 artikel (1.200+ kata, tersebar di 3 pilar), 5 halaman wajib AdSense, sitemap, robots.txt, ads.txt, pencarian, schema markup, dan slot iklan yang tinggal diaktifkan.
 
 ## Mulai
 
@@ -40,7 +40,7 @@ Semua ada di **`site.config.mjs`**: nama situs, domain, email, ID Google Analyti
 | `data/kalender-konten.csv` | Status 30 artikel terbit (target Fase 4 tercapai) |
 | `assets/template-pembukuan-umkm.xlsx` | Template pembukuan untuk hadiah formulir email (Fase 6 & 9) |
 | `src/pages/embed/` | Kalkulator versi sematan untuk blog lain (backlink, Fase 5) |
-| `public/og/`, `public/pin/` | Gambar pratinjau tautan dan 144 pin Pinterest, dibuat `scripts/buat-gambar-sosial.cjs` |
+| `public/og/`, `public/pin/` | Gambar pratinjau tautan dan 195 pin Pinterest, dibuat `scripts/buat-gambar-sosial.cjs` |
 | `src/pages/hobi-jadi-usaha/index.astro`, `src/data/hobi.js` | Halaman Hobi Jadi Usaha: kuis, 7 langkah, kalkulator laba, dan saringan artikel per hobi |
 | `data/materi-promosi/` | Teks hook pin dan CSV unggah massal Pinterest |
 

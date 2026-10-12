@@ -5,7 +5,7 @@ description: 'Langkah daftar jadi penjual Shopee untuk UMKM: membuat toko, mengi
 pilar: panduan
 keyword: 'cara daftar Shopee seller'
 published: 2026-10-10
-updated: 2026-10-10
+updated: 2026-10-12
 kalkulator: kalkulator-harga-jual
 faq:
   - q: 'Apakah daftar jadi penjual Shopee dipungut biaya?'
@@ -13,14 +13,14 @@ faq:
   - q: 'Apakah perlu NIB untuk berjualan di Shopee?'
     a: 'Untuk toko biasa umumnya cukup data diri dan rekening. Namun NIB berguna untuk legalitas, program tertentu, dan pengajuan pembiayaan, sehingga sebaiknya diurus.'
   - q: 'Apakah penjual Shopee dipotong pajak?'
-    a: 'Sejak 1 Oktober 2026, Shopee termasuk marketplace yang memungut PPh Pasal 22 sebesar 0,5% dari omzet penjual. Penjual orang pribadi dengan omzet sampai Rp500 juta setahun bisa dikecualikan dengan menyampaikan surat pernyataan.'
+    a: 'Shopee termasuk marketplace yang ditunjuk memungut PPh Pasal 22 sebesar 0,5% dari omzet penjual. Setelah ditunda, pemungutan dimulai 1 November 2026 menurut pengumuman DJP; cek pengumuman terbaru di pajak.go.id. Penjual orang pribadi dengan omzet sampai Rp500 juta setahun bisa dikecualikan dengan menyampaikan surat pernyataan.'
   - q: 'Berapa lama dana penjualan cair?'
     a: 'Dana diteruskan ke saldo penjual setelah pesanan dinyatakan selesai oleh pembeli atau sistem, lalu bisa ditarik ke rekening. Perhitungkan jeda ini dalam arus kas.'
   - q: 'Apakah satu orang boleh membuka beberapa toko?'
     a: 'Ketentuannya mengikuti aturan platform yang berlaku. Untuk pajak, omzet dari semua toko milik orang yang sama tetap dijumlahkan saat menghitung batas Rp500 juta.'
 ---
 
-Daftar jadi penjual Shopee cukup lewat aplikasi atau Seller Centre: **buat akun, aktifkan fitur toko, isi nama toko dan alamat pengambilan, pilih jasa kirim, hubungkan rekening, lalu unggah produk**. Membuka toko tidak dipungut biaya pendaftaran, tetapi setiap pesanan dikenai **biaya administrasi per kategori, biaya per pesanan**, dan biaya program yang diikuti. Sejak 1 Oktober 2026, Shopee juga memungut **PPh 22 sebesar 0,5%** dari omzet, kecuali penjual orang pribadi beromzet sampai Rp500 juta yang menyerahkan surat pernyataan.
+Daftar jadi penjual Shopee cukup lewat aplikasi atau Seller Centre: **buat akun, aktifkan fitur toko, isi nama toko dan alamat pengambilan, pilih jasa kirim, hubungkan rekening, lalu unggah produk**. Membuka toko tidak dipungut biaya pendaftaran, tetapi setiap pesanan dikenai **biaya administrasi per kategori, biaya per pesanan**, dan biaya program yang diikuti. Mulai 1 November 2026 (setelah ditunda dari jadwal awal), Shopee juga memungut **PPh 22 sebesar 0,5%** dari omzet, kecuali penjual orang pribadi beromzet sampai Rp500 juta yang menyerahkan surat pernyataan.
 
 Sebelum mengunggah produk, hitung harga yang sudah memperhitungkan potongan dengan [kalkulator harga jual & margin](/kalkulator-harga-jual/).
 

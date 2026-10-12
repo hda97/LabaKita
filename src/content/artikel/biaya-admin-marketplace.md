@@ -5,13 +5,13 @@ description: 'Komponen biaya admin marketplace 2026: komisi kategori, biaya per 
 pilar: panduan
 keyword: 'biaya admin marketplace'
 published: 2026-10-10
-updated: 2026-10-10
+updated: 2026-10-12
 kalkulator: kalkulator-harga-jual
 faq:
   - q: 'Berapa biaya admin marketplace saat ini?'
     a: 'Berbeda per platform, kategori produk, dan jenis toko, dan sering diperbarui. Di Shopee, misalnya, biaya administrasi untuk penjual non-Mall dilaporkan berkisar sekitar 4,25% sampai 10% per sub-kategori sejak pertengahan 2026. Selalu cek tabel resmi di pusat edukasi penjual masing-masing platform.'
   - q: 'Apakah marketplace memotong pajak dari penjual?'
-    a: 'Ya, sejak 1 Oktober 2026 Shopee, Tokopedia, Lazada, dan Blibli memungut PPh Pasal 22 sebesar 0,5% dari omzet penjual berdasarkan PMK 37/2025. Penjual orang pribadi dengan omzet sampai Rp500 juta setahun dikecualikan bila menyampaikan surat pernyataan ke platform.'
+    a: 'Ya. Berdasarkan PMK 37/2025, marketplace yang ditunjuk DJP memungut PPh Pasal 22 sebesar 0,5% dari omzet penjual mulai 1 November 2026, setelah jadwal awalnya ditunda. Penjual orang pribadi dengan omzet sampai Rp500 juta setahun dikecualikan bila menyampaikan surat pernyataan ke platform.'
   - q: 'Apakah ikut program gratis ongkir wajib?'
     a: 'Umumnya program promosi seperti gratis ongkir dan cashback bersifat pilihan, dengan biaya tambahan berupa persentase dari harga. Hitung apakah kenaikan penjualan sepadan dengan potongannya.'
   - q: 'Bagaimana kalau harga setelah potongan jadi lebih mahal dari pesaing?'
@@ -20,7 +20,7 @@ faq:
     a: 'Tidak untuk omzet yang sama. PPh 22 yang dipungut platform dapat diperhitungkan dengan PPh final UMKM penjual, sehingga bukan pajak tambahan. Simpan bukti pungut dari setiap platform.'
 ---
 
-Potongan marketplace terdiri dari beberapa komponen: **biaya administrasi atau komisi per kategori** (persentase dari harga), **biaya tetap per pesanan**, **biaya program promosi** yang kamu ikuti (seperti gratis ongkir dan cashback), dan sejak 1 Oktober 2026 **PPh Pasal 22 sebesar 0,5%** dari omzet untuk penjual yang tidak dikecualikan. Supaya margin aman, harga jual dihitung dengan rumus: **(HPP + biaya tetap per pesanan) ÷ (1 − total potongan persen − target margin)**.
+Potongan marketplace terdiri dari beberapa komponen: **biaya administrasi atau komisi per kategori** (persentase dari harga), **biaya tetap per pesanan**, **biaya program promosi** yang kamu ikuti (seperti gratis ongkir dan cashback), dan mulai 1 November 2026 **PPh Pasal 22 sebesar 0,5%** dari omzet untuk penjual yang tidak dikecualikan. Supaya margin aman, harga jual dihitung dengan rumus: **(HPP + biaya tetap per pesanan) ÷ (1 − total potongan persen − target margin)**.
 
 Hitung harga dasarnya dengan [kalkulator harga jual & margin](/kalkulator-harga-jual/), lalu masukkan semua potongan di bawah.
 
@@ -33,13 +33,13 @@ Hitung harga dasarnya dengan [kalkulator harga jual & margin](/kalkulator-harga-
 | Program gratis ongkir / cashback | Persen dari harga, sering dengan batas maksimum | Umumnya pilihan; meningkatkan visibilitas |
 | Biaya layanan pre-order | Persen | Bila memakai fitur pre-order di platform tertentu |
 | Iklan berbayar | Sesuai anggaran | Bukan potongan otomatis, tetapi biaya per penjualan |
-| PPh Pasal 22 | 0,5% dari omzet | Sejak 1 Oktober 2026 di Shopee, Tokopedia, Lazada, dan Blibli; bisa dibebaskan bagi orang pribadi beromzet sampai Rp500 juta |
+| PPh Pasal 22 | 0,5% dari omzet | Mulai 1 November 2026 oleh marketplace yang ditunjuk DJP; bisa dibebaskan bagi orang pribadi beromzet sampai Rp500 juta |
 
 Besaran tiap komponen **berubah dari waktu ke waktu**. Sebagai gambaran, Shopee dilaporkan mengubah biaya administrasinya menjadi per sub-kategori sejak 31 Juli 2026 dengan rentang sekitar 4,25%–10% untuk penjual non-Mall. Angka pastinya selalu cek di pusat edukasi penjual masing-masing platform sebelum menetapkan harga.
 
 ## PPh Pasal 22 oleh marketplace
 
-Berdasarkan PMK 37 Tahun 2025, DJP menunjuk Shopee, Tokopedia, Lazada, dan Blibli sebagai pemungut PPh Pasal 22. Pemungutan berlaku **sejak 1 Oktober 2026**:
+Berdasarkan PMK 37 Tahun 2025, DJP menunjuk marketplace sebagai pemungut PPh Pasal 22. Jadwal awalnya ditunda; menurut pengumuman DJP (PENG-46/PJ.09/2026), marketplace ditunjuk ulang dan pemungutan dimulai **1 November 2026**. Pada penunjukan sebelumnya, pemungutnya Shopee, Tokopedia, Lazada, dan Blibli; pungutan yang terlanjur dipotong dikembalikan oleh marketplace. Cek daftar pemungut terbaru di pajak.go.id. Ketentuannya:
 
 - Tarif **0,5% dari omzet bruto** penjual, di luar PPN.
 - **Penjual orang pribadi dengan omzet sampai Rp500 juta setahun tidak dipungut**, asalkan menyampaikan **surat pernyataan** ke setiap platform tempatnya berjualan.

@@ -15,11 +15,11 @@ Aturan utama dari workflow: **jangan spam tautan**. Satu jawaban yang benar-bena
 
 **Yang sudah disiapkan**
 
-- `public/pin/<halaman>-1.jpg`, `-2.jpg`, `-3.jpg`: 3 desain pin vertikal (1000×1500) untuk setiap kalkulator dan artikel, total 144 pin.
+- `public/pin/<halaman>-1.jpg`, `-2.jpg`, `-3.jpg`: 3 desain pin vertikal (1000×1500) untuk setiap kalkulator dan artikel, total 195 pin.
   - Variasi 1: hook + angka besar (contoh: "Hitung HPP dalam 2 menit — Rp9.000").
   - Variasi 2: judul + 3 poin isi.
   - Variasi 3: pertanyaan dari FAQ.
-- `data/materi-promosi/pinterest.csv`: daftar 144 pin (judul, URL gambar, papan, deskripsi, tautan) dalam format unggah massal Pinterest.
+- `data/materi-promosi/pinterest.csv`: daftar 195 pin (judul, URL gambar, papan, deskripsi, tautan) dalam format unggah massal Pinterest.
 - `public/og/<halaman>.png`: gambar pratinjau 1200×630 yang otomatis muncul saat tautan dibagikan di WhatsApp, Facebook, dan X.
 
 **Langkah**
@@ -97,7 +97,7 @@ Baca aturan grup. Kalau grup melarang tautan, cukup jawab dengan isi yang memban
 > Hitung dulu HPP per produk: semua bahan, kemasan, gas, dan upah sendiri, dibagi jumlah produk yang jadi. Setelah itu harga = HPP ÷ (1 − margin). Misalnya HPP Rp9.000 dan mau margin 30%, harganya Rp12.857, bukan Rp11.700 (itu markup 30%, margin aslinya cuma 23%). Kalau jualan di marketplace, potongan biayanya ikut dimasukkan. Saya pernah tulis contoh lengkapnya di sini kalau mau: [tautan artikel margin]
 
 **"Omzet kecil wajib bayar pajak nggak?"**
-> Kalau usaha atas nama pribadi, omzet sampai Rp500 juta setahun tidak kena PPh final 0,5%. Tapi tetap wajib lapor SPT Tahunan, dan omzetnya dicatat. Kalau jualan di Shopee/Tokopedia/Lazada/Blibli, sejak 1 Oktober 2026 kirim surat pernyataan omzet di aplikasinya supaya tidak dipotong PPh 22.
+> Kalau usaha atas nama pribadi, omzet sampai Rp500 juta setahun tidak kena PPh final 0,5%. Tapi tetap wajib lapor SPT Tahunan, dan omzetnya dicatat. Kalau jualan di Shopee/Tokopedia/Lazada/Blibli, mulai 1 November 2026 kirim surat pernyataan omzet di aplikasinya supaya tidak dipotong PPh 22.
 
 **"Mau pinjam modal, aman yang mana?"**
 > Pastikan lembaganya terdaftar di OJK (cek di ojk.go.id atau WA Kontak OJK 081-157-157-157). Untuk usaha yang sudah jalan minimal 6 bulan, KUR biasanya paling murah: 6% efektif per tahun untuk pengajuan pertama. Hitung cicilannya dulu, usahakan maksimal sepertiga laba bersih per bulan.
@@ -117,7 +117,7 @@ Kirim 1–2 kali seminggu, singkat, dengan satu tautan.
 > [tautan]
 
 **Info aturan** (kirim saat ada perubahan aturan; cek ulang sumbernya dulu)
-> ⚠️ Info pajak UMKM: sejak 1 Oktober 2026, Shopee, Tokopedia, Lazada, dan Blibli memotong PPh 22 sebesar 0,5% dari omzet. Penjual perorangan dengan omzet sampai Rp500 juta setahun bisa bebas dengan mengirim surat pernyataan di aplikasi. Penjelasan: [tautan biaya admin marketplace]
+> ⚠️ Info pajak UMKM: mulai 1 November 2026, marketplace yang ditunjuk DJP memotong PPh 22 sebesar 0,5% dari omzet. Penjual perorangan dengan omzet sampai Rp500 juta setahun bisa bebas dengan mengirim surat pernyataan di aplikasi. Penjelasan: [tautan biaya admin marketplace]
 
 **Pengingat musiman**
 > 🗓️ Pengingat: batas lapor SPT Tahunan orang pribadi 31 Maret. Omzet di bawah Rp500 juta tetap wajib lapor. Panduan langkahnya: [tautan]

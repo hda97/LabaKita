@@ -238,5 +238,90 @@
     "hook": "Hampers untung berapa?",
     "angka": "Rp285.000",
     "label": "harga paket dari HPP Rp185.000"
+  },
+  "usaha-sambal-kemasan": {
+    "hook": "Sambal rumahan, untung berapa?",
+    "angka": "Rp16.150",
+    "label": "HPP per botol 150 g, dijual Rp28.000 (margin ±42%)"
+  },
+  "usaha-minuman-kekinian": {
+    "hook": "Es kopi susu: modal kecil, hitung cup-nya",
+    "angka": "Rp9.000",
+    "label": "HPP per cup es kopi susu yang dijual Rp18.000"
+  },
+  "usaha-laundry-kiloan": {
+    "hook": "Laundry kiloan dari rumah",
+    "angka": "Rp4.700",
+    "label": "laba kotor per kg: harga Rp8.000 − biaya Rp3.300"
+  },
+  "usaha-jahit-rumahan": {
+    "hook": "Tarif jahit jangan asal murah",
+    "angka": "Rp30.000",
+    "label": "tarif per jam yang jadi dasar harga permak dan jahit baju"
+  },
+  "usaha-rajut": {
+    "hook": "Tas rajut jangan dijual Rp150 ribu",
+    "angka": "Rp380.000",
+    "label": "harga sehat setelah 7 jam upah merajut dihitung"
+  },
+  "usaha-lilin-aromaterapi": {
+    "hook": "Lilin aromaterapi buatan sendiri",
+    "angka": "Rp44.800",
+    "label": "HPP satu jar soy wax 150 g, dijual Rp85.000"
+  },
+  "freelance-desain-grafis": {
+    "hook": "Berapa tarif desainer freelance?",
+    "angka": "Rp100.000",
+    "label": "tarif minimal per jam untuk target Rp8 juta/bulan"
+  },
+  "cara-jualan-di-tokopedia": {
+    "hook": "Jual Rp100 ribu di Tokopedia, terima berapa?",
+    "angka": "Rp89.250",
+    "label": "contoh dana diterima setelah komisi, biaya pesanan, dan PPh 22"
+  },
+  "cara-jualan-di-tiktok-shop": {
+    "hook": "Jualan lewat afiliasi TikTok Shop",
+    "angka": "Rp79.250",
+    "label": "contoh dana diterima dari Rp100.000 setelah komisi afiliasi 10%"
+  },
+  "sertifikasi-halal-umkm": {
+    "hook": "Sertifikat halal UMKM bisa gratis",
+    "angka": "Rp0",
+    "label": "lewat SEHATI self declare selama kuota masih ada"
+  },
+  "cara-daftar-merek-dagang": {
+    "hook": "Daftarkan merekmu sebelum ditiru",
+    "angka": "Rp500.000",
+    "label": "biaya daftar merek per kelas untuk usaha mikro dan kecil"
+  },
+  "kontrak-kerja-karyawan-umkm": {
+    "hook": "Karyawan kontrak 2 bulan, ada kompensasi?",
+    "angka": "Rp400.000",
+    "label": "kompensasi PKWT 2 bulan dengan upah Rp2,4 juta"
+  },
+  "perbandingan-kur-bank": {
+    "hook": "Bunga KUR sama di semua bank",
+    "angka": "6%",
+    "label": "bunga efektif KUR mikro & kecil untuk pengajuan pertama"
+  },
+  "aplikasi-pembukuan-umkm": {
+    "hook": "Pilih aplikasi pembukuan yang pas",
+    "angka": "3 jenis",
+    "label": "spreadsheet gratis, aplikasi HP, atau software akuntansi"
+  },
+  "sumber-modal-usaha": {
+    "hook": "Butuh modal Rp20 juta, dari mana?",
+    "angka": "Rp20 juta",
+    "label": "contoh menyusun modal dari sumber termurah dulu"
+  },
+  "deposito-vs-reksa-dana-pasar-uang": {
+    "hook": "Simpan kas usaha Rp50 juta di mana?",
+    "angka": "Rp850.000",
+    "label": "selisih hasil bersih setahun dengan asumsi bunga di artikel"
+  },
+  "koperasi-simpan-pinjam-usaha": {
+    "hook": "Pinjam di koperasi: flat atau menurun?",
+    "angka": "Rp2,4 juta",
+    "label": "total bunga pinjaman Rp20 juta dengan 1% flat per bulan"
   }
 }

@@ -5,7 +5,7 @@ description: 'Panduan lapor SPT Tahunan UMKM lewat Coretax: siapa yang wajib, do
 pilar: panduan
 keyword: 'cara lapor SPT UMKM'
 published: 2026-10-10
-updated: 2026-10-10
+updated: 2026-10-12
 kalkulator: kalkulator-pajak-umkm
 faq:
   - q: 'Apakah UMKM dengan omzet di bawah Rp500 juta wajib lapor SPT?'
@@ -50,7 +50,7 @@ Untuk tahun pajak 2026, batas lapor orang pribadi adalah **31 Maret 2027**. Jang
 6. **Data keluarga** yang menjadi tanggungan.
 7. **Bukti pembayaran zakat** ke lembaga resmi, kalau ada, sebagai pengurang penghasilan.
 
-Kalau berjualan di marketplace dan sudah dipungut PPh 22 sejak Oktober 2026, siapkan juga **bukti pungut PPh 22** dari platform. Pajak tersebut dapat diperhitungkan dengan PPh final UMKM-mu.
+Kalau berjualan di marketplace dan sudah dipungut PPh 22 (pemungutan oleh marketplace dimulai 1 November 2026), siapkan juga **bukti pungut PPh 22** dari platform. Pajak tersebut dapat diperhitungkan dengan PPh final UMKM-mu.
 
 ## Langkah lapor di Coretax
 
