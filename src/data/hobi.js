@@ -7,6 +7,7 @@ export const kategoriHobi = [
   { id: 'fotografi', nama: 'Fotografi' },
   { id: 'desain', nama: 'Desain & sablon' },
   { id: 'berkebun', nama: 'Berkebun' },
+  { id: 'jasa', nama: 'Jasa rumahan' },
   { id: 'dasar', nama: 'Dasar usaha' },
 ];
 
@@ -19,11 +20,14 @@ export const artikelHobi = {
     'usaha-katering-rumahan',
     'usaha-frozen-food-rumahan',
     'usaha-hampers',
+    'usaha-sambal-kemasan',
+    'usaha-minuman-kekinian',
   ],
-  kerajinan: ['usaha-kerajinan-tangan'],
+  kerajinan: ['usaha-kerajinan-tangan', 'usaha-rajut', 'usaha-lilin-aromaterapi', 'usaha-jahit-rumahan'],
   fotografi: ['memulai-jasa-foto-produk'],
-  desain: ['memulai-usaha-sablon-kaos'],
+  desain: ['freelance-desain-grafis', 'memulai-usaha-sablon-kaos'],
   berkebun: ['bisnis-tanaman-hias'],
+  jasa: ['usaha-laundry-kiloan'],
   dasar: ['memisahkan-uang-usaha-dan-pribadi', 'pembukuan-usaha-sederhana', 'cara-membuat-nib', 'gaji-pemilik-usaha'],
 };
 
@@ -36,9 +40,9 @@ export const kuis = [
     judul: 'Di waktu luang, kamu paling sering…',
     pilihan: [
       ['kuliner', 'Memasak atau membuat kue'],
-      ['kerajinan', 'Membuat kerajinan tangan'],
+      ['kerajinan', 'Membuat kerajinan, merajut, atau menjahit'],
       ['fotografi', 'Memotret dan mengedit foto'],
-      ['desain', 'Menggambar, mendesain, atau menyablon'],
+      ['desain', 'Menggambar atau mendesain'],
       ['berkebun', 'Merawat tanaman'],
     ],
   },
@@ -65,14 +69,14 @@ export const kuis = [
 // ide[modal]: 0 = modal kecil, 1 = sedang, 2 = lebih besar.
 export const ideHobi = {
   kuliner: {
-    ide: ['Pre-order kue dan camilan untuk tetangga dan kantor', 'Katering harian kecil atau frozen food', 'Hampers dan kue kering musiman dengan kemasan rapi'],
+    ide: ['Pre-order kue dan camilan untuk tetangga dan kantor', 'Sambal kemasan atau katering harian kecil', 'Hampers dan kue kering musiman dengan kemasan rapi'],
     alasan: 'Makanan dibeli berulang. Kalau rasanya cocok, pembeli pertamamu akan menjadi pelanggan tetap.',
     baca: ['menghitung-hpp-usaha-kue', 'modal-usaha-kue-rumahan'],
   },
   kerajinan: {
     ide: ['Aksesoris handmade lewat WhatsApp dan Instagram', 'Lapak marketplace ditambah bazar akhir pekan', 'Suvenir dan hampers pesanan untuk acara'],
     alasan: 'Produk handmade punya cerita, jadi bisa dijual lebih mahal dari produk pabrikan, asalkan fotonya meyakinkan.',
-    baca: ['usaha-kerajinan-tangan', 'usaha-hampers'],
+    baca: ['usaha-kerajinan-tangan', 'usaha-rajut'],
   },
   fotografi: {
     ide: ['Jasa foto produk UMKM pakai kamera atau HP yang ada', 'Paket foto produk bulanan untuk toko online', 'Studio mini untuk foto produk dan katalog'],
@@ -80,9 +84,9 @@ export const ideHobi = {
     baca: ['memulai-jasa-foto-produk', 'perbedaan-margin-dan-markup'],
   },
   desain: {
-    ide: ['Desain kaos dan sablon satuan lewat jasa sablon DTF', 'Kaos komunitas dan acara dengan pesanan minimum', 'Alat sablon sendiri untuk pesanan rutin'],
-    alasan: 'Satu desain bisa dijual berkali-kali, dan pesanan komunitas atau acara datang dalam jumlah besar sekaligus.',
-    baca: ['memulai-usaha-sablon-kaos', 'perbedaan-margin-dan-markup'],
+    ide: ['Desain logo dan konten feed untuk UMKM sekitar', 'Desain kaos dan sablon satuan lewat jasa sablon DTF', 'Paket branding atau kaos komunitas untuk usaha baru'],
+    alasan: 'Jasa desain memberi pemasukan cepat dari laptop yang sudah ada, dan satu desain kaos bisa dijual berkali-kali.',
+    baca: ['freelance-desain-grafis', 'memulai-usaha-sablon-kaos'],
   },
   berkebun: {
     ide: ['Jual bibit dan stek dari rumah', 'Tanaman hias dengan pot custom', 'Paket tanaman untuk kantor, kafe, dan hadiah'],

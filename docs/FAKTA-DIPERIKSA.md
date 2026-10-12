@@ -28,8 +28,14 @@ Angka dan aturan di bawah dipakai di artikel dan kalkulator. Semuanya diverifika
 | PT perorangan | Pendirian lewat AHU, PNBP Rp50.000 untuk usaha mikro dan kecil, tanpa notaris | Artikel PT perorangan vs CV | ahu.go.id, PP 8/2021 |
 | BI-FAST | Biaya maksimal Rp2.500 per transaksi | Rekening bisnis | Bank Indonesia |
 | Penjaminan LPS | Sampai Rp2 miliar per nasabah per bank | Rekening bisnis | lps.go.id |
+| Pekerjaan bebas & PPh final | Jasa sehubungan dengan pekerjaan bebas dikecualikan dari PPh final 0,5%; PP 20/2026 merinci daftarnya (tenaga ahli, pekerja seni, pembuat konten, perantara). Status desainer grafis belum pasti: pembaca diarahkan ke KPP | Freelance desain grafis | PP 55/2022 Pasal 56 jo. PP 20/2026 (diverifikasi 12 Okt 2026 dari sumber sekunder; PDF primer belum bisa dibuka) |
+| NPPN | Untuk OP dengan peredaran bruto < Rp4,8 miliar; diberitahukan lewat Coretax paling lambat akhir Maret, diulang tiap tahun | Freelance desain grafis | PMK 81/2024 |
+| PPh 21 bukan pegawai | Tarif Pasal 17 × 50% penghasilan bruto | Freelance desain grafis | PMK 168/2023 |
+| PPh 23 jasa | 2% dari nilai jasa (tanpa PPN) bila penerima badan | Freelance desain grafis | PMK 141/2015 |
+| KBLI laundry & jahit | Disebut dengan nama, tanpa kode; pembaca diarahkan memeriksa kode dan tingkat risiko di OSS (KBLI 2025 dipakai untuk pendaftaran baru) | Laundry kiloan, jahit rumahan | oss.go.id |
 
 ## Koreksi yang sudah dilakukan saat verifikasi
 
 - **PP 20/2026**: kalkulator dan artikel pajak UMKM semula menyebut CV/PT boleh memakai tarif 0,5% dan masih memakai batas waktu lama. Sudah diperbarui.
 - **Frozen food**: artikel semula menyebut frozen food umumnya memerlukan PIRT. Yang benar, pangan beku dikecualikan dari SPP-IRT dan memerlukan izin edar BPOM. Sudah diperbarui, termasuk pernyataan PIRT di artikel NIB dan modal usaha kue.
+- **Pekerjaan bebas**: draf artikel freelance menyebut pengecualian pekerjaan bebas berlaku "sejak PP 20/2026". Diperbaiki: pengecualian sudah ada sejak PP 23/2018 dan PP 55/2022; PP 20/2026 merinci daftarnya.
