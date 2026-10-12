@@ -31,7 +31,7 @@ Aturan utama dari workflow: **jangan spam tautan**. Satu jawaban yang benar-bena
    ```bash
    SITE_URL=https://domainmu.com node scripts/buat-gambar-sosial.cjs
    ```
-   lalu buat ulang thumbnail kartu dengan `python3 scripts/buat-thumbnail.py`, kemudian deploy, supaya URL gambar di CSV bisa diakses Pinterest.
+   lalu deploy, supaya URL gambar di CSV bisa diakses Pinterest.
 5. Unggah bertahap, misalnya 9–15 pin per minggu (bukan 120 sekaligus), lewat fitur unggah massal atau manual. Untuk unggah massal, potong CSV sesuai jumlah pin minggu itu.
 6. Gambar dan teks hook diubah di `data/materi-promosi/hook.json`, lalu jalankan skrip lagi. Skrip butuh Playwright dan Chromium.
 

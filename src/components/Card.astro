@@ -1,7 +1,5 @@
 ---
-// Kartu artikel/kalkulator dengan thumbnail (public/thumb/<slug>.webp, dibuat scripts/buat-thumbnail.py).
-import { existsSync } from 'node:fs';
-
+// Kartu artikel/kalkulator. Seluruh kartu bisa diklik; sorotan mengikuti kursor (lihat scripts di BaseLayout).
 interface Props {
   slug: string;
   title: string;
@@ -11,20 +9,16 @@ interface Props {
   attrs?: Record<string, string>;
 }
 const { slug, title, text, tag, heading = 'h3', attrs = {} } = Astro.props;
-const thumb = existsSync(`public/thumb/${slug}.webp`) ? `/thumb/${slug}.webp` : null;
 const H = heading;
+const aksi = slug.startsWith('kalkulator-') ? 'Hitung sekarang' : 'Baca panduan';
 ---
 
-<li class="card" data-slug={slug} {...attrs}>
-  {
-    thumb && (
-      <a class="thumb" href={`/${slug}/`} tabindex="-1" aria-hidden="true">
-        <img src={thumb} alt="" width="480" height="252" loading="lazy" decoding="async" />
-      </a>
-    )
-  }
+<li class="card" data-slug={slug} data-reveal {...attrs}>
   {tag && <span class="card-tag">{tag}</span>}
   <H class="card-title"><a href={`/${slug}/`}>{title}</a></H>
   {text && <p>{text}</p>}
-  <span class="read-flag" hidden>✓ Sudah dibaca</span>
+  <span class="card-foot">
+    <span>{aksi} <span class="arrow" aria-hidden="true">→</span></span>
+    <span class="read-flag" hidden>✓ Sudah dibaca</span>
+  </span>
 </li>

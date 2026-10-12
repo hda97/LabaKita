@@ -41,7 +41,6 @@ Semua ada di **`site.config.mjs`**: nama situs, domain, email, ID Google Analyti
 | `assets/template-pembukuan-umkm.xlsx` | Template pembukuan untuk hadiah formulir email (Fase 6 & 9) |
 | `src/pages/embed/` | Kalkulator versi sematan untuk blog lain (backlink, Fase 5) |
 | `public/og/`, `public/pin/` | Gambar pratinjau tautan dan 144 pin Pinterest, dibuat `scripts/buat-gambar-sosial.cjs` |
-| `public/thumb/` | Thumbnail kartu artikel/kalkulator (WebP 480×252), dibuat `scripts/buat-thumbnail.py` dari `public/og/` |
 | `src/pages/hobi-jadi-usaha/index.astro`, `src/data/hobi.js` | Halaman Hobi Jadi Usaha: kuis, 7 langkah, kalkulator laba, dan saringan artikel per hobi |
 | `data/materi-promosi/` | Teks hook pin dan CSV unggah massal Pinterest |
 

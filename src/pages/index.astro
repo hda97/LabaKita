@@ -30,18 +30,40 @@ const website = {
 >
   <div class="wrap-wide" slot="wide">
     <section class="hero">
-      <p class="kicker">Kalkulator &amp; panduan usaha kecil</p>
-      <h1>Hitung usaha dengan benar, ambil keputusan dengan tenang</h1>
-      <p class="lead">
-        {site.name} membantu pemilik usaha kecil dan karyawan menghitung modal, harga jual, pinjaman, gaji, dan pajak, dengan kalkulator gratis dan panduan berisi contoh angka nyata.
-      </p>
-      <p class="hero-cta">
-        <a class="btn btn-lg" href="/kalkulator/">Lihat {calculatorContent.length} kalkulator →</a>
-        <a class="btn btn-lg btn-outline" href="/hobi-jadi-usaha/">Mulai dari hobi</a>
-      </p>
+      <div class="hero-text">
+        <p class="kicker">Kalkulator &amp; panduan usaha kecil</p>
+        <h1>Hitung usaha dengan benar, ambil keputusan dengan tenang</h1>
+        <p class="lead">
+          {site.name} membantu pemilik usaha kecil dan karyawan menghitung modal, harga jual, pinjaman, gaji, dan pajak, dengan kalkulator gratis dan panduan berisi contoh angka nyata.
+        </p>
+        <p class="hero-cta">
+          <a class="btn btn-lg" href="/kalkulator/">Lihat {calculatorContent.length} kalkulator →</a>
+          <a class="btn btn-lg btn-outline" href="/hobi-jadi-usaha/">Mulai dari hobi</a>
+        </p>
+        <ul class="hero-stats">
+          <li><strong>{calculatorContent.length}</strong> kalkulator gratis</li>
+          <li><strong>{articles.length}</strong> panduan berisi contoh angka</li>
+          <li><strong>0</strong> pendaftaran</li>
+        </ul>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="ha-card ha-main" data-depth="18">
+          <span class="ha-label">HPP per unit</span>
+          <span class="ha-value">Rp9.000</span>
+          <span class="ha-bars"><i style="height:38%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:80%"></i><i style="height:66%"></i><i style="height:92%"></i></span>
+        </div>
+        <div class="ha-card ha-chip ha-chip-1" data-depth="34"><span class="ha-label">Margin</span><span class="ha-small">30%</span></div>
+        <div class="ha-card ha-chip ha-chip-2" data-depth="-26"><span class="ha-label">Titik impas</span><span class="ha-small">500 unit</span></div>
+        <span class="ha-dot ha-dot-1" data-depth="-44"></span>
+        <span class="ha-dot ha-dot-2" data-depth="52"></span>
+        <span class="ha-ring" data-depth="-14"></span>
+      </div>
     </section>
 
-    <h2>Kalkulator paling sering dipakai</h2>
+    <div class="section-head">
+      <h2>Kalkulator paling sering dipakai</h2>
+      <a href="/kalkulator/">Semua {calculatorContent.length} kalkulator →</a>
+    </div>
     <ul class="cards">
       {inti.map((c) => <Card slug={c.slug} title={c.nama} text={c.rumus.split('  ·  ')[0]} tag="Kalkulator" />)}
     </ul>
@@ -51,17 +73,15 @@ const website = {
         const list = articles.filter((a) => a.data.pilar === id).slice(0, 3);
         return (
           <section>
-            <h2>
-              <a href={p.url}>{p.nama}</a>
-            </h2>
+            <div class="section-head">
+              <h2>{p.nama}</h2>
+              <a href={p.url}>Semua artikel {p.nama} →</a>
+            </div>
             <ul class="cards">
               {list.map((a) => (
-                <Card slug={a.id} title={a.data.h1} tag={p.nama} />
+                <Card slug={a.id} title={a.data.h1} text={a.data.description} tag={p.nama} />
               ))}
             </ul>
-            <p>
-              <a href={p.url}>Semua artikel {p.nama} →</a>
-            </p>
           </section>
         );
       })
