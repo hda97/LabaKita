@@ -33,6 +33,14 @@ Angka dan aturan di bawah dipakai di artikel dan kalkulator. Semuanya diverifika
 | PPh 21 bukan pegawai | Tarif Pasal 17 × 50% penghasilan bruto | Freelance desain grafis | PMK 168/2023 |
 | PPh 23 jasa | 2% dari nilai jasa (tanpa PPN) bila penerima badan | Freelance desain grafis | PMK 141/2015 |
 | KBLI laundry & jahit | Disebut dengan nama, tanpa kode; pembaca diarahkan memeriksa kode dan tingkat risiko di OSS (KBLI 2025 dipakai untuk pendaftaran baru) | Laundry kiloan, jahit rumahan | oss.go.id |
+| Tingkat bunga penjaminan LPS (periode berikut) | 3,75% bank umum rupiah, 6,25% BPR, 2% valas; 1 Okt 2026 – 31 Jan 2027 | Deposito vs RDPU | lps.go.id |
+| Pajak reksa dana pasar uang | Hasil reksa dana bagi pemegang unit bukan objek pajak; tetap dilaporkan sebagai harta di SPT | Deposito vs RDPU | UU PPh Pasal 4 ayat (3) huruf i |
+| KUR pengajuan berulang | Batas jumlah pengajuan dihapus mulai 2026 (dilaporkan media); bunga berulang bisa lebih tinggi, perdagangan dilaporkan sampai 9%. **Sumber saling bertentangan, cek ulang** | Perbandingan KUR bank, sumber modal | kur.ekon.go.id, Permenko KUR 2026 |
+| Syarat dokumen KUR | NPWP untuk plafon > Rp50 juta; BPJS Ketenagakerjaan untuk KUR kecil > Rp100 juta (dilaporkan media, **keyakinan rendah**) | Perbandingan KUR bank | Bank penyalur, kur.ekon.go.id |
+| Batas bunga pindar (P2P) produktif | Maks 0,275%/hari (≤ Rp50 juta, tenor ≤ 6 bulan); 0,1%/hari (tenor > 6 bulan atau > Rp50 juta) | Sumber modal usaha | SEOJK 19/SEOJK.06/2025 |
+| Bunga koperasi simpan pinjam | Pinjaman maks 24%/tahun, simpanan maks 9%/tahun | Koperasi simpan pinjam | Permenkop UKM 8/2023 Pasal 26–27 (cek apakah sudah diubah) |
+| Pengawasan koperasi | Closed loop di Kemenkop; open loop/sektor jasa keuangan di OJK (UU P2SK); simpanan koperasi **tidak** dijamin LPS per Okt 2026 | Koperasi simpan pinjam, sumber modal | ojk.go.id, lps.go.id |
+| Aplikasi pembukuan | BukuKas tutup 26 Mei 2023; harga Accurate Online Rp333.000/bulan termasuk PPN per data usaha (2026) | Aplikasi pembukuan UMKM | accurate.id |
 
 ## Koreksi yang sudah dilakukan saat verifikasi
 
